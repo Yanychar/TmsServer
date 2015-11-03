@@ -1,0 +1,17 @@
+01;00200;Kohonen;Pasi;R1300
+01;00203;Vilde;Margus;R1300
+01;00204;Dorbek;Rait;R1300
+01;00205;Pihlajaniemi;Tapani;R1300
+01;00206;Allik;Raivo;R1300
+01;00207;Ilisson;Priit;R1300
+01;00208;Ilisson;Erlend;R1300
+01;00215;Raim;Anne;R1300
+01;00217;Eiche;Evelin;R1300
+01;00218;Tuomisalo;Jussi;R1300
+01;00219;Mansner;Joonas;R1300
+01;00222;Rintaniemi;Juha;R1200
+01;00223;Tuomisalo;Jarno;R1300
+01;00224;Niisuke;Kert;R1300
+01;00225;Schmidt;Lennard;R1300
+01;00226;Olle;Kuldar;R1300
+01;00227;Virt;Janek;R1300

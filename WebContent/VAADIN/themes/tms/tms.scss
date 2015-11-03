@@ -1,0 +1,28 @@
+/* Import the reindeer theme.*/
+/* This only allows us to use the mixins defined in it and does not add any styles by itself. */
+@import "../runo/runo.scss";
+
+/* This contains all of your theme.*/
+/* If somebody wants to extend the theme she will include this mixin. */
+@mixin tms {
+  /* Include all the styles from the runo theme */
+  @include runo;
+
+  /* Insert your theme rules here */
+
+ .v-loading-indicator,  
+ .v-loading-indicator-delay,  
+ .v-loading-indicator-wait {  
+   width: 100%;  
+   height: 100%;  
+   margin: 0;  
+   background-position: 50%;  
+   background-color: gray;  
+   background-repeat: no-repeat;  
+   background-attachment: fixed;   
+   opacity: .8;  
+   -ms-filter: alpha(opacity=80);  
+   filter: alpha(opacity=80);  
+ }
+
+}

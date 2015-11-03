@@ -1,0 +1,16 @@
+0001;Sähkö Sinisalo Oy;01008;McDonald's Pienet työt;3;maih;Marja;Ihalainen;20100826;;1;23;01008100;McDonald's Pienet työt;0;;;20100826;20100826
+0001;Sähkö Sinisalo Oy;01019;Puolakka, haukilahti;3;maih;Marja;Ihalainen;20110202;;1;48;01019100;Puolakka, haukilahti;0;;;20110202;20110202
+0001;Sähkö Sinisalo Oy;01022;Kontit;3;maih;Marja;Ihalainen;20110316;;1;60;01022100;Kontit;0;;;20110316;20110316
+0001;Sähkö Sinisalo Oy;01029;Votkin pienet työt;3;maih;Marja;Ihalainen;20110801;;1;92;01029100;Votkin pienet työt;0;;;20110801;20110801
+0001;Sähkö Sinisalo Oy;01035;Tukkutori Rakennus 15;3;maih;Marja;Ihalainen;20110901;;1;101;01035100;Tukkutori Rakennus 15;0;;;20110928;20110928
+0001;Sähkö Sinisalo Oy;01041;Vartiokylän päiväkoti;3;maih;Marja;Ihalainen;20111201;;1;116;01041100;Vartiokylän päiväkoti;0;;;20111220;20111220
+0001;Sähkö Sinisalo Oy;01042;Ylitilantie;3;maih;Marja;Ihalainen;20120101;;1;120;01042100;Ylitilantie;0;;;20120111;20120111
+0001;Sähkö Sinisalo Oy;01044;Pajuniemi Oy;3;maih;Marja;Ihalainen;20120101;;1;125;01044100;Pajuniemi Oy;0;;;20120215;20120215
+0001;Sähkö Sinisalo Oy;01045;Autojunaterminaali;3;maih;Marja;Ihalainen;20120101;;1;126;01045100;Autojunaterminaali;0;;;20120215;20120215
+0001;Sähkö Sinisalo Oy;01046;Mcd friisilä;3;maih;Marja;Ihalainen;20120315;;1;134;01046100;Mcd friisilä;0;;;20120326;20120326
+0001;Sähkö Sinisalo Oy;01047;Espoon Nokkalankulma;3;maih;Marja;Ihalainen;20120320;;1;135;01047100;Espoon Nokkalankulma;0;;;20120327;20120327
+0001;Sähkö Sinisalo Oy;01048;Mcd Jyväskylä;3;maih;Marja;Ihalainen;20120403;;1;139;01048100;Mcd Jyväskylä;0;;;20120403;20120403
+0001;Sähkö Sinisalo Oy;01049;Liisankatu 19 b 8;3;maih;Marja;Ihalainen;20120101;;1;152;01049100;Liisankatu 19 b 8;0;;;20120502;20120502
+0001;Sähkö Sinisalo Oy;01050;Gradus Building;3;maih;Marja;Ihalainen;20120401;;1;158;01050100;Gradus Building;0;;;20120516;20120516
+0001;Sähkö Sinisalo Oy;01051;Toimistokäynti;3;maih;Marja;Ihalainen;20120510;;1;159;01051100;Toimistokäynti;0;;;20120525;20120525
+0001;Sähkö Sinisalo Oy;01007;Pienet työt;3;maih;Marja;Ihalainen;20100818;;1;22;01007100;Pienet työt;0;;;20100818;20100818

@@ -1,0 +1,8 @@
+02;00400;Keskinen;Unto;
+02;00401;Keskinen;Eeva;
+02;00402;Keskinen;Mikko;
+02;00403;Alakotila;Pertti;
+02;00404;Lehtinen;Jani;
+02;00405;Mikkanen;Anne;
+02;00408;Kull;Ringo;
+02;00412;Raatesalmi;Pasi;

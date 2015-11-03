@@ -1,0 +1,233 @@
+0001;U-H Rakennus Oy;01149;Votkin tuotantotilojen laajennus 2011;3;para;Pasi;Raatesalmi;20111001;;1;1151;01149100;;0;;;20111014;20111014
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1241;01155213;Pihatyöt;0;;Pihatyöt;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1242;01155211;Putki, IV, automaatio;0;;IV-työt;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1243;01155212;Sähköurakka;0;;Sähkötyöt;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1244;01155214;Julkisivut;0;;Julkisivut;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1245;01155215;Vesikatto;0;;Vesikatto;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1246;01155216;Sisätyöt runko;0;;Sisäpuolen työt;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1247;01155217;Sisätyöt pinnoitus;0;;Sisäpuolen työt;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1248;01155218;Kalusteet, laitteet, koneet, varusteet;0;;Kalusteet;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1249;01155219;Loppusiivous;0;;Siivous;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1250;01155220;Työmaan yleiskulut;0;;Työmaan yleiskulut;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1251;01155221;Vuokrakulut;0;;Yleiskulut;20110831;20110831
+0001;U-H Rakennus Oy;01155;Vartiokylän Päiväkoti;3;para;Pasi;Raatesalmi;20111201;;1;1289;01155100;palkat;0;;;20110831;20111207
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1264;01156110;LVIS;0;;LVIS-aputyöt;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1265;01156120;Maanrakennus;0;;Maanrakennus;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1266;01156130;Runkotyöt;0;;Runkotyöt;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1267;01156140;Peltityöt;0;;Peltityöt;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1268;01156150;Takat, piiput, muuratut vs:t;0;;Muut perustukset;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1269;01156160;Julkisivumuuraukset;0;;Julkisivut;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1270;01156170;Julkisivun puutyöt ja maalaukset;0;;Julkisivut;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1271;01156180;Sisäpuolen työt;0;;Sisäpuolen työt;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1272;01156190;Jätteet;0;;Jätteet;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1273;01156200;Työmaan sähkö ja vesi;0;;Työmaan yleiskulut;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1274;01156210;Konevuokrat;0;;Yleiskulut;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1275;01156220;Nosturikulut;0;;Nosturikulut;20111214;20111214
+0001;U-H Rakennus Oy;01156;Ylitilantie 36;57;unke;Unto;Keskinen;20111115;;1;1290;01156100;palkat;0;;;20111214;20111214
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1312;01159110;Työmaan perustaminen ja suojaukset;0;;Työmaan perustaminen;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1313;01159120;Purku-urakka ja purkujäte;0;;Purkutyö;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1314;01159130;Yleiset rakennustyöt;0;;Rakennustyöt;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1315;01159140;Betoniurakka;0;;Betonityöt;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1316;01159150;Asfalttiurakka;0;;Asfaltointi;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1317;01159160;Kiveysurakka;0;;Kiveytys;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1318;01159170;Vedeneristys;0;;Vedeneristys;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1319;01159180;LVIS-työt;0;;LVIS-aputyöt;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1320;01159190;Siivous ja loppusiivous;0;;Siivous;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1321;01159200;Vuokrat;0;;Yleiskulut;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;riku;Ringo;Kull;20111201;;1;1322;01159210;Jätteet;0;;Jätteet;20111223;20120730
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1365;01165110;Maanrakennus;0;;Maanrakennus;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1366;01165111;Alapohjalaatat;0;;Alapohjalaatat;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1367;01165112;Teräsrakenteet;0;;Teräsrakenteet;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1368;01165113;Ulkoseinät ja yläpohja;0;;Seinät ja katot;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1369;01165114;Ikkunat ja ovet;0;;Ikkunat;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1370;01165115;Huopaurakka;0;;Kattotyöt;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1371;01165116;Sisärakenneurakka;0;;Sisäpuolen työt;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1372;01165117;Pintatyöt;0;;Sisäpuolen työt;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1373;01165118;Kalusteet, varusteet, koneet;0;;Kalusteet;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1374;01165119;Jätteet;0;;Jätteet;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1375;01165120;Loppusiivous;0;;Siivous;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1376;01165121;Vuokrat;0;;Vuokrat;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1377;01165122;LVIS;0;;LVIS-aputyöt;20120124;20120528
+0001;U-H Rakennus Oy;01165;Keski-Pasilan ratapihan muutostyöt;3;mike;Mikko;Keskinen;20120101;;1;1444;01165100;Palkat;0;;;20120124;20120528
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1419;01169110;Purkutyö;0;;Purkutyö;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1420;01169120;Betoni- ja muuraustyöt;0;;Betonityöt;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1421;01169130;Sosiaali- ja WCtilat;0;;WC tilat;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1422;01169140;Konevuokrat;0;;Vuokrat;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1423;01169150;Jätteet;0;;Jätteet;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1424;01169160;Vesikatto;0;;Vesikatto;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1425;01169170;Ulkoseinät;0;;Ulkotyöt;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1426;01169180;Maalaustyöt;0;;Maalaustyöt;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1427;01169190;Alakattotyöt;0;;Alakatto;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1428;01169200;ovet;0;;Väliovet;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1429;01169210;Akustointityöt;0;;Akustointityöt;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1430;01169220;Siivous;0;;Siivous;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1431;01169230;Telineet;0;;Telineet;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1432;01169240;Sitä sun tätä;0;;Sitä sun tätä;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1433;01169250;Vakuutus ja yleiskulut;0;;Työmaan yleiskulut;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1434;01169260;Kokonaisurakka;0;;Kokonaisurakka;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1435;01169270;Lisätyöt;0;;Lisätyöt;20120307;20120730
+0001;U-H Rakennus Oy;01169;Myllypuron Lämpökeskus, N-ovi;3;riku;Ringo;Kull;20120215;;1;1436;01169280;Rakennustyöt;0;;Rakennustyöt;20120307;20120730
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1512;01174100;LVIS;0;;LVIS-aputyöt;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1513;01174110;Vesikatto ja julkisivupanelointi;0;;Vesikatto;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1514;01174120;Ikkunat, ulkoovet ja parvekelasitukset;0;;Ikkunat;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1515;01174130;Kiintokalusteet, koneet ja sisäporras;0;;Kalusteet;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1516;01174140;Sisustustyöt;0;;Sisäpuolen työt;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1517;01174150;Loppusiivous;0;;Siivous;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1518;01174160;Jätteet;0;;Jätteet;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1519;01174170;Lisätyöt;0;;Lisätyöt;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1520;01174180;Kokonaisurakka;0;;Urakkamyynti;20120413;20120731
+0001;U-H Rakennus Oy;01174;As Oy Espoon Nokkalankulma;57;mike;Mikko;Keskinen;20120410;;1;1521;01174190;Työt (palkat);0;;Työmyynti;20120413;20120731
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1589;01183100;Suojaus;0;;Suojaus;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1590;01183110;Alakatto- ja väliseinätyöt + listaukset;0;;Alakatto;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1591;01183120;Lattiatyöt;0;;Lattiatyöt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1592;01183130;Muuraustyöt;0;;Muuraustyöt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1593;01183140;Tasoitus/varustus;0;;Tasoitukset;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1594;01183150;Laatoitus;0;;Laatoitus;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1595;01183160;Kalustus/varustus;0;;Kalusteet;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1596;01183170;Väliovet/ikkunat/asennukset;0;;Väliovet;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1597;01183180;Asfaltoinnit/parkkiruutumaalaukset;0;;Asfaltointi;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1598;01183190;Istutusallas/takuuhuollot;0;;Pihatyöt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1599;01183200;Pihalaatoitukset/kiveykset;0;;Pihatyöt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1600;01183210;Jätekatos/aidat/säleiköt;0;;Pihatyöt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1601;01183220;2krs. silta;0;;Sisäpuolen työt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1602;01183230;Julkisivutyöt;0;;Julkisivut;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1603;01183240;Jätteet;0;;Jätteet;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1604;01183250;LVIA;0;;LVI-työt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1605;01183260;Sähkötyöt;0;;Sähkötyöt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1606;01183270;Sitä sun tätä;0;;Sitä sun tätä;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1607;01183280;Timanttityöt;0;;Timanttiporaus;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1608;01183290;Siivous;0;;Siivous;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1609;01183300;Injektoinnit;0;;Injektoinnit;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1610;01183310;Pientarvikkeet;0;;Pientarvikkeet;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1611;01183320;Suunnittelutyöt;0;;Suunnittelutyöt;20120518;20121231
+0001;U-H Rakennus Oy;01183;Gradus Building;3;vila;Ville;Lammi;20120501;;1;1667;01183100;palkat;0;;;20120518;20121231
+0001;U-H Rakennus Oy;01184;Kolmenkylänkaari 3;57;mike;Mikko;Keskinen;20120501;;1;1623;01184500;Palkat;0;;;20120514;20120514
+0001;U-H Rakennus Oy;01185;Torpparinmäen julkisivukorjaus;3;jale;Jani;Lehtinen;20120515;;1;1619;01185500;Torpparinmäen julkisivukorjaus;0;;;20120522;20120522
+0001;U-H Rakennus Oy;01185;Torpparinmäen julkisivukorjaus;3;jale;Jani;Lehtinen;20120515;;1;1666;01185500;palkat;0;;;20120522;20120522
+0001;U-H Rakennus Oy;01193;McD Pukinmäki pihatyöt;55;jale;Jani;Lehtinen;20120515;;1;1697;01193100;palkat;0;;;20120612;20120612
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1747;01195050;Mattotyöt;0;;Lattiatyöt;20120712;20120811
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1748;01195100;Purkuurakka;0;;Purkutyö;20120712;20120811
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1749;01195150;Asbestipurku;0;;Rakennustyöt;20120712;20120811
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1750;01195200;Luukun asennus;0;;Varusteet;20120712;20120811
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1751;01195250;Portti;0;;Varusteet;20120712;20120811
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1752;01195300;Siivous;0;;Siivous;20120712;20120811
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1753;01195350;Jätteet;0;;Jätteet;20120712;20120811
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1754;01195400;Lisätyöt;0;;Lisätyöt;20120712;20120811
+0001;U-H Rakennus Oy;01195;Finlandiatalo;3;mike;Mikko;Keskinen;20120701;;1;1797;01195400;Palkat;0;;;20120712;20120811
+0001;U-H Rakennus Oy;01196;Metropolia;3;jale;Jani;Lehtinen;20120701;;1;1756;01196100;Metropolia;0;;;20120716;20120716
+0001;U-H Rakennus Oy;01197;As Oy Säästökäki;58;unke;Unto;Keskinen;20120803;;1;1765;01197100;Purkuurakka;0;;Purkutyö;20120720;20121007
+0001;U-H Rakennus Oy;01197;As Oy Säästökäki;58;unke;Unto;Keskinen;20120803;;1;1766;01197110;Paikallavalu-urakka;0;;Aliurakka;20120720;20121007
+0001;U-H Rakennus Oy;01197;As Oy Säästökäki;58;unke;Unto;Keskinen;20120803;;1;1767;01197120;Kaiteet;0;;Ulkotyöt;20120720;20121007
+0001;U-H Rakennus Oy;01197;As Oy Säästökäki;58;unke;Unto;Keskinen;20120803;;1;1768;01197130;Kiveystyö;0;;Kiveytys;20120720;20121007
+0001;U-H Rakennus Oy;01197;As Oy Säästökäki;58;unke;Unto;Keskinen;20120803;;1;1769;01197140;Muut työt ja tarkikkeet;0;;Muut perustukset;20120720;20121007
+0001;U-H Rakennus Oy;01197;As Oy Säästökäki;58;unke;Unto;Keskinen;20120803;;1;1770;01197150;Jätteet;0;;Jätteet;20120720;20121007
+0001;U-H Rakennus Oy;01197;As Oy Säästökäki;58;unke;Unto;Keskinen;20120803;;1;1771;01197160;Lisätyöt;0;;Lisätyöt;20120720;20121007
+0001;U-H Rakennus Oy;01197;As Oy Säästökäki;58;unke;Unto;Keskinen;20120803;;1;1982;01197170;Palkat;0;;;20120720;20121007
+0001;U-H Rakennus Oy;01198;HDL-talot, diakonissalaitos;52;unke;Unto;Keskinen;20120715;;1;1816;01198100;Huopa- ja peltiurakka;0;;Peltityöt;20120730;20120730
+0001;U-H Rakennus Oy;01198;HDL-talot, diakonissalaitos;52;unke;Unto;Keskinen;20120715;;1;1817;01198110;Sääsuojat;0;;Julkisivut;20120730;20120730
+0001;U-H Rakennus Oy;01198;HDL-talot, diakonissalaitos;52;unke;Unto;Keskinen;20120715;;1;1818;01198120;Muut työt ja tarvikkeet;0;;Työmaan yleiskulut;20120730;20120730
+0001;U-H Rakennus Oy;01198;HDL-talot, diakonissalaitos;52;unke;Unto;Keskinen;20120715;;1;1819;01198130;Jätteet;0;;Jätteet;20120730;20120730
+0001;U-H Rakennus Oy;01198;HDL-talot, diakonissalaitos;52;unke;Unto;Keskinen;20120715;;1;1848;01198050;Palkat;0;;;20120730;20120730
+0001;U-H Rakennus Oy;01199;Ratamestarinkatu 11;3;riku;Ringo;Kull;20120803;;1;1821;01199100;Työ;0;;;20120803;20120803
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1850;01200100;Työmaan perustaminen;0;;Työmaan perustaminen;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1851;01200110;Maanrakennus;0;;Maanrakennus;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1852;01200120;Perustukset;0;;Muut perustukset;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1853;01200130;Sääsuojaus;0;;Suojaus;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1854;01200140;Puurunkourakka;0;;Runkotyöt;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1855;01200150;Lattiavalut;0;;Lattiatyöt;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1856;01200160;Vanhan puolen purku- ja runkotyöt;0;;Purkutyö;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1857;01200170;Väliseinät ja alakatot;0;;Väliseinät;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1858;01200180;Sisätasoitukset ja -maalaukset;0;;Maalaustyöt;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1859;01200190;Vesieristykset ja laatoitukset;0;;Vedeneristys;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1860;01200200;Matto- ja massalattiaurakat;0;;Lattiatyöt;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1861;01200210;Väliovet ja listoitukset;0;;Väliovet;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1862;01200220;Kalusteet, koneet, varusteet;0;;Kalusteet;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1863;01200230;Vuokrat;0;;Vuokrat;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1864;01200240;Siivous;0;;Siivous;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1865;01200250;Jätteet;0;;Jätteet;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1866;01200260;Työnjohto;0;;Suunnittelutyöt;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1867;01200270;Lisätyöt;0;;Lisätyöt;20120814;20130523
+0001;U-H Rakennus Oy;01200;Hansaksen Päiväkoti, sipoo;3;para;Pasi;Raatesalmi;20120803;;1;1868;01200400;palkat;0;;;20120814;20130523
+0001;U-H Rakennus Oy;01201;Kannelkrouvi;3;riku;Ringo;Kull;20120803;;1;1824;01201100;Puusepänurakka;0;;Puusepäntyöt;20120803;20121015
+0001;U-H Rakennus Oy;01201;Kannelkrouvi;3;riku;Ringo;Kull;20120803;;1;1825;01201110;Teräsrakenteet;0;;Teräsrakenteet;20120803;20121015
+0001;U-H Rakennus Oy;01201;Kannelkrouvi;3;riku;Ringo;Kull;20120803;;1;1826;01201120;Ovityöt;0;;Ulkotyöt;20120803;20121015
+0001;U-H Rakennus Oy;01201;Kannelkrouvi;3;riku;Ringo;Kull;20120803;;1;1827;01201130;Muut työt;0;;Työmaan perustaminen;20120803;20121015
+0001;U-H Rakennus Oy;01201;Kannelkrouvi;3;riku;Ringo;Kull;20120803;;1;1849;01201140;palkat;0;;;20120803;20121015
+0001;U-H Rakennus Oy;90000;Pertti Alakotila takuutyöt;59;peal;Pertti;Alakotila;20120813;;1;1840;90000400;Pertin takuutyöt;0;;;20120813;20120813
+0001;U-H Rakennus Oy;90001;Mikko Keskinen takuutyöt;59;mike;Mikko;Keskinen;20120813;;1;1841;90001400;Mikon takuutyöt;0;;;20120813;20120813
+0001;U-H Rakennus Oy;90002;Jani Lehtinen takuutyöt;59;jale;Jani;Lehtinen;20120813;;1;1842;90002400;Janin takuutyöt;0;;;20120813;20120813
+0001;U-H Rakennus Oy;90003;Ringo Kull takuutyöt;59;riku;Ringo;Kull;20120813;;1;1843;90003400;Ringon takuutyöt;0;;;20120813;20120813
+0001;U-H Rakennus Oy;90004;Pasi Raatesalmi takuutyöt;59;para;Pasi;Raatesalmi;20120813;;1;1844;90004400;Pasin takuutyöt;0;;;20120813;20120813
+0001;U-H Rakennus Oy;90005;Ullar Ilves takuutyöt;59;ulil;Ullar;Ilves;20120813;;1;1845;90005400;Ullarin takuutyöt;0;;;20120813;20120813
+0001;U-H Rakennus Oy;90006;Ville Lammi takuutyöt;59;vila;Ville;Lammi;20120813;;1;1846;90006400;Villen takuutyöt;0;;;20120813;20120813
+0001;U-H Rakennus Oy;90007;Unto Keskinen takuutyöt;59;unke;Unto;Keskinen;20120813;;1;1847;90007400;Unto Keskinen takuutyöt;0;;;20120814;20120814
+0001;U-H Rakennus Oy;01202;Kuusmiehenkaari 8 ja 10;3;mike;Mikko;Keskinen;20120828;;1;1879;01202100;Palkat;0;;;20120828;20120828
+0001;U-H Rakennus Oy;01203;McDonald's Tampere Koskikeskus;56;jale;Jani;Lehtinen;20120801;;1;1881;01203100;Työ;0;;;20120828;20120828
+0001;U-H Rakennus Oy;01205;Etelä-Suomen Linjaliikenne;3;unke;Unto;Keskinen;20120925;;1;1926;01205100;Telinetyöt;0;;Telineet;20120925;20121114
+0001;U-H Rakennus Oy;01205;Etelä-Suomen Linjaliikenne;3;unke;Unto;Keskinen;20120925;;1;1927;01205110;Purkutyö;0;;Purkutyö;20120925;20121114
+0001;U-H Rakennus Oy;01205;Etelä-Suomen Linjaliikenne;3;unke;Unto;Keskinen;20120925;;1;1928;01205120;Julkisivun jälleenrakennustyöt;0;;Julkisivut;20120925;20121114
+0001;U-H Rakennus Oy;01205;Etelä-Suomen Linjaliikenne;3;unke;Unto;Keskinen;20120925;;1;1929;01205130;Jätteet;0;;Jätteet;20120925;20121114
+0001;U-H Rakennus Oy;01205;Etelä-Suomen Linjaliikenne;3;unke;Unto;Keskinen;20120925;;1;1978;01205140;palkat;0;;;20120925;20121114
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1958;01206100;Työmaan perustaminen;0;;Työmaan perustaminen;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1959;01206110;Julkisivutyöt;0;;Julkisivut;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1960;01206120;Piha- ja maarakennustyöt;0;;Pihatyöt;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1961;01206130;Jätehuone;0;;Sisäpuolen työt;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1962;01206140;Vesikattotyöt;0;;Vesikatto;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1963;01206150;Purkutyö;0;;Purkutyö;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1964;01206160;Rakennetyöt;0;;Rakennustyöt;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1965;01206170;Sisäkatot ja Väliseinät;0;;Väliseinät;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1966;01206180;Lattiatyöt, vesieristys, laatoitus;0;;Lattiatyöt;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1967;01206190;Tasoitus, maalaus yms;0;;Tasoitukset;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1968;01206200;Uudet ovet ja Ikkunat;0;;Ikkunat;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1969;01206210;Kalusteet, koneet, laitteet, varusteet;0;;Kalusteet;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1970;01206220;Sisäpuolen puutyöt;0;;Sisäpuolen työt;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1971;01206230;Lukitus ja helotus;0;;Lukitus ja helotus;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1972;01206240;Jätteet;0;;Jätteet;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1973;01206250;Vuokrat;0;;Vuokrat;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1974;01206260;LoppuSiivous;0;;Siivous;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;1975;01206400;Lisätyöt;0;;;20120530;20120530
+0001;U-H Rakennus Oy;01206;Hietaniemen hautausmaa;3;riku;Ringo;Kull;20120901;;1;2014;01206500;Palkat;0;;;20120530;20120530
+0001;U-H Rakennus Oy;01207;Läntinen Teollisuuskatu 18;3;mike;Mikko;Keskinen;20121001;;1;1980;01207100;palkat;0;;;20121009;20121009
+0001;U-H Rakennus Oy;01208;Viikinmäen kävelysilta;3;para;Pasi;Raatesalmi;20121015;;1;1989;01208100;Purkutyöt;0;;Purkutyö;20121019;20130614
+0001;U-H Rakennus Oy;01208;Viikinmäen kävelysilta;3;para;Pasi;Raatesalmi;20121015;;1;1990;01208110;Teräsrakenteet ja maalaus;0;;Teräsrakenteet;20121019;20130614
+0001;U-H Rakennus Oy;01208;Viikinmäen kävelysilta;3;para;Pasi;Raatesalmi;20121015;;1;1991;01208120;Puurakennetyöt;0;;Puusepäntyöt;20121019;20130614
+0001;U-H Rakennus Oy;01208;Viikinmäen kävelysilta;3;para;Pasi;Raatesalmi;20121015;;1;1992;01208130;Peltityöt;0;;Peltityöt;20121019;20130614
+0001;U-H Rakennus Oy;01208;Viikinmäen kävelysilta;3;para;Pasi;Raatesalmi;20121015;;1;1993;01208140;Jätteet;0;;Jätteet;20121019;20130614
+0001;U-H Rakennus Oy;01208;Viikinmäen kävelysilta;3;para;Pasi;Raatesalmi;20121015;;1;1994;01208150;Lisätyöt;0;;Lisätyöt;20121019;20130614
+0001;U-H Rakennus Oy;80000;mcd kamppi huolto;53;eemi;Anneja;Eeva;20121020;;1;2005;80000000;7024;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80001;mcd sokos huolto;53;eemi;Anneja;Eeva;20121020;;1;1997;80001000;mcd sokos huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80002;mcd töölö huolto;53;eemi;Anneja;Eeva;20121020;;1;1998;80002000;mcd töölö huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80003;mcd meilahti huolto;53;eemi;Anneja;Eeva;20121020;;1;1999;80003000;mcd meilahti huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80004;mcd tammisto huolto;53;eemi;Anneja;Eeva;20121020;;1;2000;80004000;mcd tammisto huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80005;mcd malmi huolto;53;eemi;Anneja;Eeva;20121020;;1;2001;80005000;mcd malmi huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80006;mcd herttoniemi huolto;53;eemi;Anneja;Eeva;20121020;;1;2002;80006000;mcd herttoniemi huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80100;handelsgillet huolto;53;eemi;Anneja;Eeva;20121020;;1;2006;80100000;7023;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80101;cantina west huolto;53;eemi;Anneja;Eeva;20121020;;1;2007;80101000;7022;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80102;lasipalatsi huolto;53;eemi;Anneja;Eeva;20121017;;1;2009;80102000;7028;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80103;helmi grilli huolto;53;eemi;Anneja;Eeva;20121022;;1;2011;80103000;7029;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80007;mcd asematunneli huolto;53;eemi;Anneja;Eeva;20121022;;1;2012;80007000;mcd asematunneli huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80008;mcd ala-tikkurila huolto;53;eemi;Anneja;Eeva;20121022;;1;2013;80008000;mcd ala-tikkurila huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80009;mcd forum katutaso huolto;53;eemi;Anneja;Eeva;20121022;;1;2015;80009000;mcd forum katutaso huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80010;mcd hakaniemi huolto;53;eemi;Anneja;Eeva;20121022;;1;2016;80010000;mcd hakaniemi huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80011;mcd vaarala huolto;53;eemi;Anneja;Eeva;20121022;;1;2017;80011000;mcd vaarala huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80012;mcd prisma tikkurila huolto;53;eemi;Anneja;Eeva;20121022;;1;2018;80012000;mcd prisma tikkurila huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80013;mcd vuosaari huolto;53;eemi;Anneja;Eeva;20121022;;1;2019;80013000;mcd vuosaari huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80014;mcd pitäjänmäki;53;eemi;Anneja;Eeva;20121022;;1;2020;80014000;mcd pitäjänmäki;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80015;mcd forum pohjakerros huolto;53;eemi;Anneja;Eeva;20121022;;1;2021;80015000;mcd forum pohjakerros huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80016;mcd varisto huolto;53;eemi;Anneja;Eeva;20121022;;1;2022;80016000;mcd varisto huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80017;mcd itäkeskus huolto;53;eemi;Anneja;Eeva;20121022;;1;2023;80017000;mcd itäkeskus huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80018;mcd iso-roba huolto;53;eemi;Anneja;Eeva;20121022;;1;2024;80018000;mcd iso-roba huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80019;mcd kontula huolto;53;eemi;Anneja;Eeva;20121022;;1;2025;80019000;mcd kontula huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80020;mcd kluuvi huolto;53;eemi;Anneja;Eeva;20121022;;1;2026;80020000;mcd kluuvi huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80021;mcd pukinmäki huolto;53;eemi;Anneja;Eeva;20121022;;1;2027;80021000;mcd pukinmäki huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80022;mcd ruoholahti huolto;53;eemi;Anneja;Eeva;20121022;;1;2028;80022000;mcd ruoholahti huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80023;mcd teollisuuskatu huolto;53;eemi;Anneja;Eeva;20121022;;1;2029;80023000;mcd teollisuuskatu huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80104;tonys deli huolto;53;eemi;Anneja;Eeva;20121022;;1;2030;80104000;tonys deli huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80105;juttutupa;53;eemi;Anneja;Eeva;20121022;;1;2031;80105000;juttutupa;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80106;casamare huolto;53;eemi;Anneja;Eeva;20121022;;1;2032;80106000;casamare huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80107;weeruska huolto;53;eemi;Anneja;Eeva;20121022;;1;2033;80107000;weeruska huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80108;bio rex huolto;53;eemi;Anneja;Eeva;20121022;;1;2034;80108000;bio rex huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;80109;paasiravintola huolto;53;eemi;Anneja;Eeva;20121022;;1;2035;80109000;paasiravintola huolto;0;;;20121022;20121022
+0001;U-H Rakennus Oy;00100;Toimistokäynti;3;eemi;Anneja;Eeva;20121022;;1;2036;00100000;Toimistokäynti;0;;;20121022;20121022
+0001;U-H Rakennus Oy;00101;Koulutus;3;eemi;Anneja;Eeva;20121022;;1;2037;00101000;Koulutus;0;;;20121022;20121022
+0001;U-H Rakennus Oy;00102;Työterveystarkastus;3;eemi;Anneja;Eeva;20121022;;1;2038;00102000;Työterveystarkastus;0;;;20121022;20121022

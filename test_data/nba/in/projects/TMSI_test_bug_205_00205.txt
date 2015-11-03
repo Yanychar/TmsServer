@@ -1,0 +1,4 @@
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;00riku;Ringo;Kull;20111201;;1;1312;01159110;Työmaan perustaminen ja suojaukset;0;;Työmaan perustaminen;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;  00riku;Ringo;Kull;20111201;;1;1313;01159120;Purku-urakka ja purkujäte;0;;Purkutyö;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;0riku;Ringo;Kull;20111201;;1;1314;01159130;Yleiset rakennustyöt;0;;Rakennustyöt;20111223;20120730
+0001;U-H Rakennus Oy;01159;Länsi-Helsingin Liikekeskuksen pihakansi;3;000000riku  ;Ringo;Kull;20111201;;1;1315;01159140;Betoniurakka;0;;Betonityöt;20111223;20120730

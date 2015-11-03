@@ -1,0 +1,40 @@
+Here is working list of problem to setup restrictions about items visible.
+
+Request:
+- Worker can see reports 4 weeks in the past only
+
+Transcript
+
+1. Where time period is used?
+  a) UI. My Report-Time Report
+  b) UI. My Report-Travel Report
+  c) Resources. GetMatadataResource_2: Allow to to request project info for particular day
+  d) Resources. GetTasksResource: Get Hours Reports created by TmsUser at specified date and belonged to specified Project
+  e) Resources. GetTravelsResource:  Get Travel Reports created by TmsUser at specified date and belonged to specified Project
+  f) Resources. SaveTaskReportsResource ???
+  g) Resources. SaveTravelReportsResource ???
+  
+
+2. Fixing
+2.a-b ( UI. My Report-Time Report && UI. My Report-Travel Report)
+  In "com.c2point.tms.web.ui.reportsmgmt.timereports.view" and "com.c2point.tms.web.ui.reportsmgmt.travelreports.view" packets 2 files DateSelectionComponent.java were changed
+  Method init(): shortly "setRangeStart" was added
+  
+ Resolution: InlineDateField does not allow selection before data specified (today - 14 days)
+ TODO: number of days shall be taken from config
+  
+2.c ( Resources. GetMatadataResource_2 )
+  GetMetadataResource_2 in "com.c2point.tms.resources" was changed.
+  Passed value has been checked. If it is more than 14 days far from it is not considered
+  
+ Resolution: Passed value has been checked. If it is more than 14 days far from it is not considered. May be not necessary
+ TODO: - check where this parameter is used in android application. May be it is not necessary to check!
+       - number of days shall be taken from config. 
+  
+2.d-e ( GetTasksResource && GetTravelsResource )
+
+
+2.f-g ( SaveTaskReportsResource && SaveTaskReportsResource )
+  - Here call to correctDate() method was added and method itself implemented to validate date and process valid date report only in SaveTaskReportResource only
+  
+  
