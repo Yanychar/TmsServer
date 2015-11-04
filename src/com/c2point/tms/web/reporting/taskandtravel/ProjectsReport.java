@@ -30,7 +30,9 @@ public class ProjectsReport extends AggregateItem {
 
 	public ProjectsReport prepareReport( 
 			List<TaskReport> listTaskReports, 
-			List<TravelReport> listTravelReports ) {
+			List<TravelReport> listTravelReports,
+			Project project
+	) {
 		
 		// Create Tree of Items ordered by User, Date
 		//
@@ -49,15 +51,41 @@ public class ProjectsReport extends AggregateItem {
 		//
 		
 		for ( AbstractReport report : listTaskReports ) {
-			handleReport( report);
+			if ( reportAssignedToProject( report, project ))
+				handleReport( report);
 		}
 
 		for ( AbstractReport report : listTravelReports ) {
-			handleReport( report);
+			if ( reportAssignedToProject( report, project ))
+		 	  handleReport( report);
 		}
 		return this;
 	}
 	
+	private boolean reportAssignedToProject( AbstractReport report, Project project ) {
+		
+		boolean res = true;
+
+		if ( project != null ) {
+			
+			// Project specified. We need to get reports related to this project only
+
+			if ( report instanceof TaskReport ) {
+				res = (( TaskReport )report ).getProjectTask().getProject().getId() == project.getId();
+			} else if ( report instanceof TravelReport ) {
+				res = (( TravelReport )report ).getProject().getId() == project.getId();
+			} else {
+				
+				res = false;
+			}
+		
+		
+		
+			
+		}
+		// project == null. Means all reports shall be counted in!
+		return res;
+	}
 	
 	
 	private void handleReport( AbstractReport report ) {

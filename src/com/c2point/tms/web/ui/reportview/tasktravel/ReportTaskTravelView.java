@@ -2,10 +2,12 @@ package com.c2point.tms.web.ui.reportview.tasktravel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.c2point.tms.entity.Project;
 import com.c2point.tms.util.DateUtil;
 import com.c2point.tms.web.reporting.pdf.PdfTemplate;
 import com.c2point.tms.web.reporting.pdf.documents.PersonnelReportPdf;
@@ -51,7 +53,8 @@ public class ReportTaskTravelView extends AbstractMainView {
 	private CheckBox allTasks_1; 
 	private CheckBox allTravels_1; 
 	
-	// Per Person options
+	// Per Project options
+	private ComboBox projectList;
 	private CheckBox allTasks_2; 
 	private CheckBox allTravels_2; 
 //	private CheckBox allPersons; 
@@ -64,6 +67,9 @@ public class ReportTaskTravelView extends AbstractMainView {
 		super( model.getApp());
 	
 		this.model = model;
+		
+		projectList = getProjectSelector();		
+		
 	}
 
 	@Override
@@ -116,6 +122,7 @@ public class ReportTaskTravelView extends AbstractMainView {
 		allTasks_1 = new CheckBox( getTmsApplication().getResourceStr( "reporting.checkbox.alltasks" ));
 		allTravels_1 = new CheckBox( getTmsApplication().getResourceStr( "reporting.checkbox.travels" ));
 
+		
 		allTasks_2 = new CheckBox( getTmsApplication().getResourceStr( "reporting.checkbox.alltasks" ));
 		allTravels_2 = new CheckBox( getTmsApplication().getResourceStr( "reporting.checkbox.travels" ));
 		
@@ -206,6 +213,15 @@ public class ReportTaskTravelView extends AbstractMainView {
 			}
 		});
 
+		
+		projectList.addValueChangeListener( new ValueChangeListener() {
+			@Override
+			public void valueChange( ValueChangeEvent event ) {
+
+				model.selectProject(( Project )projectList.getValue());
+			
+			}
+		});
 		
 		allTasks_2.addValueChangeListener( new ValueChangeListener() {
 			@Override
@@ -299,6 +315,30 @@ public class ReportTaskTravelView extends AbstractMainView {
 		return reportType;
 	}
 
+	private ComboBox getProjectSelector() {
+		
+		projectList  = new ComboBox();
+
+		projectList.setWidth( "12em" );
+		projectList.setItemCaptionMode( ItemCaptionMode.EXPLICIT );
+		projectList.setImmediate( true );        
+		projectList.setNullSelectionAllowed( true );
+		projectList.setInputPrompt( "Show all Projects");
+		
+//		projectList.setNullSelectionItemId( Long.MIN_VALUE );
+//		projectList.addItem( Long.MIN_VALUE );
+//		projectList.setItemCaption( Long.MIN_VALUE, "" );
+		
+		for ( Project prj : model.getProjectsList()) {
+			
+			projectList.addItem( prj );
+			projectList.setItemCaption( prj, prj.getName());
+			
+		}
+
+		return projectList;
+	}
+
 	private void updateFieldsList() {
 
 		VerticalLayout vl = ( VerticalLayout )filterPanel.getContent();
@@ -307,6 +347,8 @@ public class ReportTaskTravelView extends AbstractMainView {
 		vl.removeComponent( allProjects );
 		vl.removeComponent( allTasks_1 );
 		vl.removeComponent( allTravels_1 );
+		
+		vl.removeComponent( projectList );
 		vl.removeComponent( allTasks_2 );
 		vl.removeComponent( allTravels_2 );
 		vl.removeComponent( createButton );
@@ -321,6 +363,7 @@ public class ReportTaskTravelView extends AbstractMainView {
 		} else if ( ReportTaskTravelModel.ReportType.PROJECT_VIEW == ( ReportTaskTravelModel.ReportType )reportType.getValue()) {
 
 			//			filterPanel.addComponent( allPersons );
+			vl.addComponent( projectList );
 			vl.addComponent( allTasks_2 );
 			vl.addComponent( allTravels_2 );
 

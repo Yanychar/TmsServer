@@ -1,9 +1,13 @@
 package com.c2point.tms.web.ui.reportview.tasktravel;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,6 +15,7 @@ import com.c2point.tms.datalayer.TaskReportFacade;
 import com.c2point.tms.datalayer.TravelReportFacade;
 import com.c2point.tms.datalayer.UserFacade;
 import com.c2point.tms.entity.Organisation;
+import com.c2point.tms.entity.Project;
 import com.c2point.tms.entity.TaskReport;
 import com.c2point.tms.entity.TmsUser;
 import com.c2point.tms.entity.TravelReport;
@@ -46,6 +51,7 @@ public class ReportTaskTravelModel extends AbstractModel implements PeriodSelect
 
 	// Projects report flags
 	//	private boolean persons_flag;
+	private Project	project;
 	private boolean tasks_flag_2;
 	private boolean travel_flag_2;
 	
@@ -119,6 +125,13 @@ public class ReportTaskTravelModel extends AbstractModel implements PeriodSelect
 		fireFilterChanged();
 	}
 
+	public void selectProject( Project project ) { 
+		this.project = project; 
+	}
+	public Project getSelectedProject() { 
+		return this.project; 
+	}
+	
 	public boolean isTasksFlag_2() {
 		return tasks_flag_2;
 	}
@@ -300,7 +313,6 @@ public class ReportTaskTravelModel extends AbstractModel implements PeriodSelect
 
 				listUsers = UserFacade.getInstance().list( reportedOrganisation );
 				
-				
 			} else if ( getReportsToShow() == SupportedFunctionType.CONSOLIDATE_TEAM ) {
 			
 				if ( logger.isDebugEnabled()) logger.debug( "User has rights to see his/her TEAM reports" );
@@ -369,6 +381,43 @@ public class ReportTaskTravelModel extends AbstractModel implements PeriodSelect
 		
 	}
 
+	public List<Project> getProjectsList() {
+
+		List<Project> listProjects = new ArrayList<Project>();
+		
+		if ( reportedOrganisation != null && reportedOrganisation.getProjects() != null ) {
+			
+			for ( Project prj : reportedOrganisation.getProjects().values()) {
+				
+				if ( prj != null && !prj.isDeleted()) {
+					listProjects.add( prj );
+				}
+			}
+			
+		} 
+		
+		Collections.sort( listProjects, new Comparator<Project>() {
+
+			@Override
+			public int compare( Project prj1, Project prj2 ) {
+				
+				int res = 0;
+				
+				if ( prj1 == null || StringUtils.isBlank( prj1.getName())) res = -1;
+				else if ( prj2 == null || StringUtils.isBlank( prj2.getName())) res = -1;
+				else {
+
+					res = prj1.getName().compareToIgnoreCase( prj2.getName());
+				}
+
+				return res;
+			}
+			
+		}); 
+						
+		return listProjects;
+	}
+	
 	public UsersReport createUsersReport() {
 		
 		UsersReport ur = new UsersReport( getUsersList())
@@ -380,7 +429,7 @@ public class ReportTaskTravelModel extends AbstractModel implements PeriodSelect
 	public ProjectsReport createProjectsReport() {
 		
 		ProjectsReport pr = new ProjectsReport()
-								.prepareReport( getTaskReportsList(), getTravelReportsList());
+								.prepareReport( getTaskReportsList(), getTravelReportsList(), this.getSelectedProject());
 	
 		return pr;
 	}
