@@ -1,5 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="TmsServer">
+<persistence version="2.1" 
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="default">
+		<provider>
+			org.eclipse.persistence.jpa.PersistenceProvider
+		</provider>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+		    
+		    <!-- 
+			<property name="eclipselink.logging.level" value="FINE" />
+			<property name="eclipselink.logging.level.sql" value="FINE"/>
+			<property name="eclipselink.logging.parameters" value="true" />
+			<property name="eclipselink.logging.logger" value="com.c2point.tms.util.logging.CommonsLoggingSessionLog"/>
+			-->
+			
+			<property name="eclipselink.logging.level" value="INFO" />
+			<property name="eclipselink.logging.parameters" value="fale" />
+			
+			
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/tms" />
+
+			<property name="javax.persistence.jdbc.user" value="tms" />
+			<property name="javax.persistence.jdbc.password" value="tms" />
+
+			<!-- 
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode" value="both" />
+			<property name="eclipselink.application-location" value="C:\\Users\\sevastia\\workspace_tms\\TMS Vaadin 7"/>
+			-->
+			<!-- <property name="eclipselink.application-location" value="/opt/tmsdb"/> -->
+			
+			<property name="eclipselink.ddl-generation" value="none" />
+			<property name="eclipselink.ddl-generation.output-mode"  value="none" />
+
+			<property name="eclipselink.orm.throw.exceptions" value="true" />
+			<property name="show-sql" value="true" />
+			<property name="eclipselink.target-database" value="PostgreSQL" />
+
+			<!-- Default connection pool -->
+			<property name="eclipselink.connection-pool.default.initial"
+				value="10" />
+			<property name="eclipselink.connection-pool.default.min"
+				value="64" />
+			<property name="eclipselink.connection-pool.default.max"
+				value="64" />
+
+		</properties>
+
 	</persistence-unit>
 </persistence>
+
