@@ -41,22 +41,22 @@ echo .              ... stopped!
 echo 5. TMS directory ...
 
 REM "C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "su -p tomcat rm -r %dest%/webapps/%app_name%"
-"C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "rm -rf %dest%/webapps/%app_name%"
+REM "C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "rm -rf %dest%/webapps/%app_name%"
 
 echo .                ... deleted!
 
 echo 6. Copy WAR file to PROD server ...
 
 "C:\Program Files\PuTTY"\pscp -i %dest_key% %source%\%app_file_name% %dest_srv%:%dest%/webapps/
-"C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "chmod u+rwx %dest%/webapps/%app_filr_name%"
-"C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "chmod u+rwx %dest%/webapps/%app_filr_name%"
+REM "C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "chmod u+rwx %dest%/webapps/%app_filr_name%"
+REM "C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "chmod u+rwx %dest%/webapps/%app_filr_name%"
 
 echo .                               ... new WAR copied!
 
 echo 7. Start Tomcat ...
 
-"C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "su -p tomcat %dest%/bin/startup.sh"
-REM echo START TOMCAT shall be done manually!!!
+REM "C:\Program Files\PuTTY"\plink -ssh -i %dest_key% %dest_srv% "su -p tomcat %dest%/bin/startup.sh"
+echo START TOMCAT shall be done manually!!!
 
 echo .               ... Tomcat started!
 
