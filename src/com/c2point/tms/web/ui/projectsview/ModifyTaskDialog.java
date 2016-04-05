@@ -1,10 +1,13 @@
 package com.c2point.tms.web.ui.projectsview;
 
 import java.text.MessageFormat;
+import java.util.Collection;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.c2point.tms.datalayer.ConfigurationFacade;
+import com.c2point.tms.entity.MeasurementUnit;
 import com.c2point.tms.entity.Task;
 import com.c2point.tms.util.StringUtils;
 import com.c2point.tms.util.exception.NotUniqueCode;
@@ -14,11 +17,13 @@ import com.vaadin.data.validator.RegexpValidator;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.AbstractField;
+import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
 import com.vaadin.ui.AbstractTextField;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
@@ -40,6 +45,8 @@ public class ModifyTaskDialog extends Window implements Property.ValueChangeList
 
     private TextField 		codeField;
     private TextField		nameField;
+    
+    private ComboBox		measure;
 
 	private Button 			saveButton;
 	private Button 			cancelButton;
@@ -66,7 +73,7 @@ public class ModifyTaskDialog extends Window implements Property.ValueChangeList
 	private void initView() {
 
 		setWidth( "24em" );
-		setHeight( "20em" );
+		setHeight( "25em" );
 
 		center();
 
@@ -111,7 +118,7 @@ public class ModifyTaskDialog extends Window implements Property.ValueChangeList
 	
 	private Component getProjectView() {
 		
-		GridLayout layout = new GridLayout( 1, 2 );
+		GridLayout layout = new GridLayout( 1, 3 );
 		
 		layout.setMargin( new MarginInfo( true, false, false, true ));
 		layout.setSpacing( true );
@@ -136,8 +143,20 @@ public class ModifyTaskDialog extends Window implements Property.ValueChangeList
         nameField.setRequired( true );
         nameField.setImmediate(true);
         
+//        measure = new ComboBox( model.getApp().getResourceStr( "general.label.measure" ) + ":" );
+        measure = new ComboBox( "Unit" + ":" );
+        measure.setWidth( "5em" );
+        measure.setNullSelectionAllowed( true );
+//        measure.setDescription( model.getApp().getResourceStr( "general.label.measure.tooltip" ));
+        measure.setDescription( "Select measurement unit" );
+        measure.setItemCaptionMode( ItemCaptionMode.EXPLICIT );
+        
+        measure.setRequired( true );
+        measure.setImmediate(true);
+        
         layout.addComponent( codeField, 0, 0 );
         layout.addComponent( nameField, 0, 1 );
+        layout.addComponent( measure,   0, 2 );
        
         dataToView();
         
@@ -153,10 +172,17 @@ public class ModifyTaskDialog extends Window implements Property.ValueChangeList
 			if ( isNew ) {
 		        codeField.setValue( uniqueCode());
 		        nameField.setValue( "" );
+
+		        initMeasurementCombo( null );
+		        
 			} else {
 		        codeField.setValue( task.getCode());
 		        nameField.setValue( task.getName());
+
+		        initMeasurementCombo( task.getMeasurementUnit());
 			}
+			
+			
 
 		} else {
 			logger.error( "Task is null. Shall be NOT null." );
@@ -168,12 +194,30 @@ public class ModifyTaskDialog extends Window implements Property.ValueChangeList
 			
 	        task.setCode(( String )codeField.getValue());
 	        task.setName(( String )nameField.getValue());
-		    
+		    task.setMeasurementUnit(( MeasurementUnit )measure.getValue());
 		} else {
 			logger.error( "Project is null. Shall be NOT null." );
 		}
 	}
 	
+    private void initMeasurementCombo( MeasurementUnit unit ) {
+    	
+    	Collection<MeasurementUnit> cmu = ConfigurationFacade.getSupportedMeasurement();
+
+		measure.addItems( cmu );
+
+    	for ( MeasurementUnit mu : cmu ) {
+    		
+    		measure.setItemCaption( mu, mu.getName());
+    		
+    	}
+    	
+    	if ( unit != null ) {
+    		measure.setValue( unit );
+    	}
+    		
+    	
+    }
 	
 	
 	

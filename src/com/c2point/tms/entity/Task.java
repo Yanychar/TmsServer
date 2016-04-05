@@ -20,6 +20,10 @@ public class Task extends SimplePojo {
 	
 	@ManyToOne
 	private Organisation organisation;
+
+	@ManyToOne
+	private MeasurementUnit measure;
+	
 	
 	protected Task() {
 		this( null, "", "" );
@@ -69,6 +73,10 @@ public class Task extends SimplePojo {
 		this.organisation = organisation;
 	}
 
+	public MeasurementUnit getMeasurementUnit() { return measure; }
+	public void setMeasurementUnit( MeasurementUnit measure ) { this.measure = measure; }
+
+	
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

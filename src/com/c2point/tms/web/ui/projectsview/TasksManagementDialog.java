@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.vaadin.dialogs.ConfirmDialog;
 
+import com.c2point.tms.entity.MeasurementUnit;
 import com.c2point.tms.entity.Organisation;
 import com.c2point.tms.entity.Project;
 import com.c2point.tms.entity.Task;
@@ -67,7 +68,7 @@ public class TasksManagementDialog extends Window
 	private void initView() {
 	
 		setHeight( "100%" );
-		setWidth( "70ex" );
+		setWidth( "75ex" );
 
 		VerticalLayout vl = new VerticalLayout(); 
 		
@@ -92,16 +93,19 @@ public class TasksManagementDialog extends Window
 		
 		tasksTable.addContainerProperty( "code", String.class, null );
 		tasksTable.addContainerProperty( "name", String.class, null );
+		tasksTable.addContainerProperty( "unit", String.class, null );
 		tasksTable.addContainerProperty( "buttons", HorizontalLayout.class, null );
 
 		tasksTable.setColumnHeaders( new String[] { 
 				model.getApp().getResourceStr( "general.table.header.code" ),
 				model.getApp().getResourceStr( "general.table.header.taskname" ),
+				model.getApp().getResourceStr( "general.label.measure" ),
 				"" 
 		}); 
 		
 		tasksTable.setColumnWidth( "code", CODE_WIDTH );
 		tasksTable.setColumnWidth( "name", NAME_WIDTH * 3 );
+		tasksTable.setColumnWidth( "unit", CODE_WIDTH );
 		tasksTable.setColumnWidth( "buttons", BUTTON_WIDTH * 3 );
 		tasksTable.setColumnExpandRatio( "name", 1 );
 		
@@ -222,6 +226,12 @@ public class TasksManagementDialog extends Window
 
 		item.getItemProperty( "code" ).setValue( task.getCode());
 		item.getItemProperty( "name" ).setValue( task.getName());
+		
+		try {
+			item.getItemProperty( "unit" ).setValue( task.getMeasurementUnit().getName());
+		} catch ( Exception e ) {
+			item.getItemProperty( "unit" ).setValue( "" );
+		}
 
 		// Add Edit button
 		final NativeButton editButton = new NativeButton(); // "Edit" );

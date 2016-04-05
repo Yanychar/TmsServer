@@ -76,6 +76,7 @@ public class TmsDBUpdate {
 			res = updater.convert_from_9_to_10();
 		} else if ( db_version == 10 ) {
 			// Holder for the future
+			res = updater.convert_from_10_to_11();
 		} else if ( db_version == 11 ) {
 			// Holder for the future
 		} else if ( db_version == 12 ) {
@@ -1071,5 +1072,75 @@ public class TmsDBUpdate {
 		  
 		return true;
 	}
+
+	private boolean convert_from_10_to_11() {
+
+		logger.debug( "  Update from ver. 10 to ver. 11 started..." );
+		logger.debug( "    1. Create 'measurementunit' table" );
+		logger.debug( "    2. Fill 'measurementunit' table" );
+		logger.debug( "    2. Update 'task' table. Add ref to 'measurement_unit' record" );
+		
+		String stmtStr;
+
+		// 1. Create 'measurementunit' table
+		//
+		
+		stmtStr = "CREATE TABLE MEASUREMENTUNIT ( "
+				+ "id BIGINT NOT NULL, "
+				+ "CONSISTENCYVERSION BIGINT NOT NULL, " 
+				+ "deleted BOOLEAN NOT NULL, "
+				+ "defname character varying(255), "
+				+ "resourcename character varying(255), "
+				+ "description character varying(255), "
+				+ "CONSTRAINT measurement_pkey PRIMARY KEY (id) "
+			    + " )";
+		
+		if ( executeUpdate( stmtStr )) {
+			logger.debug( "'MeasurementUnit' table has been updated successfully" );
+		} else {
+			logger.error( "'MeasurementUnit' table has NOT been updated successfully!" );
+			return false;
+		}
+		
+		// 2. Fill in 'measurementunit' table
+		//
+		
+		stmtStr = "INSERT INTO MEASUREMENTUNIT VALUES "
+            	+ "(  1, 1, false, 'm',   'measure.meter',   'meter/running meter'), "
+            	+ "(  2, 1, false, 'm2',  'measure.2meter',  'square meter'), "
+            	+ "(  3, 1, false, 'm3',  'measure.3meter',  'cubical meter'), "
+            	+ "(  4, 1, false, 'kg',  'measure.kg',      'kilogram'), "
+            	+ "(  5, 1, false, 't',   'measure.tn',      'ton'), "
+            	+ "(  8, 1, false, 'pcs', 'measure.pcs',     'pieces')";
+            	
+		
+		if ( executeUpdate( stmtStr )) {
+			logger.debug( "'MeasurementUnit' table has been fulfilled successfully" );
+		} else {
+			logger.error( "'MeasurementUnit' table has NOT been fulfilled successfully!" );
+			return false;
+		}
+		
+		
+		// 3. Update 'task' table. Add ref to 'measurement_unit' record
+		//		- Will be used to force password changes
+	    
+		stmtStr = "ALTER TABLE TASK "
+				+ "ADD COLUMN measure_id bigint, "
+				+ "ADD CONSTRAINT fk_task_measure_id FOREIGN KEY (measure_id) "
+				+ "REFERENCES measurementunit (id) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION";
+		
+		if ( executeUpdate( stmtStr )) {
+			logger.debug( "'Task' table has been updated successfully" );
+		} else {
+			logger.error( "'Task' table has NOT been updated successfully!" );
+			return false;
+		}
+		
+		
+		logger.debug( "  ... update from ver. 10 to ver. 11 ended!" );
+		return true;
+	}
+	
 	
 }
