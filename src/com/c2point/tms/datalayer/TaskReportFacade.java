@@ -630,7 +630,7 @@ public class TaskReportFacade {
 
 		// Now initialize new Report
 		try {
-			resReport.initReport( stub.getUniqueReportId(), date, user, prTask, stub.getHours(), stub.getComment());
+			resReport.initReport( stub.getUniqueReportId(), date, user, prTask, stub.getHours(), stub.getNumValue(), stub.getComment());
 		} catch ( Exception e ) {
 			logger.error( "Cannot get parameters from stub!\n" + e );
 			resReport = null;

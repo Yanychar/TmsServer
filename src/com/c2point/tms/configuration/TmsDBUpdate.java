@@ -75,10 +75,9 @@ public class TmsDBUpdate {
 		} else if ( db_version == 9 ) {
 			res = updater.convert_from_9_to_10();
 		} else if ( db_version == 10 ) {
-			// Holder for the future
 			res = updater.convert_from_10_to_11();
 		} else if ( db_version == 11 ) {
-			// Holder for the future
+			res = updater.convert_from_11_to_12();
 		} else if ( db_version == 12 ) {
 			// Holder for the future
 		} else if ( db_version == 13 ) {
@@ -1134,6 +1133,31 @@ public class TmsDBUpdate {
 			logger.debug( "'Task' table has been updated successfully" );
 		} else {
 			logger.error( "'Task' table has NOT been updated successfully!" );
+			return false;
+		}
+		
+		
+		logger.debug( "  ... update from ver. 10 to ver. 11 ended!" );
+		return true;
+	}
+	
+	private boolean convert_from_11_to_12() {
+
+		logger.debug( "  Update from ver. 11 to ver. 12 started..." );
+		logger.debug( "    1. Update 'TaskReport' table. Add numeric value column" );
+		
+		String stmtStr;
+
+		// 1. Update 'TaskReport' table. Add numeric value column
+		//		- Will be used to force password changes
+	    
+		stmtStr = "ALTER TABLE TASKREPORT "
+				+ "ADD COLUMN numvalue real";
+		
+		if ( executeUpdate( stmtStr )) {
+			logger.debug( "'TaskReport' table has been updated successfully" );
+		} else {
+			logger.error( "'TaskReport' table has NOT been updated successfully!" );
 			return false;
 		}
 		

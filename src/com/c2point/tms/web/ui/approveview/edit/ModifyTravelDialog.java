@@ -85,7 +85,7 @@ public class ModifyTravelDialog extends Window implements ValueChangeListener {
 
 	public ModifyTravelDialog( ModifyTravelIf model, TravelReport report, boolean accessedByManager ) {
 		super();
-//		setModal(true);
+		setModal(true);
 		
 		this.model = model;
 		this.report = report;

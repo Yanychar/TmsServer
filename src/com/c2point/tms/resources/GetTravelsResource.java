@@ -20,10 +20,7 @@ import javax.xml.bind.JAXBException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.c2point.tms.datalayer.TaskReportFacade;
 import com.c2point.tms.datalayer.TravelReportFacade;
-import com.c2point.tms.entity.ProjectTask;
-import com.c2point.tms.entity.TaskReport;
 import com.c2point.tms.entity.TmsAccount;
 import com.c2point.tms.entity.TravelReport;
 import com.c2point.tms.entity.stubs.travelreport.TravelReportsListOutStub;

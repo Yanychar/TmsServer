@@ -9,7 +9,7 @@ import com.c2point.tms.entity.ProjectTask;
 import com.c2point.tms.entity.TaskReport;
 
 @XmlRootElement(name = "task")
-@XmlType(propOrder = { "uniqueReportId", "code", "name", "hours", "comment", "approvalFlagType" })
+@XmlType(propOrder = { "uniqueReportId", "code", "name", "hours", "numValue", "comment", "approvalFlagType" })
 public class TaskReportStub {
 
     // UniqueID of TaskReport (OPTIONAL). Used:
@@ -28,6 +28,10 @@ public class TaskReportStub {
 	
     // Hours spent on ProjectTask (MANDATORY).
 	private Float	hours;
+	
+    // Numeric value reported
+	private Float	numValue;
+	
     // Comment to TaskReport (MANDATORY).
 	private String	comment;	
 	
@@ -42,6 +46,7 @@ public class TaskReportStub {
 		this.name = report.getProjectTask().getTask().getName();
 //		this.prj_code = report.getProjectTask().getProject().getCode();
 		this.hours = report.getHours();
+		this.numValue = report.getNumValue();
 		this.comment = report.getComment();
 		this.approvalFlagType = report.getApprovalFlagType();
 	}
@@ -86,17 +91,13 @@ public class TaskReportStub {
 		this.prj_code = prj_code;
 	}
 */
-	public Float getHours() {
-		return hours;
-	}
+	public Float getHours() { return hours; }
+	public void setHours( float hours ) { this.hours = hours; }
+	public void setHours( Float hours ) { this.hours = hours; }
 
-	public void setHours( float hours ) {
-		this.hours = hours;
-	}
-
-	public void setHours( Float hours ) {
-		this.hours = hours;
-	}
+	public Float getNumValue() { return numValue; }
+	public void setNumValue( float numValue ) { this.numValue = numValue; }
+	public void setNumValue( Float numValue ) { this.numValue = numValue; }
 
 	public String getComment() {
 		return comment;
@@ -119,7 +120,7 @@ public class TaskReportStub {
 		return "TaskReportStub [" + "uniqueReportId=" + (uniqueReportId != null ? uniqueReportId : "null" ) + ", "
 				+ "Ref. to ProjTask [code="+ ( code != null ? code : "null") + ", " 
 								  + "name=" +(name != null ? name : "null") + "], " 
-				+ "hours=" + hours + ", "
+				+ "hours=" + hours + ", value=" + numValue + ", "
 				+ "comment=" + (comment != null ? comment : "null" ) + "]";
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jsoup.helper.StringUtil;
 
 import com.c2point.tms.entity.CheckInOutRecord;
 import com.c2point.tms.entity.ProjectTask;
@@ -59,6 +60,7 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
     private Label		taskName;
     
     private TextField	hoursField;
+    private TextField	numField;
     private TextArea	commentField;
     private Label 		approvalTypeField;
     
@@ -76,7 +78,7 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 
 	public ModifyTaskDialog( ModifyTaskIf model, TaskReport report, boolean accessedByManager ) {
 		super();
-//		setModal(true);
+		setModal(true);
 		
 		this.model = model;
 		this.report = report;
@@ -123,6 +125,7 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 
         	// Items Approved & Processed cannot be changed by Employee
             hoursField.setEnabled( false );
+            numField.setEnabled( false );
             commentField.setEnabled( false );
 			
 			saveButton.setEnabled( false );
@@ -153,6 +156,12 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 			float newHours = fieldToFloat( hoursField.getValue());
 			if ( newHours != report.getHours()) {
 				report.setHours( newHours );
+				wasChanged = true;
+			}
+		
+			float newNum = fieldToFloat( numField.getValue());
+			if ( newNum != report.getNumValue()) {
+				report.setNumValue( newNum );
 				wasChanged = true;
 			}
 		
@@ -254,6 +263,9 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 		if ( !hoursField.isValid() ) {
 			if ( logger.isDebugEnabled()) logger.debug( "  hoursField is NOT valid!" );
 			showErrorField( hoursField );
+		} else if ( !numField.isValid()) {
+			if ( logger.isDebugEnabled()) logger.debug( "  numField is NOT valid!" );
+			showErrorField( numField );
 		} else {
 			clearErrorField();
 
@@ -399,8 +411,8 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 		hl.addComponent( dateField );
 		hl.setComponentAlignment( dateField, Alignment.BOTTOM_RIGHT );
 		
-		GridLayout gl = new GridLayout( 6, 2 );
-		gl.setSpacing( true );
+		GridLayout gl = new GridLayout( 6, 3 );
+		gl.setSpacing( false );
         gl.setWidth("100%");
 
 		projectName = new Label( "", ContentMode.HTML );
@@ -427,10 +439,30 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
         hoursField.setImmediate(true);
         hoursField.addValidator( hoursValidator );
 		
-		Label emptyLabel3 = new Label( "" ); 
-		emptyLabel3.setWidth( "1ex" );
+		Validator numValueValidator = new RegexpValidator( "([0-9]{0,}| )(\\.\\d)?$", "?" );
 
-		Label hoursLabel = new Label( "hours" );
+        numField = new TextField( "" );
+        numField.setWidth("4em");
+        numField.setNullSettingAllowed( true );
+        numField.setNullRepresentation( "" );
+        numField.setDescription( model.getApp().getResourceStr( "approve.edit.numvalue.tooltip" ));
+        numField.setImmediate(true);
+        numField.addValidator( numValueValidator );
+
+        Label emptyLabel3 = new Label( "" ); 
+		emptyLabel3.setWidth( "1ex" );
+        Label emptyLabel4 = new Label( "" ); 
+		emptyLabel4.setWidth( "1ex" );
+
+
+		Label hoursLabel = new Label( model.getApp().getResourceStr( "approve.edit.hours" ));
+
+		String unitName;
+		try {
+			unitName = report.getTask().getMeasurementUnit().getName();
+		} catch ( Exception e ) {
+			unitName = null;
+		}
 
         Button editButton = null;
         if ( accessedByManager && report.getApprovalFlagType().allowToBeChanged()) {
@@ -457,6 +489,17 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 		gl.addComponent( hoursField, 3, 1 );
 		gl.addComponent( emptyLabel3, 4, 1 );
 		gl.addComponent( hoursLabel, 5, 1 );
+		if ( !StringUtil.isBlank( unitName )) {
+			gl.addComponent( numField,    3, 2 );
+			gl.addComponent( emptyLabel4, 4, 2 );
+			Label numLabel = new Label( unitName );
+			gl.addComponent( numLabel,    5, 2 );
+
+			gl.setComponentAlignment( numField, Alignment.BOTTOM_LEFT );
+			gl.setComponentAlignment( numLabel, Alignment.BOTTOM_LEFT );
+			
+		}
+		
         if ( editButton != null ) {
         	gl.addComponent( editButton, 5, 0, 5, 0 );
         }
@@ -525,6 +568,12 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 	        if ( !accessedByManager && !report.getApprovalFlagType().allowToBeChanged()) {
 	        	// Items Approved & Processed cannot be changed by Employee
 	        	hoursField.setEnabled( false );
+	        }
+	        
+	        numField.setValue( Float.toString( report.getNumValue()));
+	        if ( !accessedByManager && !report.getApprovalFlagType().allowToBeChanged()) {
+	        	// Items Approved & Processed cannot be changed by Employee
+	        	numField.setEnabled( false );
 	        }
 	        
 	        commentField.setValue( report.getComment());

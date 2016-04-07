@@ -70,7 +70,7 @@ public class TimeReportsComponent extends Table
 //									date = model.getDateModel().getDateOfWeekDay( dayOfWeek.convertToCalendarDOW());
 									date = model.getDateModel().getDateOfWeekDay( dayOfWeek );
 
-									report.initReport( date, model.getSessionOwner(), item.getProjectTask(), 0, "" );
+									report.initReport( date, model.getSessionOwner(), item.getProjectTask(), 0, 0, "" );
 	                    			if ( logger.isDebugEnabled()) logger.debug( "New TaskReport has been created: " + report );
 
 	                    			item.putReport( report );

@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import com.c2point.tms.web.application.TmsApplication;
 import com.c2point.tms.web.ui.projectsview.ProjectView;
 import com.vaadin.shared.ui.AlignmentInfo.Bits;
+import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Label;
 
@@ -41,7 +42,7 @@ public class InProgressView extends AbstractMainView {
 		this.setSpacing( true );
 
 		Label content = new Label( "" );
-		content.setContentMode( Label.CONTENT_XHTML );
+		content.setContentMode( ContentMode.HTML );
 		content.setValue( this.getTmsApplication().getResourceStr( "inprogress.title" ));
 		
 		this.addComponent( content );

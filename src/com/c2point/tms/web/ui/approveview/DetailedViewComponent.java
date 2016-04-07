@@ -2,6 +2,7 @@ package com.c2point.tms.web.ui.approveview;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -61,6 +62,8 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 	private Label 		hoursName;
 	private Label 		hoursValue;
 
+	private Label 		numValue;
+
 	private Label 		travelTypeName;
 	private Label 		travelTypeValue;
 	private Label 		startName;
@@ -100,7 +103,7 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 		
 		header 			= new Label();
 		header.addStyleName( Runo.LABEL_H2);
-		header.setWidth( Sizeable.SIZE_UNDEFINED, Unit.PIXELS );
+		header.setWidthUndefined();
 
 		projectLabel	= new Label( model.getApp().getResourceStr( "general.edit.project" ) + ": ", ContentMode.HTML );
 		
@@ -117,6 +120,9 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 		hoursValue	= new Label( "", ContentMode.HTML );
 		hoursValue.addStyleName( "h3");
 
+		numValue	= new Label( "", ContentMode.HTML );
+		numValue.addStyleName( "h3");
+		
 		travelTypeName 	= new Label( "", ContentMode.HTML );
 		startName		= new Label( "", ContentMode.HTML );
 		endName			= new Label( "", ContentMode.HTML );
@@ -232,16 +238,29 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 
 	private void showTaskReportData( TaskReport report ) {
 		
-		GridLayout grid = new GridLayout( 2, 2 );
+		GridLayout grid = new GridLayout( 2, 3 );
 		grid.setWidth( "100%" );
 		
 		hoursName.setValue( report.getTask().getName());
 		hoursValue.setValue( "<b>" + Float.toString( report.getHours()) + " hours" + "</b>" );
 		
+		String unitName;
+		try {
+			unitName = report.getTask().getMeasurementUnit().getName();
+			if ( !StringUtils.isBlank( unitName ) || report.getNumValue() > 0 ) {
+				numValue.setValue( "<b>" + Float.toString( report.getNumValue()) + " " + unitName + "</b>" );
+			}
+		} catch ( Exception e ) {
+//			unitName = "";
+			numValue.setValue( null );
+		}
+		
 		grid.addComponent( hoursName, 0, 0 );
 		grid.addComponent( hoursValue, 1, 0 );
+		grid.addComponent( numValue, 1, 1 );
 		grid.setComponentAlignment( hoursName, Alignment.MIDDLE_LEFT );
 		grid.setComponentAlignment( hoursValue, Alignment.MIDDLE_RIGHT );
+		grid.setComponentAlignment( numValue, Alignment.MIDDLE_RIGHT );
 		
 		if ( report.getComment() != null && report.getComment().length() > 0 ) {
 			commentsValue.setCaption( model.getApp().getResourceStr( "approve.edit.comment" ));

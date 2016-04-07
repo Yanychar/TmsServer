@@ -56,6 +56,8 @@ public class TaskReport extends AbstractReport {
 	
 	private float	hours;
 
+	private float	numValue;
+	
 	@Column( length=1024 )
 	private String	comment;	
 	
@@ -72,19 +74,21 @@ public class TaskReport extends AbstractReport {
 		}
 		this.setApprovalFlagType( otherReport.getApprovalFlagType());
 		this.hours = otherReport.getHours();
+		this.numValue = otherReport.getNumValue();
 		this.comment = otherReport.getComment();
 		
 		return this;
 	}
 
-	public TaskReport initReport( Date date, TmsUser user, ProjectTask projectTask, float hours, String comment ) {
-		return initReport( null , date, user, projectTask, hours, comment );
+	public TaskReport initReport( Date date, TmsUser user, ProjectTask projectTask, float hours, float numValue, String comment ) {
+		return initReport( null , date, user, projectTask, hours, numValue, comment );
 	}
 	
-	public TaskReport initReport( String uniqueReportId, Date date, TmsUser user, ProjectTask projectTask, float hours, String comment ) {
+	public TaskReport initReport( String uniqueReportId, Date date, TmsUser user, ProjectTask projectTask, float hours, float numValue, String comment ) {
 		super.initReport( uniqueReportId, date, user);
 		this.projectTask = projectTask;
 		this.hours = hours;
+		this.numValue = numValue;
 		this.comment = comment;
 
 		return this;
@@ -98,13 +102,11 @@ public class TaskReport extends AbstractReport {
 		this.projectTask = projectTask;
 	}
 
-	public float getHours() {
-		return hours;
-	}
+	public float getHours() { return hours; }
+	public void setHours( float hours ) { this.hours = hours; }
 
-	public void setHours( float hours ) {
-		this.hours = hours;
-	}
+	public float getNumValue() { return numValue; }
+	public void setNumValue( float numValue ) { this.numValue = numValue; }
 
 	public String getComment() {
 		return comment;
@@ -122,7 +124,7 @@ public class TaskReport extends AbstractReport {
 				+ (this.getApprovalFlagType() != null ? "flag=" + this.getApprovalFlagType() + ", " : ", ")
 				+ (getProject() != null ? "prj.code=" + getProject().getCode() + ", " : ", ")
 				+ (getTask() != null ? "task.code=" + getTask() + ", " : ", ")
-				+ "hours=" + hours + ", "
+				+ "hours=" + hours + ", value=" + numValue + ", "
 				+ ", " + (comment != null ? "comment=" + comment + ", " : " ")
 				+ "id=" + id + "]";
 	}
