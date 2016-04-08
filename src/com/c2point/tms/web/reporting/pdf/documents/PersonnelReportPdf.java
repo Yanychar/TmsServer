@@ -143,9 +143,9 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 
 	private PdfPTable createPersonTablePerDate() throws Exception { 
 		
-		PdfPTable table = new PdfPTable( 7 );
+		PdfPTable table = new PdfPTable( 8 );
 		
-		table.setTotalWidth( new float[]{ 65, 40, 40, 140, 60, 60, 60 });
+		table.setTotalWidth( new float[]{ 65, 40, 40, 140, 60, 60, 60, 60 });
 		table.setLockedWidth( true );
 		table.getDefaultCell().setBorder( Rectangle.NO_BORDER );
 		
@@ -158,34 +158,42 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 					if ( model.isDateFlag()) {
 							// Write header if necessary
 						cell = new PdfPCell( new Phrase( "" ));
-						cell.setColspan( 7 );
+						cell.setColspan( 8 );
 						cell.setBorder( Rectangle.NO_BORDER );
 						table.addCell( cell );
 
 						cell = new PdfPCell( new Phrase( userItem.getUser().getLastAndFirstNames()));
 						cell.setColspan( 4 );
-						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
+						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM);
 						cell.setBorderWidthTop( 3f );
 //						cell.setBorderWidthBottom( 1f );
 						cell.setUseBorderPadding( true );					
 						table.addCell( cell );
 
 						cell = new PdfPCell( new Phrase( app.getResourceStr( "general.table.header.hours" )));
-						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
+						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM);
+						cell.setBorderWidthTop( 3f );
+//						cell.setBorderWidthBottom( 1f );
+						cell.setUseBorderPadding( true );					
+						table.addCell( cell );
+
+						cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.measure" )));
+//						cell = new PdfPCell( new Phrase( "Unit" ));
+						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM);
 						cell.setBorderWidthTop( 3f );
 //						cell.setBorderWidthBottom( 1f );
 						cell.setUseBorderPadding( true );					
 						table.addCell( cell );
 
 						cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.tyomatka" )));
-						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
+						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM);
 						cell.setBorderWidthTop( 3f );
 //						cell.setBorderWidthBottom( 1f );
 						cell.setUseBorderPadding( true );					
 						table.addCell( cell );
 						
 						cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.tyoajo" )));
-						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
+						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM);
 						cell.setBorderWidthTop( 3f );
 //						cell.setBorderWidthBottom( 1f );
 						cell.setUseBorderPadding( true );					
@@ -195,30 +203,40 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 		
 							cell = new PdfPCell( new Phrase( DateUtil.dateToString( dateItem.getDate())));
 							cell.setHorizontalAlignment( Element.ALIGN_CENTER );
-							cell.setBorder( Rectangle.NO_BORDER );
+							cell.setBorder( Rectangle.TOP );
+							cell.setBorderWidthTop( 0.5f );
 							table.addCell( cell );
 		
 							cell = new PdfPCell();
 							cell.setColspan( 3 );
-							cell.setBorder( Rectangle.NO_BORDER );
+							cell.setBorder( Rectangle.TOP );
+							cell.setBorderWidthTop( 0.5f );
 							table.addCell( cell );
 							
 							cell = new PdfPCell( new Phrase( String.format( "%.1f", dateItem.getHours())));
 							cell.setPaddingRight( 10 );
 							cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-							cell.setBorder( Rectangle.NO_BORDER );
+							cell.setBorder( Rectangle.TOP );
+							cell.setBorderWidthTop( 0.5f );
 							table.addCell( cell );
-		
+
+							cell = new PdfPCell();
+							cell.setBorder( Rectangle.TOP );
+							cell.setBorderWidthTop( 0.5f );
+							table.addCell( cell );
+							
 							cell = new PdfPCell( new Phrase( Integer.toString( dateItem.getMatka())));
 							cell.setPaddingRight( 10 );
 							cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-							cell.setBorder( Rectangle.NO_BORDER );
+							cell.setBorder( Rectangle.TOP );
+							cell.setBorderWidthTop( 0.5f );
 							table.addCell( cell );
 							
 							cell = new PdfPCell( new Phrase( Integer.toString( dateItem.getAjo())));
 							cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
 							cell.setPaddingRight( 10 );
-							cell.setBorder( Rectangle.NO_BORDER );
+							cell.setBorder( Rectangle.TOP );
+							cell.setBorderWidthTop( 0.5f );
 							table.addCell( cell );
 							
 							if ( model.isProjectsFlag() || model.isTasksFlag_1() || model.isTravelFlag_1()) {
@@ -236,6 +254,7 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 										cell.setBorder( cell.getBorder() - Rectangle.RIGHT );
 										cell.setBorder( Rectangle.NO_BORDER );
 										table.addCell( cell );
+										
 										cell = new PdfPCell( new Phrase( prjItem.getProject().getName())); 
 										cell.setColspan( 2 );
 										cell.setBorder( cell.getBorder() - Rectangle.LEFT );
@@ -248,6 +267,10 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 										cell.setBorder( Rectangle.NO_BORDER );
 										table.addCell( cell );
 				
+										cell = new PdfPCell();
+										cell.setBorder( Rectangle.NO_BORDER );
+										table.addCell( cell );
+										
 										cell = new PdfPCell( new Phrase( Integer.toString( prjItem.getMatka())));
 										cell.setPaddingRight( 10 );
 										cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
@@ -275,12 +298,26 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 											cell.setBorder( cell.getBorder() - Rectangle.RIGHT );
 											cell.setBorder( Rectangle.NO_BORDER );
 											table.addCell( cell );
+											
 											cell = new PdfPCell( new Phrase( taskItem.getTask().getName())); 
 											cell.setBorder( cell.getBorder() - Rectangle.LEFT );
 											cell.setBorder( Rectangle.NO_BORDER );
 											table.addCell( cell );
 										
 											cell = new PdfPCell( new Phrase( String.format( "%.1f", taskItem.getHours())));
+											cell.setPaddingRight( 10 );
+											cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
+											cell.setBorder( Rectangle.NO_BORDER );
+											table.addCell( cell );
+				
+											if ( taskItem.getNumValue() > 0 ) {
+												cell = new PdfPCell( new Phrase( String.format( "%.1f", taskItem.getNumValue()) 
+														+ " " + taskItem.getNumValueMeasure()
+													));
+												
+											} else {
+												cell = new PdfPCell();
+											}
 											cell.setPaddingRight( 10 );
 											cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
 											cell.setBorder( Rectangle.NO_BORDER );
@@ -305,7 +342,7 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 										table.addCell( cell );
 										
 										cell = new PdfPCell();
-										cell.setColspan( 4 );
+										cell.setColspan( 5 );
 										cell.setBorder( Rectangle.NO_BORDER );
 										table.addCell( cell );
 
@@ -319,7 +356,7 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 										
 											cell = new PdfPCell( new Phrase( travelItem.getReport().getRoute())); 
 											cell.setBorder( cell.getBorder() - Rectangle.RIGHT );
-											cell.setColspan( 2 );
+											cell.setColspan( 3 );
 											cell.setBorder( Rectangle.NO_BORDER );
 											table.addCell( cell );
 										

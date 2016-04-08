@@ -141,9 +141,9 @@ public class ProjectsReportPdf extends AbstractReportPdf {
 
 	private PdfPTable createProjectsTable() throws Exception { 
 		
-		PdfPTable table = new PdfPTable( 6 );
+		PdfPTable table = new PdfPTable( 7 );
 		
-		table.setTotalWidth( new float[]{ 40, 40, 140, 60, 60, 60 });
+		table.setTotalWidth( new float[]{ 40, 40, 140, 60, 60, 60, 60 });
 		table.setLockedWidth( true );
 		table.getDefaultCell().setBorder( Rectangle.NO_BORDER );
 		
@@ -151,7 +151,7 @@ public class ProjectsReportPdf extends AbstractReportPdf {
 			PdfPCell cell;
 			// Write header if necessary
 			cell = new PdfPCell( new Phrase( "" ));
-			cell.setColspan( 6 );
+			cell.setColspan( 7 );
 			cell.setBorder( Rectangle.NO_BORDER );
 			table.addCell( cell );
 	
@@ -170,6 +170,13 @@ public class ProjectsReportPdf extends AbstractReportPdf {
 			cell.setUseBorderPadding( true );					
 			table.addCell( cell );
 	
+			cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.measure" )));
+			cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
+			cell.setBorderWidthTop( 3f );
+//			cell.setBorderWidthBottom( 1f );
+			cell.setUseBorderPadding( true );					
+			table.addCell( cell );
+
 			cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.tyomatka" )));
 			cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
 			cell.setBorderWidthTop( 3f );
@@ -189,30 +196,41 @@ public class ProjectsReportPdf extends AbstractReportPdf {
 				
 					cell = new PdfPCell( new Phrase( StringUtils.padRightSpaces( prjItem.getProject().getCode(), 8 ))); 
 					cell.setBorder( cell.getBorder() - Rectangle.RIGHT );
-					cell.setBorder( Rectangle.NO_BORDER );
+					cell.setBorder( Rectangle.TOP );
+					cell.setBorderWidthTop( 0.5f );
 					table.addCell( cell );
+					
 					cell = new PdfPCell( new Phrase( prjItem.getProject().getName())); 
 					cell.setColspan( 2 );
 					cell.setBorder( cell.getBorder() - Rectangle.LEFT );
-					cell.setBorder( Rectangle.NO_BORDER );
+					cell.setBorder( Rectangle.TOP );
+					cell.setBorderWidthTop( 0.5f );
 					table.addCell( cell );
 				
 					cell = new PdfPCell( new Phrase( String.format( "%.1f", prjItem.getHours())));
 					cell.setPaddingRight( 10 );
 					cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-					cell.setBorder( Rectangle.NO_BORDER );
+					cell.setBorder( Rectangle.TOP );
+					cell.setBorderWidthTop( 0.5f );
 					table.addCell( cell );
 
+					cell = new PdfPCell();
+					cell.setBorder( Rectangle.TOP );
+					cell.setBorderWidthTop( 0.5f );
+					table.addCell( cell );
+					
 					cell = new PdfPCell( new Phrase( Integer.toString( prjItem.getMatka())));
 					cell.setPaddingRight( 10 );
 					cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-					cell.setBorder( Rectangle.NO_BORDER );
+					cell.setBorder( Rectangle.TOP );
+					cell.setBorderWidthTop( 0.5f );
 					table.addCell( cell );
 					
 					cell = new PdfPCell( new Phrase( Integer.toString( prjItem.getAjo())));
 					cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
 					cell.setPaddingRight( 10 );
-					cell.setBorder( Rectangle.NO_BORDER );
+					cell.setBorder( Rectangle.TOP );
+					cell.setBorderWidthTop( 0.5f );
 					table.addCell( cell );
 					if ( prjItem.getTaskItems().size() > 0 && model.isTasksFlag_2()) {
 						// Write header if necessary
@@ -239,6 +257,19 @@ public class ProjectsReportPdf extends AbstractReportPdf {
 							cell.setBorder( Rectangle.NO_BORDER );
 							table.addCell( cell );
 
+							if ( taskItem.getNumValue() > 0 ) {
+								cell = new PdfPCell( new Phrase( String.format( "%.1f", taskItem.getNumValue()) 
+										+ " " + taskItem.getNumValueMeasure()
+									));
+								
+							} else {
+								cell = new PdfPCell();
+							}
+							cell.setPaddingRight( 10 );
+							cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
+							cell.setBorder( Rectangle.NO_BORDER );
+							table.addCell( cell );
+
 							cell = new PdfPCell();
 							cell.setColspan( 2 );
 							cell.setBorder( Rectangle.NO_BORDER );
@@ -255,7 +286,7 @@ public class ProjectsReportPdf extends AbstractReportPdf {
 						table.addCell( cell );
 						
 						cell = new PdfPCell();
-						cell.setColspan( 4 );
+						cell.setColspan( 5 );
 						cell.setBorder( Rectangle.NO_BORDER );
 						table.addCell( cell );
 
@@ -268,7 +299,7 @@ public class ProjectsReportPdf extends AbstractReportPdf {
 						
 							cell = new PdfPCell( new Phrase( travelItem.getReport().getRoute())); 
 							cell.setBorder( cell.getBorder() - Rectangle.RIGHT );
-							cell.setColspan( 2 );
+							cell.setColspan( 3 );
 							cell.setBorder( Rectangle.NO_BORDER );
 							table.addCell( cell );
 						

@@ -208,7 +208,7 @@ public class ReportTaskTravelView extends AbstractMainView {
 		allTravels_1.addValueChangeListener( new ValueChangeListener() {
 			@Override
 			public void valueChange( ValueChangeEvent event ) {
-				model.setTravelFlag_1(( Boolean )allTasks_1.getValue());
+				model.setTravelFlag_1(( Boolean )allTravels_1.getValue());
 				
 			}
 		});

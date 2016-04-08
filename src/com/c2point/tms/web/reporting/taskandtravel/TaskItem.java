@@ -29,6 +29,7 @@ public class TaskItem { //extends AggregateItem {
 		
 		if ( this.report != null ) {
 			owner.addHours( report.getApprovalFlagType(), this.report.getHours());
+			owner.addNumValue( report.getApprovalFlagType(), this.report.getNumValue());
 		}
 		
 	}
@@ -37,11 +38,30 @@ public class TaskItem { //extends AggregateItem {
 		return report.getHours();
 	}
 
+	public float getNumValue() {
+		return report.getNumValue();
+	}
+
+	public String getNumValueMeasure() {
+		
+		String str;
+		
+		try {
+			str = report.getTask().getMeasurementUnit().getName();
+		} catch ( Exception e ) {
+			str = "";
+		}
+		
+		return str;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "      Task Item ['" + StringUtils.padRightSpaces( getTask().getCode(), 8 ) 
 									+ getTask().getName() + "', hours=" 
-									+ report.getHours() + ", " 
+									+ report.getHours() + ", value="
+									+ report.getNumValue()
 									+ report.getApprovalFlagType() + " ]";
 	}
 
