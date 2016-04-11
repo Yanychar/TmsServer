@@ -3,51 +3,46 @@ package com.c2point.tms.web.reporting.taskandtravel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.c2point.tms.entity.ProjectTask;
 import com.c2point.tms.entity.Task;
 import com.c2point.tms.entity.TaskReport;
 import com.c2point.tms.util.StringUtils;
 
-public class TaskItem { //extends AggregateItem {
+public class TaskItem extends AggregateItem {
 	
 	@SuppressWarnings("unused")
 	private static Logger logger = LogManager.getLogger( TaskItem.class.getName());
 	
-	private TaskReport	report;
+	private ProjectTask		projectTask;
 	
-	private AggregateItem	owner;
+//	private AggregateItem	own;
 	
 	public TaskItem( PrjItem pi, TaskReport report ) {
-		this.owner	=  pi; 
-		this.report	= report;
-		handleReport();
+		super( pi );
+		
+		projectTask = report.getProjectTask(); 
+//		handleReport( report );
 	}
 
-	public TaskReport getReport() { return report; }
-	public Task getTask() { return report.getProjectTask().getTask(); }
+//	public TaskReport getReport() { return report; }
+	public Task getTask() { return projectTask.getTask(); }
 	
-	private void handleReport() {
+	public void handleReport( TaskReport report ) {
 		
-		if ( this.report != null ) {
-			owner.addHours( report.getApprovalFlagType(), this.report.getHours());
-			owner.addNumValue( report.getApprovalFlagType(), this.report.getNumValue());
+		if ( report != null ) {
+			addHours( report.getApprovalFlagType(), report.getHours());
+			addNumValue( report.getApprovalFlagType(), report.getNumValue());
+			
 		}
 		
 	}
 	
-	public float getHours() {
-		return report.getHours();
-	}
-
-	public float getNumValue() {
-		return report.getNumValue();
-	}
-
 	public String getNumValueMeasure() {
 		
 		String str;
 		
 		try {
-			str = report.getTask().getMeasurementUnit().getName();
+			str = projectTask.getTask().getMeasurementUnit().getName();
 		} catch ( Exception e ) {
 			str = "";
 		}
@@ -59,10 +54,10 @@ public class TaskItem { //extends AggregateItem {
 	@Override
 	public String toString() {
 		return "      Task Item ['" + StringUtils.padRightSpaces( getTask().getCode(), 8 ) 
-									+ getTask().getName() + "', hours=" 
-									+ report.getHours() + ", value="
-									+ report.getNumValue()
-									+ report.getApprovalFlagType() + " ]";
+									+ projectTask.getTask().getName() + "', hours=" 
+									+ getHours() + ", value="
+									+ getNumValue()
+									/* + getApprovalFlagType()*/ + " ]";
 	}
 
 }

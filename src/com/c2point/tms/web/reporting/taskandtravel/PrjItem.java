@@ -1,17 +1,19 @@
 package com.c2point.tms.web.reporting.taskandtravel;
 
-
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.AbstractReport;
 import com.c2point.tms.entity.Project;
+import com.c2point.tms.entity.ProjectTask;
 import com.c2point.tms.entity.TaskReport;
 import com.c2point.tms.entity.TravelReport;
 import com.c2point.tms.util.StringUtils;
@@ -22,7 +24,7 @@ public class PrjItem extends AggregateItem {
 	
 	private Project project;
 	
-	private List<TaskItem> 	taskList;
+	private Map<ProjectTask, TaskItem> 	taskMap;
 	private List<TravelItem> travelList;
 	
 	public PrjItem( AggregateItem ai, Project project ) {
@@ -30,20 +32,23 @@ public class PrjItem extends AggregateItem {
 		
 		this.project = project;
 
-		taskList = new ArrayList<TaskItem>( 5 );
+		taskMap = new HashMap<ProjectTask,TaskItem>( 5 );
 		travelList = new ArrayList<TravelItem>( 5 );
 	
 	}
 
 	public Project getProject() { return project; }
 
+	@SuppressWarnings("rawtypes")
 	public List< TaskItem > getTaskItems() {
 		
-		if ( taskList != null ) {
-			Collections.sort( taskList, new TaskItemComparator());
+		@SuppressWarnings("unchecked")
+		List< TaskItem> tl =  new ArrayList( taskMap.values());
+		if ( tl != null ) {
+			Collections.sort( tl, new TaskItemComparator());
 		}
 
-		return taskList;
+		return tl;
 	}
 	
 	public List< TravelItem > getTravelItems() {
@@ -56,8 +61,20 @@ public class PrjItem extends AggregateItem {
 		
 		
 		if ( report instanceof TaskReport ) {
-			taskList.add( new TaskItem( this, ( TaskReport )report ));
+			
+			TaskItem taskItem = taskMap.get((( TaskReport )report).getProjectTask());
+			
+			if ( taskItem == null ) {
+				
+				taskItem = new TaskItem( this, ( TaskReport )report );
+				taskMap.put((( TaskReport )report).getProjectTask(), taskItem );
+				logger.debug( "TaskItem for TaskReport has been created " );
+			}
+			
+			taskItem.handleReport(( TaskReport )report );
 			logger.debug( "TaskItem for TaskReport has been created " );
+			
+			
 		} else if ( report instanceof TravelReport ) {
 			travelList.add( new TravelItem( this, ( TravelReport )report ));
 			logger.debug( "TravelItem for TravelReport has been created " );
