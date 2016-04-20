@@ -3,10 +3,12 @@ package com.c2point.tms.web.ui;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.c2point.tms.web.application.TmsApplication;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.UI;
 
 public class ButtonBar extends HorizontalLayout {
 
@@ -71,9 +73,9 @@ public class ButtonBar extends HorizontalLayout {
 	
 	private void initResources() {
 
-		okButton.setCaption( "OK" );
-		cancelButton.setCaption( "Cancel" );
-		closeButton.setCaption( "Close" );
+		okButton.setCaption((( TmsApplication )UI.getCurrent()).getResourceStr( "general.button.ok" ));
+		cancelButton.setCaption((( TmsApplication )UI.getCurrent()).getResourceStr( "general.button.cancel" ));
+		closeButton.setCaption((( TmsApplication )UI.getCurrent()).getResourceStr( "general.button.close" ));
 		
 	}
 

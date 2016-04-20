@@ -1,12 +1,8 @@
 @echo off
 
-
-set source=C:\Users\sevastia\workspace_tms
-
-
-set jdk_home="\Program Files\Java\jdk1.7.0_10"
-set source="C:\Users\sevastia\workspace_tms\TMS Vaadin 7"
-set dest="C:\Users\sevastia\workspace_tms\TMS Vaadin 7\src\com\c2point\tms\web\resources"
+set jdk_home="C:\Program Files\Java\jdk1.8.0_45"
+set   source="D:\Development\TMS development\workspace_tms\TmsServer"
+set     dest="D:\Development\TMS development\workspace_tms\TmsServer\src\com\c2point\tms\web\resources"
 
 
 del %dest%\WebResources_en_FI.properties

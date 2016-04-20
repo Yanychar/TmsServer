@@ -121,29 +121,6 @@ public class CompaniesListComponent extends VerticalLayout implements Organisati
         	
         });
 
-/*        
-        String [] choices = { "Active", "Past", "All" };
-        validitySelector = new ComboBox();
-
-        for ( int i = 0; i < choices.length; i++ ) {
-        	validitySelector.addItem( choices[i] );
-        }
-        validitySelector.setMultiSelect( false );
-        validitySelector.setTextInputAllowed( false );
-        validitySelector.setFilteringMode( Filtering.FILTERINGMODE_OFF);
-        validitySelector.setNullSelectionAllowed( false );
-        validitySelector.setImmediate(true);
-        validitySelector.setValue( "Active" );
-        validitySelector.setEnabled( false );
-
-		HorizontalLayout lo = new HorizontalLayout();
-		lo.setSizeFull();
-		lo.setStyleName("toolbar");
-        
-		lo.addComponent( addButton );
-		lo.addComponent( validitySelector );
-*/
-
 		addComponent( addButton );
 		addComponent( companiesTable );
 		

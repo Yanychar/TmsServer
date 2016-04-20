@@ -25,7 +25,7 @@ public class ResourceTools {
 //		LangPacks.LOCALE_SV
 	};
 	
-	// ÐºÐ»Ñ�Ð¹Ð»Ñ�ÐºÐ¹
+	// Ã�ÂºÃ�Â»Ã‘ï¿½Ã�Â¹Ã�Â»Ã‘ï¿½Ã�ÂºÃ�Â¹
 	
 	public static String propertyFileBaseName = "WebResources";
 	public static String propertyFileExtName = ".properties";
