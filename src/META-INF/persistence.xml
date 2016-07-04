@@ -22,10 +22,7 @@
 			
 			
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<!-- 
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/tms" />
-			-->
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://54.194.127.157:5432/tms" />
 
 			<property name="javax.persistence.jdbc.user" value="tms" />
 			<property name="javax.persistence.jdbc.password" value="tms" />

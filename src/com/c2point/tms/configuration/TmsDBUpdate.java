@@ -216,7 +216,6 @@ public class TmsDBUpdate {
 			logger.debug( "Connection has been obtained!" );
 		} catch (SQLException e) {
 			logger.error( dbName + " database does not exist!" );
-			logger.error( e.toString());
 			return null;
 		}
 		
