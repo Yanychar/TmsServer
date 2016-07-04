@@ -9,7 +9,7 @@ import com.c2point.tms.entity.ProjectTask;
 import com.c2point.tms.entity.TaskReport;
 
 @XmlRootElement(name = "task")
-@XmlType(propOrder = { "uniqueReportId", "code", "name", "hours", "numValue", "comment", "approvalFlagType" })
+@XmlType(propOrder = { "uniqueReportId", "code", "name", "hours", "numValue", "defName", "resName", "comment", "approvalFlagType" })
 public class TaskReportStub {
 
     // UniqueID of TaskReport (OPTIONAL). Used:
@@ -31,6 +31,10 @@ public class TaskReportStub {
 	
     // Numeric value reported
 	private Float	numValue;
+	// Quantity measure for numValue
+	private String	defName;   // default measurement unit
+	private String	resName;	// Name of resource used to show measurement unit
+	
 	
     // Comment to TaskReport (MANDATORY).
 	private String	comment;	
@@ -47,6 +51,8 @@ public class TaskReportStub {
 //		this.prj_code = report.getProjectTask().getProject().getCode();
 		this.hours = report.getHours();
 		this.numValue = report.getNumValue();
+		this.defName = report.getTask().getMeasurementUnit().getDefName();
+		this.resName = report.getTask().getMeasurementUnit().getResourcename();
 		this.comment = report.getComment();
 		this.approvalFlagType = report.getApprovalFlagType();
 	}
@@ -99,6 +105,12 @@ public class TaskReportStub {
 	public void setNumValue( float numValue ) { this.numValue = numValue; }
 	public void setNumValue( Float numValue ) { this.numValue = numValue; }
 
+	public String getDefName() { return defName; }
+	public void setDefName( String defName ) { this.defName = defName; }
+
+	public String getResName() { return resName; }
+	public void setResName( String resName ) { this.resName = resName; }
+
 	public String getComment() {
 		return comment;
 	}
@@ -120,7 +132,7 @@ public class TaskReportStub {
 		return "TaskReportStub [" + "uniqueReportId=" + (uniqueReportId != null ? uniqueReportId : "null" ) + ", "
 				+ "Ref. to ProjTask [code="+ ( code != null ? code : "null") + ", " 
 								  + "name=" +(name != null ? name : "null") + "], " 
-				+ "hours=" + hours + ", value=" + numValue + ", "
+				+ "hours=" + hours + ", value=" + numValue + " " + defName + ", "
 				+ "comment=" + (comment != null ? comment : "null" ) + "]";
 	}
 }
