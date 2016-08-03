@@ -93,7 +93,11 @@ public class ProjectTask extends SimplePojo {
 	public String toString() {
 		return "ProjectTask [" 
 				+ ( codeInProject != null ? codeInProject + ", " : "NULL, " )
-				+ " for Task [" 
+				+ " for Project [" 
+				+ "code=" + (project.getCode() != null ? project.getCode() + ", " : "NULL, ")
+				+ "name=" + (project.getName() != null ? project.getName() : "NULL") + "]"
+				+  "]"
+				+ " and Task [" 
 				+ "code=" + (task.getCode() != null ? task.getCode() + ", " : "NULL, ")
 				+ "name=" + (task.getName() != null ? task.getName() : "NULL") + "]"
 				+  "]";

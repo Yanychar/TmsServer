@@ -74,7 +74,7 @@
 		<!-- JUnit dependency -->
 		<dependency org="junit" name="junit" rev="4.11" />
 			
-			
+		<dependency org="org.vaadin.addon" name="easyuploads" rev="7.4.6" />			
 			
 			
 	</dependencies>

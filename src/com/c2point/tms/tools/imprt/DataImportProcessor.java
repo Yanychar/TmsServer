@@ -20,6 +20,7 @@ import com.c2point.tms.entity.Organisation;
 import com.c2point.tms.entity.transactions.FileImportTransaction;
 import com.c2point.tms.entity.transactions.Transaction;
 import com.c2point.tms.web.application.TmsApplication;
+import com.c2point.tms.tools.LoggerIF;
 import com.c2point.tms.util.DateUtil;
 import com.vaadin.ui.UI;
 

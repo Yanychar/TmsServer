@@ -1,5 +1,6 @@
 package com.c2point.tms.web.ui.projectsview;
 
+import java.io.File;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,6 +22,7 @@ import com.c2point.tms.entity.Task;
 import com.c2point.tms.entity.TmsUser;
 import com.c2point.tms.entity.access.SecurityContext;
 import com.c2point.tms.entity.access.SupportedFunctionType;
+import com.c2point.tms.tools.exprt.projectdata.ProjectDataExportProcessor;
 import com.c2point.tms.util.exception.NotUniqueCode;
 import com.c2point.tms.web.application.TmsApplication;
 import com.c2point.tms.web.ui.AbstractModel;
@@ -643,10 +645,6 @@ public class ProjectsModel extends AbstractModel {
 		return org;
 	}
 
-	public void refreshOrg() {
-		org = DataFacade.getInstance().find( Organisation.class, org.getId());
-	}
-
 	public Task addTask( Task task ) throws NotUniqueCode {
 		
 		Task result = null;
@@ -703,5 +701,37 @@ public class ProjectsModel extends AbstractModel {
 		
 		return result;
 	}
+
+	private File exportedFile = null;
+	public boolean export() {
+		boolean res = false;
+		exportedFile = null;
+		
+		if ( this.org != null ) {
+
+			ProjectDataExportProcessor processor;
+
+			if ( this.org != null ) {
+				logger.debug( "Start data EXPORT for Organisation: '" + org.getName() + "'" );
+
+				processor = ProjectDataExportProcessor.getProjectsDataExportProcessor( org, null );
+				if ( processor != null ) {
+					res = processor.process( org, ProjectDataExportProcessor.ScopeType.ALL, ProjectDataExportProcessor.FormatType.CSV );
+					exportedFile = processor.getResultFile();
+				} else {
+//					error( "ERROR: Could not find data processor for export" );
+				}
+				
+			} else {
+				logger.error( "Did not find Organisation: '" + org.getName() + "' in DB." );
+			}
+			
+		}
+		
+		return res;
+	}
 	
+	public File getExportFile() {
+		return exportedFile;
+	}
 }

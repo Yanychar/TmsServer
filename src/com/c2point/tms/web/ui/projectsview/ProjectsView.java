@@ -1,18 +1,22 @@
 package com.c2point.tms.web.ui.projectsview;
 
+import java.io.File;
+import java.io.OutputStream;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.access.SupportedFunctionType;
+import com.c2point.tms.tools.ExportFileIF;
 import com.c2point.tms.web.application.TmsApplication;
 import com.c2point.tms.web.ui.AbstractMainView;
 import com.c2point.tms.web.ui.listeners.SelectionChangedListener;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Upload;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickListener;
 
@@ -40,7 +44,7 @@ public class ProjectsView extends AbstractMainView {
 
 		
 		ProjectViewToolbar toolBar = new ProjectViewToolbar();
-		
+/*		
 		toolBar.setImpListener( new ClickListener() {
 			private static final long serialVersionUID = 1L;
 
@@ -52,17 +56,39 @@ public class ProjectsView extends AbstractMainView {
 			}
 		});
 		
-		toolBar.setExpListener( new ClickListener() {
+		toolBar.setExpListener( new Upload.Receiver() {
 			private static final long serialVersionUID = 1L;
 
-			@Override
 			public void buttonClick(ClickEvent event) {
 				
 				logger.debug( "Project Export button had been pressed" );
 				
+				
+				
+				model.export();
+				
+			}
+
+			@Override
+			public OutputStream receiveUpload(String filename, String mimeType) {
+				// TODO Auto-generated method stub
+				return null;
 			}
 		});
-	
+*/
+		toolBar.setExportHandler( new ExportFileIF() {
+
+			@Override
+			public File export() {
+				// Export function will be call
+				model.export();
+				
+				return model.getExportFile();
+				
+			}
+			
+		});
+		
 		Component projectPanel = getSingleProjectPanel();
 		Component tasksList = getTasksList();
 		Component projectsList = getProjectsList();

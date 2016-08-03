@@ -10,8 +10,8 @@ import org.apache.logging.log4j.Logger;
 import com.c2point.tms.datalayer.DataFacade;
 import com.c2point.tms.datalayer.OrganisationFacade;
 import com.c2point.tms.entity.Organisation;
+import com.c2point.tms.tools.LoggerIF;
 import com.c2point.tms.tools.exprt.DataExportProcessor;
-import com.c2point.tms.tools.imprt.LoggerIF;
 import com.c2point.tms.util.DateUtil;
 import com.c2point.tms.web.application.TmsApplication;
 import com.vaadin.data.Property;
@@ -234,7 +234,7 @@ public class ExportToolView extends Panel implements ValueChangeListener, Logger
 			outputArea.setReadOnly( true );
 
 			// Export data
-			processor = DataExportProcessor.getExportProcessor( selectedOrg, this );
+			processor = DataExportProcessor.getTimingExportProcessor( selectedOrg, this );
 			if ( processor != null ) {
 				res = processor.process( selectedOrg, startDate, endDate );
 			} else {
