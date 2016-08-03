@@ -8,6 +8,8 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.c2point.tms.entity.Organisation;
+
 public class ConfigUtil {
 	private static Logger logger = LogManager.getLogger( ConfigUtil.class.getName());
 
@@ -73,4 +75,18 @@ public class ConfigUtil {
 		return readProperties;
 	}
 
+	public static int getOrganisationIntProperty( Organisation org, String propName, int defValue ) {
+		int iRet = defValue;
+		
+		try {
+			iRet = Integer.parseInt( org.getProperty( propName, null ));
+		} catch ( Exception e ) {
+			logger.debug( "Could not convert '...backward.period' property into the integer. Default " + defValue + " will be used" );
+			iRet = defValue;
+		}
+		
+		
+		return iRet;
+	}
+	
 }

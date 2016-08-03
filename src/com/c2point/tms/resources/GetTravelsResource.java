@@ -20,13 +20,11 @@ import javax.xml.bind.JAXBException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.c2point.tms.datalayer.TaskReportFacade;
 import com.c2point.tms.datalayer.TravelReportFacade;
-import com.c2point.tms.entity.ProjectTask;
-import com.c2point.tms.entity.TaskReport;
 import com.c2point.tms.entity.TmsAccount;
 import com.c2point.tms.entity.TravelReport;
 import com.c2point.tms.entity.stubs.travelreport.TravelReportsListOutStub;
+import com.c2point.tms.util.ConfigUtil;
 import com.c2point.tms.util.DateUtil;
 import com.c2point.tms.util.xml.XMLconverter;
 
@@ -75,9 +73,15 @@ public class GetTravelsResource extends BaseResource {
 		 * */
 		List<TravelReport> trList;
 		
-		// Calculate date
-		// Calculate date 14 days before today in milliseconds
-		long tdms = DateUtil.getDate().getTime() - 1000 * 60 * 60 * 24 * 14;  // Minus 14 days
+		/* Restriction for days to see info */
+		// Check how many days it is allowed to edit backward
+		int allowedDays = ConfigUtil.getOrganisationIntProperty(
+				account.getUser().getOrganisation(), 
+				"company.projects.backward.period", 
+				14 );
+		
+		// Calculate date before today in milliseconds
+		long tdms = DateUtil.getDate().getTime() - 1000 * 60 * 60 * 24 * ( allowedDays - 1 );  // Minus 'allowedDays' days
 		
 		// Validate that date is OK
 		if ( date.getTime() >= tdms ) {

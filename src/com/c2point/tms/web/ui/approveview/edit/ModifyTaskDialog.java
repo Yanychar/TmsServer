@@ -49,7 +49,7 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 	
 	private ModifyTaskIf	model;
     private TaskReport		report;
-    private boolean			accessedByManager;
+    private boolean			editable;
 
     private Label		nameField;
     private Label		dateField;
@@ -74,13 +74,13 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 		this( model, report, true );
 	}
 
-	public ModifyTaskDialog( ModifyTaskIf model, TaskReport report, boolean accessedByManager ) {
+	public ModifyTaskDialog( ModifyTaskIf model, TaskReport report, boolean editable ) {
 		super();
 //		setModal(true);
 		
 		this.model = model;
 		this.report = report;
-		this.accessedByManager = accessedByManager;
+		this.editable = editable;
 		
 		initView();
 	}
@@ -119,13 +119,14 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 		
 		this.setContent( layout );
 
-        if ( !accessedByManager && !report.getApprovalFlagType().allowToBeChanged()) {
+        if ( !editable || !report.getApprovalFlagType().allowToBeChanged()) {
 
         	// Items Approved & Processed cannot be changed by Employee
             hoursField.setEnabled( false );
             commentField.setEnabled( false );
 			
 			saveButton.setEnabled( false );
+			cancelButton.focus();
 			
         }
         
@@ -433,7 +434,7 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
 		Label hoursLabel = new Label( "hours" );
 
         Button editButton = null;
-        if ( accessedByManager && report.getApprovalFlagType().allowToBeChanged()) {
+        if ( editable && report.getApprovalFlagType().allowToBeChanged()) {
         	
         	editButton = new Button( model.getApp().getResourceStr( "general.button.edit" ));
 //    		searchButton.addStyleName( Runo.BUTTON_BIG );
@@ -522,7 +523,7 @@ public class ModifyTaskDialog extends Window implements ValueChangeListener {
         	showProjectTask();
 	        
 	        hoursField.setValue( Float.toString( report.getHours()));
-	        if ( !accessedByManager && !report.getApprovalFlagType().allowToBeChanged()) {
+	        if ( !editable && !report.getApprovalFlagType().allowToBeChanged()) {
 	        	// Items Approved & Processed cannot be changed by Employee
 	        	hoursField.setEnabled( false );
 	        }

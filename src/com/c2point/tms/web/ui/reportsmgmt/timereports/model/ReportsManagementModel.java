@@ -1,11 +1,13 @@
 package com.c2point.tms.web.ui.reportsmgmt.timereports.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.ProjectTask;
+import com.c2point.tms.util.ConfigUtil;
 import com.c2point.tms.util.DateUtil;
 import com.c2point.tms.web.application.TmsApplication;
 import com.c2point.tms.web.ui.AbstractModel;
@@ -24,10 +26,14 @@ public class ReportsManagementModel extends AbstractModel
 	private ProjectsTasksTreeModel	projectsModel;
 	private TimeReportsModel	      timeReportsModel;
 
+	private Date startOfEditablePeriod;
+	private Date endOfEditablePeriod;
 
 	public ReportsManagementModel( TmsApplication app ) {
 		super( app );
 
+		calculateEditableStartDate();
+		
 		weekModel = new DateModel( DateUtil.getDate());
 		projectsModel = new ProjectsTasksTreeModel( this );
 		timeReportsModel = new TimeReportsModel( this );
@@ -100,4 +106,37 @@ public class ReportsManagementModel extends AbstractModel
 		}
 	}
 
+	private void calculateEditableStartDate() {
+		
+		// Check how many days it is allowed to edit backward
+		int allowedDays = ConfigUtil.getOrganisationIntProperty(
+				this.getApp().getSessionData().getUser().getOrganisation(), 
+				"company.projects.backward.period", 
+				14 );
+
+		endOfEditablePeriod = DateUtil.getDate();
+		startOfEditablePeriod = new Date( endOfEditablePeriod.getTime() - 1000 * 60 * 60 * 24 * ( allowedDays - 1 ));
+		
+		
+	}
+	public Date getEditableStartDate() {
+		
+		return startOfEditablePeriod;
+		
+	}
+	
+	public Date getEditableEndDate() {
+	
+		return DateUtil.getDate();
+	}
+
+	public boolean isDateEditable( Date date ) {
+		
+		int a = DateUtil.compareDateOnly( date, startOfEditablePeriod );
+		int b = DateUtil.compareDateOnly( date, DateUtil.getDate());
+		int c = a * b; 
+		
+		return ( DateUtil.compareDateOnly( date, startOfEditablePeriod ) 
+				* DateUtil.compareDateOnly( date, DateUtil.getDate())) <= 0; 		
+	}
 }

@@ -10,7 +10,6 @@ import com.c2point.tms.web.ui.reportsmgmt.timereports.model.ReportsManagementMod
 import com.c2point.tms.web.ui.reportsmgmt.timereports.view.DateSelectionComponent;
 import com.c2point.tms.web.ui.reportsmgmt.timereports.view.TasksSelectionComponent;
 import com.c2point.tms.web.ui.reportsmgmt.timereports.view.TimeReportsComponent;
-import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.VerticalLayout;
@@ -39,7 +38,7 @@ public class TimeReportsView extends AbstractMainView {
 		this.setSpacing( true );
 
 		HorizontalSplitPanel hl = new HorizontalSplitPanel();
-		hl.setSplitPosition( 25, Sizeable.UNITS_PERCENTAGE );
+		hl.setSplitPosition( 25, Unit.PERCENTAGE );
 		hl.setSizeFull();
 		hl.setLocked( false );
 		hl.addStyleName( Runo.SPLITPANEL_SMALL );
@@ -105,7 +104,12 @@ public class TimeReportsView extends AbstractMainView {
 		projectsAndTasks.setModel( model );
 
 		dateSelector.addListener( this.model );
+		dateSelector.setEditableDateRange( 
+			this.model.getEditableStartDate(), 
+			this.model.getEditableEndDate()
+		);
 
+		
 		reports.setModel( model );
 
 	}

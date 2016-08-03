@@ -54,7 +54,7 @@ public class ModifyTravelDialog extends Window implements ValueChangeListener {
 	
 	private ModifyTravelIf	model;
     private TravelReport	report;
-    private boolean			accessedByManager;
+    private boolean			editable;
 
     private Label		nameField;
     private Label		dateField;
@@ -83,13 +83,13 @@ public class ModifyTravelDialog extends Window implements ValueChangeListener {
 		this( model, report, true );
 	}
 
-	public ModifyTravelDialog( ModifyTravelIf model, TravelReport report, boolean accessedByManager ) {
+	public ModifyTravelDialog( ModifyTravelIf model, TravelReport report, boolean editable ) {
 		super();
 //		setModal(true);
 		
 		this.model = model;
 		this.report = report;
-		this.accessedByManager = accessedByManager;
+		this.editable = editable;
 		
 		initView();
 	}
@@ -116,7 +116,7 @@ public class ModifyTravelDialog extends Window implements ValueChangeListener {
 		
 		layout.setExpandRatio( errorBar, 1 );
 	
-        if ( !accessedByManager && !report.getApprovalFlagType().allowToBeChanged()) {
+        if ( !editable || !report.getApprovalFlagType().allowToBeChanged()) {
         	// Items Approved & Processed cannot be changed by Employee
         	travelTypeField.setEnabled( false );
 			startTrip.setEnabled( false );
@@ -126,6 +126,8 @@ public class ModifyTravelDialog extends Window implements ValueChangeListener {
 		    routeAndComment.setEnabled( false );
 			
 			saveButton.setEnabled( false );
+
+			cancelButton.focus();
 			
         }
 
@@ -226,7 +228,7 @@ public class ModifyTravelDialog extends Window implements ValueChangeListener {
     	hl_prj.addComponent( projectName );
     	hl_prj.setExpandRatio( projectName, 1.0f );
         Button editButton = null;
-        if ( accessedByManager && report.getApprovalFlagType().allowToBeChanged()) {
+        if ( editable && report.getApprovalFlagType().allowToBeChanged()) {
         	
         	editButton = new Button( model.getApp().getResourceStr( "general.button.edit" ));
         	editButton.addStyleName( Runo.BUTTON_DEFAULT );

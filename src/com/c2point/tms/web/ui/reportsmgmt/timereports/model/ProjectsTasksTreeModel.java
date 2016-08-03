@@ -57,6 +57,7 @@ public class ProjectsTasksTreeModel extends HierarchicalContainer  {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	private boolean init( Collection<Project> projects ) {
 		boolean res = true;
 

@@ -160,6 +160,7 @@ public class TimeReportsComponent extends Table
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	private Item updateItem( Item item, WeekItem weekItem ) {
 
 		item.getItemProperty( "code" ).setValue( weekItem.getProjectTask().getCodeInProject());
@@ -186,8 +187,12 @@ public class TimeReportsComponent extends Table
 
 	private boolean editReport( TaskReport report ) {
 		boolean bRes = true;
+		
+		boolean isEditable = model.isDateEditable( report.getDate());
+		boolean isManager = false;
+		logger.debug( "Is report editable? " + isEditable );
 
-		ModifyTaskDialog editWindow = new ModifyTaskDialog( model.getTimeReportsModel(), report, false );
+		ModifyTaskDialog editWindow = new ModifyTaskDialog( model.getTimeReportsModel(), report, isManager || isEditable );
 
 		getUI().addWindow( editWindow );
 

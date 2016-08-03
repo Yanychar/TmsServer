@@ -47,6 +47,7 @@ public class ProjectTreeModel extends HierarchicalContainer  {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	private boolean init( Collection<Project> projects ) {
 		boolean res = true;
 
@@ -56,7 +57,7 @@ public class ProjectTreeModel extends HierarchicalContainer  {
 			if ( prj != null && !prj.isDeleted()) {
 				itemPrj =  this.addItem( prj );
 				
-//				itemPrj.getItemProperty("name").setValue( StringUtils.padRightSpaces( prj.getCode(), 6 ) + prj.getName());
+				@SuppressWarnings("rawtypes")
 				Property prop = itemPrj.getItemProperty("name");
 				if ( prop != null ) {
 					prop.setValue( StringUtils.padRightSpaces( prj.getCode(), 6 ) + prj.getName());

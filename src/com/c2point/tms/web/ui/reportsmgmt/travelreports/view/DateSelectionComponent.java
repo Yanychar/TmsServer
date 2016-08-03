@@ -39,11 +39,6 @@ public class DateSelectionComponent extends VerticalLayout {
 		dateTime.setImmediate( true );
 		dateTime.setSizeUndefined();
 		
-//		dateTime.setRangeEnd( DateUtil.getDate());
-		Date td = DateUtil.getDate();
-		dateTime.setRangeStart( new Date( td.getTime() - 1000 * 60 * 60 * 24 * 14 ));  // Minus 14 days
-		dateTime.setRangeEnd( td );
-		
 		Button todayButton = new Button( app.getResourceStr( "general.button.today" ));
 //		todayButton.setWidth( "100%" );
 		todayButton.addClickListener( new ClickListener() {
@@ -85,5 +80,13 @@ public class DateSelectionComponent extends VerticalLayout {
 		dateTime.addValueChangeListener( listener );
 		
 	}
+
+	public void setEditableDateRange( Date startDate, Date endDate ) {
+
+		dateTime.setRangeStart( startDate );  // Allow to select 'allowedDays' days
+		dateTime.setRangeEnd( endDate );
+		
+	}
+	
 	
 }

@@ -3,17 +3,14 @@ package com.c2point.tms.web.ui.reportsmgmt.travelreports;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.c2point.tms.entity.access.SupportedFunctionType;
 import com.c2point.tms.web.application.TmsApplication;
 import com.c2point.tms.web.ui.AbstractMainView;
 import com.c2point.tms.web.ui.reportsmgmt.travelreports.model.ReportsManagementModel;
 import com.c2point.tms.web.ui.reportsmgmt.travelreports.view.DateSelectionComponent;
 import com.c2point.tms.web.ui.reportsmgmt.travelreports.view.ProjectsSelectionComponent;
 import com.c2point.tms.web.ui.reportsmgmt.travelreports.view.TravelReportsComponent;
-import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalSplitPanel;
-import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Runo;
 
@@ -24,12 +21,12 @@ public class TravelReportsView extends AbstractMainView {
 	
 	private ReportsManagementModel 	model;
 	
-	private SupportedFunctionType 	visibility;
+//	private SupportedFunctionType 	visibility;
 	
 	public TravelReportsView( TmsApplication app ) {
 
 		super( app );
-		this.visibility = visibility;
+//		this.visibility = visibility;
 
 	}
 	
@@ -40,7 +37,7 @@ public class TravelReportsView extends AbstractMainView {
 		this.setSpacing( true );
 	
 		HorizontalSplitPanel hl = new HorizontalSplitPanel();        
-		hl.setSplitPosition( 20, Sizeable.UNITS_PERCENTAGE );        
+		hl.setSplitPosition( 20, Unit.PERCENTAGE );        
 		hl.setSizeFull();        
 		hl.setLocked( false );
 		hl.addStyleName( Runo.SPLITPANEL_SMALL );
@@ -101,13 +98,17 @@ public class TravelReportsView extends AbstractMainView {
 		logger.debug( "Data initialized 1st time" );
 		
 		model = new ReportsManagementModel( this.getTmsApplication());
-		model.setToShowFilter( visibility );
+//		model.setToShowFilter( visibility );
 
 		model.initModel();
 
 		projects.setModel( model );
 
 		dateSelector.addListener( this.model );
+		dateSelector.setEditableDateRange( 
+				this.model.getEditableStartDate(), 
+				this.model.getEditableEndDate()
+			);
 
 		reports.setModel( model );
 	}
@@ -117,6 +118,4 @@ public class TravelReportsView extends AbstractMainView {
 		logger.debug( "Data initialized again" );
 	}
 
-	
-	
 }

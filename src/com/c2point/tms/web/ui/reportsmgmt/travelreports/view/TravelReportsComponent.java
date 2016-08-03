@@ -141,7 +141,11 @@ public class TravelReportsComponent extends Table
 	private boolean editReport( TravelReport report ) {
 		boolean bRes = true;
 
-		ModifyTravelDialog editWindow = new ModifyTravelDialog( model.getTravelReportsModel(), report, false );
+		boolean isEditable = model.isDateEditable( report.getDate());
+		boolean isManager = false;
+		logger.debug( "Is report editable? " + isEditable );
+		
+		ModifyTravelDialog editWindow = new ModifyTravelDialog( model.getTravelReportsModel(), report, isManager || isEditable );
 
 		getUI().addWindow( editWindow );
 

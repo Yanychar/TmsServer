@@ -19,6 +19,7 @@ import com.c2point.tms.entity.TmsAccount;
 import com.c2point.tms.entity.TravelReport;
 import com.c2point.tms.entity.stubs.travelreport.TravelReportStub;
 import com.c2point.tms.entity.stubs.travelreport.TravelReportsListStub;
+import com.c2point.tms.util.ConfigUtil;
 import com.c2point.tms.util.DateUtil;
 import com.c2point.tms.util.xml.XMLconverter;
 
@@ -139,9 +140,15 @@ public class SaveTravelReportsResource extends BaseResource {
 		
 		if ( report != null ) {
 			
-			// Calculate date
-			// Calculate date 14 days before today in milliseconds
-			long tdms = DateUtil.getDate().getTime() - 1000 * 60 * 60 * 24 * 14;  // Minus 14 days
+			/* Restriction for days to see info */
+			// Check how many days it is allowed to edit backward
+			int allowedDays = ConfigUtil.getOrganisationIntProperty(
+					report.getUser().getOrganisation(), 
+					"company.projects.backward.period", 
+					14 );
+			
+			// Calculate date before today in milliseconds
+			long tdms = DateUtil.getDate().getTime() - 1000 * 60 * 60 * 24 * ( allowedDays - 1 );  // Minus 'allowedDays' days
 
 			// Validate that date is OK
 			bRes = ( report.getDate().getTime() >= tdms );
