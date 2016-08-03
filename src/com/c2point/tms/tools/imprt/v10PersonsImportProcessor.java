@@ -9,6 +9,7 @@ import com.c2point.tms.datalayer.DataFacade;
 import com.c2point.tms.datalayer.OrganisationFacade;
 import com.c2point.tms.entity.Organisation;
 import com.c2point.tms.entity.TmsUser;
+import com.c2point.tms.tools.LoggerIF;
 
 public class v10PersonsImportProcessor extends DataImportProcessor {
 	private static Logger logger = LogManager.getLogger( v10PersonsImportProcessor.class.getName());

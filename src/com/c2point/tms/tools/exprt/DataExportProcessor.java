@@ -15,28 +15,30 @@ import com.c2point.tms.datalayer.TravelReportFacade;
 import com.c2point.tms.entity.Organisation;
 import com.c2point.tms.entity.transactions.FileExportTransaction;
 import com.c2point.tms.entity.transactions.Transaction;
-import com.c2point.tms.tools.imprt.LoggerIF;
+import com.c2point.tms.tools.LoggerIF;
 import com.c2point.tms.web.application.TmsApplication;
 import com.vaadin.ui.UI;
 
 public abstract class DataExportProcessor {
 	private static Logger logger = LogManager.getLogger( DataExportProcessor.class.getName());
 
+	private enum ProcessorType{ TIME_REPORTS, PROJECTS, PEOPLES }; 
+	
 	protected Organisation organisation;
 
 	protected String 	exportDirectory = null;
 	
 	protected WritersSetIF 	writersSet = null;
-	protected LoggerIF		impLogger;
+	protected LoggerIF		processingLogger;
 	
 	public DataExportProcessor() {
 		this( null );
 	}
 	
-	public DataExportProcessor( LoggerIF importLogger ) {
+	public DataExportProcessor( LoggerIF exportLogger ) {
 		super();
 		
-		this.impLogger = importLogger;
+		this.processingLogger = exportLogger;
 		
 	}
 	
@@ -85,7 +87,7 @@ public abstract class DataExportProcessor {
 		}
 		
 		recordValidator.setWritersSet( writersSet );
-		recordValidator.setLogger( impLogger );
+		recordValidator.setLogger( processingLogger );
 
 		logger.info( "Writer for ExportFileWriterhas been set successfully" ); 
 
@@ -160,17 +162,23 @@ public abstract class DataExportProcessor {
 	protected abstract ExportValidator getRecordsWriter();
 	protected abstract WritersSetIF getWritersSet();
 
-	public static DataExportProcessor getExportProcessor( Organisation org ){
-		return getExportProcessor( org, null );
-	}
-	
-	public static DataExportProcessor getExportProcessor( Organisation org, LoggerIF importLogger ){
+	public static DataExportProcessor getTimingExportProcessor( Organisation org, LoggerIF processingLogger ){
 		
-		return getExportProcessor( org.getProperties().getProperty( "company.projects.export.datahandler", "" ), importLogger );
+		return getExportProcessor( ProcessorType.TIME_REPORTS, org, processingLogger );
 	}
 	
-	private static DataExportProcessor getExportProcessor( String processorClassName, LoggerIF importLogger ){
+	public static DataExportProcessor getProjectsDataExportProcessor( Organisation org, LoggerIF processingLogger ){
+		
+		return getExportProcessor( ProcessorType.PROJECTS, org, processingLogger );
+	}
+	
+	
+	
+	
+	private static DataExportProcessor getExportProcessor( ProcessorType type, Organisation org, LoggerIF processingLogger ){
 		Object obj = null;
+		
+		String processorClassName = DataExportProcessor.getProcessorClassName(type, org ); 
 		
 		try {
 			obj = Class.forName( processorClassName ).newInstance();
@@ -189,22 +197,22 @@ public abstract class DataExportProcessor {
 			return null;
 		}
 
-		(( DataExportProcessor )obj ).setLogger( importLogger );
+		(( DataExportProcessor )obj ).setLogger( processingLogger );
 		
 		
 		return ( DataExportProcessor )obj;
 	}
 
-	public void setLogger( LoggerIF	impLogger ) { this.impLogger = impLogger; }
+	public void setLogger( LoggerIF	processingLogger ) { this.processingLogger = processingLogger; }
 	
 	protected void info( String str ) {
-		if ( impLogger != null )
-			impLogger.info( str );
+		if ( processingLogger != null )
+			processingLogger.info( str );
 	}
 
 	protected void error( String str ) {
-		if ( impLogger != null )
-			impLogger.error( str );
+		if ( processingLogger != null )
+			processingLogger.error( str );
 	}
 
 	protected void writeTransaction( Transaction tr ) {
@@ -214,4 +222,24 @@ public abstract class DataExportProcessor {
 	}
 	
 
+	private static String getProcessorClassName( ProcessorType type, Organisation org ){
+		String res = null;
+		
+		switch ( type ) {
+			case PEOPLES:
+				res = org.getProperties().getProperty( "company.projects.export.peoplesdatahandler", "com.c2point.tms.tools.exprt.DefaultPersonnelExportProcessor" );
+				break;
+			case PROJECTS:
+				res = org.getProperties().getProperty( "company.projects.export.projectsdatahandler", "com.c2point.tms.tools.exprt.DefaultProjectsExportProcessor" );
+				break;
+			case TIME_REPORTS:
+				res = org.getProperties().getProperty( "company.projects.export.datahandler", "com.c2point.tms.tools.exprt.DefaultTimingExportProcessor" );
+				break;
+			default:
+				break;
+		}
+		return res;
+	}
+	
+	
 }

@@ -1,4 +1,4 @@
-package com.c2point.tms.web.ui;
+package com.c2point.tms.web.ui.buttonbar;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,25 +8,28 @@ import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 
-public class ButtonBar extends HorizontalLayout {
+public abstract class OkCancelBar extends ButtonBar {
 
 	private static final long serialVersionUID = 1L;
 
-	public enum ButtonType { Cancel, Ok, Close };
+	public enum ButtonType { Cancel, Ok, Close, Export, Import };
 	
-	private static Logger logger = LogManager.getLogger( ButtonBar.class.getName());
+	private static Logger logger = LogManager.getLogger( OkCancelBar.class.getName());
 	
 	private Button okButton = new Button();
 	private Button cancelButton = new Button(); 
 	private Button closeButton = new Button(); 
+
+	private Button expButton;
+	private Button impButton;
 	
-	private ButtonBar() {
+	protected OkCancelBar() {
 		super();
 	}
-	
-	public static ButtonBar getOkCancelBar() {
-		
-		ButtonBar bar = new ButtonBar();
+/*	
+	public ButtonBar getButtonBar() {
+
+		OkCancelBar bar = new OkCancelBar();
 		
 		Button [] buttons = { bar.okButton, bar.cancelButton }; 
 		
@@ -36,10 +39,10 @@ public class ButtonBar extends HorizontalLayout {
 		
 		return bar;
 	}
-	
-	public static ButtonBar getCloseBar () {
 
-		ButtonBar bar = new ButtonBar();
+	public static OkCancelBar getCloseBar () {
+
+		OkCancelBar bar = new OkCancelBar();
 		
 		Button [] buttons = { bar.closeButton }; 
 		
@@ -48,6 +51,7 @@ public class ButtonBar extends HorizontalLayout {
 		return bar;
 		
 	}
+*/	
 	
 	
 	protected void initUI( Button [] buttons ) {

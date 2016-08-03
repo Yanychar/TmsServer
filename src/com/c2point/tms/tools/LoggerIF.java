@@ -1,4 +1,4 @@
-package com.c2point.tms.tools.imprt;
+package com.c2point.tms.tools;
 
 public interface LoggerIF {
 

@@ -7,8 +7,8 @@ import javax.persistence.EntityManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.c2point.tms.tools.LoggerIF;
 import com.c2point.tms.tools.RecordValidationIF;
-import com.c2point.tms.tools.imprt.LoggerIF;
 
 public abstract class ExportValidator implements RecordValidationIF {
 	private static Logger logger = LogManager.getLogger( ExportValidator.class.getName());

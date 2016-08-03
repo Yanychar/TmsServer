@@ -5,7 +5,7 @@ import java.text.MessageFormat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.c2point.tms.web.ui.ButtonBar;
+import com.c2point.tms.web.ui.buttonbar.ButtonBar;
 import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.validator.RegexpValidator;
