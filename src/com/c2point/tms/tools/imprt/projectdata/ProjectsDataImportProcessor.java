@@ -1,6 +1,5 @@
 package com.c2point.tms.tools.imprt.projectdata;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -102,6 +101,7 @@ public class ProjectsDataImportProcessor extends DataImportProcessor_New {
 		return vldRes;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	protected boolean processNextLine(String[] nextLine, int lineNumber) {
 
@@ -376,10 +376,5 @@ public class ProjectsDataImportProcessor extends DataImportProcessor_New {
 		importedProjects.put( project.getCode(),project );
 	}
 	
-	private boolean projectWasImported( Project project ) {
-		
-		return importedProjects.containsKey( project.getCode());
-	}
-
 	
 }

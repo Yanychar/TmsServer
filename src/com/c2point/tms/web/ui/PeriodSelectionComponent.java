@@ -154,26 +154,6 @@ public class PeriodSelectionComponent extends Panel {
 		this.setContent( hl );
 	}
 
-	private void addPrintButton( HorizontalLayout hl, ClickListener printButtonListener ) {
-		
-		if ( printButtonListener != null ) {
-			
-			if ( this.printButtonAdded ) {
-				
-				hl.removeComponent( printButton );
-				this.printButtonAdded = false;
-			}
-			
-			hl.addComponent( printButton );
-
-			printButton.addClickListener( printButtonListener );
-			
-			this.printButtonAdded = true;
-		}
-		
-	}
-	
-	
 	public void addPrintButton( ClickListener printButtonListener ) {
 		if ( printButtonListener != null && !this.printButtonAdded ) {
 		

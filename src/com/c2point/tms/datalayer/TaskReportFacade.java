@@ -15,11 +15,6 @@ import javax.xml.bind.JAXBException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.eclipse.persistence.jpa.JpaEntityManager;
-import org.eclipse.persistence.queries.DatabaseQuery;
-import org.eclipse.persistence.sessions.DatabaseRecord;
-import org.eclipse.persistence.sessions.Session;
-
 import com.c2point.tms.entity.ApprovalFlagType;
 import com.c2point.tms.entity.Organisation;
 import com.c2point.tms.entity.Project;

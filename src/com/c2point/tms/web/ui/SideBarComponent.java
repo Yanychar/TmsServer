@@ -6,7 +6,6 @@ import java.util.Iterator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.vaadin.server.Sizeable;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -40,10 +39,10 @@ public class SideBarComponent extends VerticalLayout {
 	}
 	
 	public void addListener( Button.ClickListener listener ) {
-		for ( Iterator<Component> iter = this.getComponentIterator(); iter.hasNext(); ) {
+		for ( Iterator<Component> iter = this.iterator(); iter.hasNext(); ) {
 			Component c = iter.next();
 			if ( c instanceof NativeButton ) {
-				(( Button )c ).addListener( listener );
+				(( Button )c ).addClickListener( listener );
 			}
 		}
 	}
@@ -55,7 +54,7 @@ public class SideBarComponent extends VerticalLayout {
 		button.setHeight( DEFAULT_BUTTON_HEIGHT + "em" );
 		button.setWidth( "100%" );
 		
-		button.addListener( new ClickListener() {
+		button.addClickListener( new ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				logger.debug( "Button '" + event.getButton().getCaption() + "' was clicked" );
@@ -105,7 +104,7 @@ public class SideBarComponent extends VerticalLayout {
 	
 	private void initView() {
 
-		this.setHeight( Sizeable.SIZE_UNDEFINED, Sizeable.Unit.CM );
+		this.setHeightUndefined();
 		this.setWidth( "100%" ); // Sizeable.SIZE_UNDEFINED, 0 );
 		this.setImmediate( true );
 
@@ -121,7 +120,7 @@ public class SideBarComponent extends VerticalLayout {
 
 		logger.debug( "  Clear selected style from all child components" );
 
-		for ( Iterator<Component> iter = this.getComponentIterator(); iter.hasNext(); ) {
+		for ( Iterator<Component> iter = this.iterator(); iter.hasNext(); ) {
 			Component c = iter.next();
 			c.removeStyleName( STYLE_SELECTED );		
 		}

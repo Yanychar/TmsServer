@@ -15,7 +15,7 @@ public class MainTabSheet extends TabSheet implements TabSheet.SelectedTabChange
 		
 		this.setSizeFull();
 		
-		this.addListener( this );	
+		this.addSelectedTabChangeListener( this );
 	}
 
 	@Override

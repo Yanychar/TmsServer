@@ -9,8 +9,6 @@ import org.apache.logging.log4j.Logger;
 import com.c2point.tms.entity.Organisation;
 import com.c2point.tms.entity.Project;
 import com.c2point.tms.entity.ProjectTask;
-import com.c2point.tms.tools.exprt.projectdata.ProjectDataExportProcessor.FormatType;
-import com.c2point.tms.tools.exprt.projectdata.ProjectDataExportProcessor.ScopeType;
 
 public class DefaultProjectsExportProcessor extends ProjectDataExportProcessor {
 	@SuppressWarnings("unused")

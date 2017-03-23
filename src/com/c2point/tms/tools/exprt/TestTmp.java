@@ -1,7 +1,5 @@
 package com.c2point.tms.tools.exprt;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,12 +10,9 @@ import java.util.List;
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 
-import com.c2point.tms.util.StringUtils;
-
 public class TestTmp {
 
 	private String 	EOL = "\r\n";
-	private BufferedReader br;
 	private CSVReader csvReader = null;
 	
 	

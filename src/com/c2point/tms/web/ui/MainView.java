@@ -1,6 +1,5 @@
 package com.c2point.tms.web.ui;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,7 +33,6 @@ import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.themes.Runo;
 
 public class MainView extends VerticalLayout { //implements Organisation.PropertyChangedListener {
 
@@ -207,6 +205,7 @@ public class MainView extends VerticalLayout { //implements Organisation.Propert
 	/*
 	 * Create 'Company' tab 
 	 */
+	@SuppressWarnings("unused")
 	private boolean fillCompanyTab() {
 
 		boolean isCompanyTab = false;
