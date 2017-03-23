@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE ivy-module [
-	<!ENTITY vaadin.version "7.5.8">
+	<!ENTITY vaadin.version "7.7.7">
 ]>
 <ivy-module version="2.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -27,7 +27,7 @@
 		<dependency org="com.vaadin" name="vaadin-push" rev="&vaadin.version;" />
 
 		<!-- Servlet 3.0 API -->
-		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.0.1" conf="nodeploy->default" />
+		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.1.0" conf="nodeploy->default" />
 
 		<!-- Precompiled DefaultWidgetSet -->
 		<dependency org="com.vaadin" name="vaadin-client-compiled"
@@ -45,12 +45,12 @@
 		<dependency org="org.vaadin.addon" name="confirmdialog" rev="2.1.3" />
 
 		<!-- Log4j -->
-		<dependency org="org.apache.logging.log4j" name="log4j-api"  rev="2.1" />
-		<dependency org="org.apache.logging.log4j" name="log4j-core" rev="2.1" />
+		<dependency org="org.apache.logging.log4j" name="log4j-api"  rev="2.8" />
+		<dependency org="org.apache.logging.log4j" name="log4j-core" rev="2.8" />
 
 		<!-- Jersey REST Server -->
 		<dependency org="org.glassfish.jersey.containers" name="jersey-container-servlet" rev="2.4"/>
-		<dependency org="org.glassfish.jersey.media" name="jersey-media-json-jackson" rev="2.0"/>
+		<dependency org="org.glassfish.jersey.media" name="jersey-media-json-jackson" rev="2.4"/>
 		
 		<!-- 
 		<dependency org="javax.ws.rs" name="javax.ws.rs-api" rev="2.0"/>
@@ -61,8 +61,14 @@
 		<dependency org="joda-time" name="joda-time" rev="2.7"/>
 
 		<!-- iText (PDF) -->
-		<dependency org="com.itextpdf" name="itextpdf" rev="5.4.5"/>
-
+		<dependency org="com.itextpdf" name="itextpdf" rev="5.5.10"/>
+ 				
+		<!-- iText (PDF) 
+		<dependency org="com.itextpdf" name="kernel" rev="7.0.1"/>
+		<dependency org="com.itextpdf" name="io" rev="7.0.1"/>
+		<dependency org="com.itextpdf" name="layout" rev="7.0.1"/>
+		-->
+		
 		<!-- OpenCSV support -->
 		<dependency org="net.sf.opencsv" name="opencsv" rev="2.3"/>
 
@@ -72,10 +78,11 @@
 		<dependency org="org.apache.commons" name="commons-lang3" rev="3.3.2" />
 
 		<!-- JUnit dependency -->
-		<dependency org="junit" name="junit" rev="4.11" />
+		<dependency org="junit" name="junit" rev="4.12" />
 			
+		<!-- 
 		<dependency org="org.vaadin.addon" name="easyuploads" rev="7.4.6" />			
-			
+		-->
 			
 	</dependencies>
 </ivy-module>
