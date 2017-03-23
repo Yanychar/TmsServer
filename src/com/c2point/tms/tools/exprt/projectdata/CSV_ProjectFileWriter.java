@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -52,11 +53,27 @@ public class CSV_ProjectFileWriter extends AbstractFileWriter {
 			ProjectTask pt = ( ProjectTask )object;
 			Project prj = pt.getProject();
 			Task t = pt.getTask();
+			
+			Double lat;
+			Double lon;
 
+			try {
+				lat = prj.getGeo().getLatitude();
+				lon = prj.getGeo().getLongitude();
+			} catch ( Exception e ) {
+				lat = null;
+				lon = null;
+			}
+			
 			String buffer [] = {
 				prj.getCode(), 
 				prj.getName(),
-				prj.getProjectManager().getFirstAndLastNames(), 
+				prj.getAddress(),
+				StringUtils.defaultString( lat != null ? lat.toString() : null ),
+				StringUtils.defaultString( lon != null ? lon.toString() : null ),
+				prj.getProjectManager().getCode(), 
+				prj.getProjectManager().getFirstName(), 
+				prj.getProjectManager().getLastName(), 
 				t.getCode(),
 				t.getName(),
 				pt.getCodeInProject()

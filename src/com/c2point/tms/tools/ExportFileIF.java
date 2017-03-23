@@ -4,5 +4,5 @@ import java.io.File;
 
 public interface ExportFileIF {
 
-	public File export();
+	public File exportFile();
 }

@@ -46,6 +46,24 @@ public class UserFacade {
 		return results;
 		
 	}
+
+	public TmsUser findUser( TmsUser user, Organisation org ) {
+		
+		List<TmsUser> userLst = findByUsrName( user.getLastName(), org );
+		
+		if ( userLst != null && userLst.size() > 0 ) {
+
+			// For all in the list:
+			for ( TmsUser tmpUser : userLst ) {
+				// If user found return it
+				if ( tmpUser.compareByName( user ) == 0 ) {
+					return tmpUser;
+				}
+			}
+		}
+		
+		return null;
+	}
 	
 	public List<TmsUser> findByUsrName( String usrName, Organisation org ) {
 		List<TmsUser> userLst;

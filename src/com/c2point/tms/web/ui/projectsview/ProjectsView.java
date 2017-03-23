@@ -1,24 +1,21 @@
 package com.c2point.tms.web.ui.projectsview;
 
 import java.io.File;
-import java.io.OutputStream;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.access.SupportedFunctionType;
 import com.c2point.tms.tools.ExportFileIF;
+import com.c2point.tms.tools.ImportFileIF;
 import com.c2point.tms.web.application.TmsApplication;
 import com.c2point.tms.web.ui.AbstractMainView;
 import com.c2point.tms.web.ui.listeners.SelectionChangedListener;
 import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.Upload;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Button.ClickListener;
 
 public class ProjectsView extends AbstractMainView {
 
@@ -26,6 +23,10 @@ public class ProjectsView extends AbstractMainView {
 
 	private static Logger logger = LogManager.getLogger( ProjectsView.class.getName());
 
+	private Component projectPanel;
+	private Component tasksList;
+	private ProjectsListComponent projectsList;
+	
 	private ProjectsModel model;
 
 	public ProjectsView( TmsApplication app, SupportedFunctionType visibility ) {
@@ -79,9 +80,14 @@ public class ProjectsView extends AbstractMainView {
 		toolBar.setExportHandler( new ExportFileIF() {
 
 			@Override
-			public File export() {
+			public File exportFile() {
 				// Export function will be call
-				model.export();
+				
+				if ( projectsList.getSelectedProjects() != null ) {
+					model.export( projectsList.getSelectedProjects());
+				} else {
+					model.export();
+				}
 				
 				return model.getExportFile();
 				
@@ -89,9 +95,22 @@ public class ProjectsView extends AbstractMainView {
 			
 		});
 		
-		Component projectPanel = getSingleProjectPanel();
-		Component tasksList = getTasksList();
-		Component projectsList = getProjectsList();
+		toolBar.setImportHandler( new ImportFileIF() {
+
+			@Override
+			public boolean importFile( File  file ) {
+				// Export function will be call
+				model.importProjects( file );
+				
+				return true;
+				
+			}
+			
+		});
+		
+		projectPanel = getSingleProjectPanel();
+		tasksList = getTasksList();
+		projectsList = getProjectsList();
 
 		VerticalLayout vl = new VerticalLayout();
 		vl.setSizeFull();
@@ -129,7 +148,7 @@ public class ProjectsView extends AbstractMainView {
 		return comp;
 	}
 
-	private Component getProjectsList() {
+	private ProjectsListComponent getProjectsList() {
 
 		ProjectsListComponent comp = new ProjectsListComponent( this.model );
 

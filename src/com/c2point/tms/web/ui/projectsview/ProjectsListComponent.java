@@ -1,6 +1,8 @@
 package com.c2point.tms.web.ui.projectsview;
 
 import java.text.MessageFormat;
+import java.util.Collection;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -78,7 +80,7 @@ public class ProjectsListComponent extends VerticalLayout implements ProjectAdde
 		// Configure table
 		projectsTable.setSelectable( true );
 		projectsTable.setNullSelectionAllowed(  false );
-		projectsTable.setMultiSelect( false );
+		projectsTable.setMultiSelect( true );
 		projectsTable.setColumnCollapsingAllowed( false );
 		projectsTable.setColumnReorderingAllowed( false );
 		projectsTable.setImmediate( true );
@@ -107,8 +109,8 @@ public class ProjectsListComponent extends VerticalLayout implements ProjectAdde
 
             	logger.debug( "Event: " + event.getClass().getName());
             	logger.debug( "Event.Source: " + event.getSource());
-            	logger.debug( "Event.User: " + event.getItem());
-            	logger.debug( "Event.UserId: " + event.getItemId());
+            	logger.debug( "Event.Item: " + event.getItem());
+            	logger.debug( "Event." + event.getItemId());
             	logger.debug( "Cur.Selection: " + projectsTable.getValue());
 
             	if ( projectsTable.getValue() == event.getItemId() && event.getItemId() != null ) {
@@ -124,11 +126,21 @@ public class ProjectsListComponent extends VerticalLayout implements ProjectAdde
 		// Handle selection of item
 		projectsTable.addValueChangeListener( new ValueChangeListener() {
 
+			@SuppressWarnings("unchecked")
 			@Override
 			public void valueChange( ValueChangeEvent event ) {
+				
+				
+				model.selectProject( getIfOneSelected(( Set<Project>) event.getProperty().getValue()));
+/*
+				if ( event.getProperty().getValue() instanceof Set ) {
+					
+					model.selectProject( null );
+				} else {
 
-				model.selectProject(( Project )event.getProperty().getValue());
-
+					model.selectProject(( Project )event.getProperty().getValue());
+				}
+*/
 			}
 
 		});
@@ -162,7 +174,9 @@ public class ProjectsListComponent extends VerticalLayout implements ProjectAdde
 	private void dataFromModel() {
 
 		// Store selection for recovery at the end of this method
-		Project selectedProject = ( Project )projectsTable.getValue();
+//		Project selectedProject = ( Project )projectsTable.getValue();
+		Project selectedProject = getOneSelected();	
+		
 		Project newSelectedProject = null;
 		boolean selected = ( selectedProject != null );
 
@@ -197,6 +211,7 @@ public class ProjectsListComponent extends VerticalLayout implements ProjectAdde
 
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addOrUpdateItem( Project project ) {
 
 		if ( logger.isDebugEnabled()) logger.debug( "AddOrUpdate Project: " + ( project != null ? project : "null" ));
@@ -456,4 +471,47 @@ public class ProjectsListComponent extends VerticalLayout implements ProjectAdde
 		return found;
 	}
 
+	@SuppressWarnings("unchecked")
+	public Collection<Project> getSelectedProjects() {
+
+		Collection<Project> res = ( Set<Project> )projectsTable.getValue();
+		
+		if ( res != null && res .size() > 0 ) {
+			return res;
+		}
+		
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private Project getOneSelected() {
+
+		return getOneSelected( ( Set<Project> )projectsTable.getValue() );
+	}
+	
+	private Project getOneSelected( Set<Project> setOfProjects ) {
+
+		Project ret = null;
+		
+		if ( setOfProjects != null && setOfProjects.size() > 0 ) { 
+		
+			ret = setOfProjects.iterator().next();
+		}
+		
+		return ret;
+	}
+	
+	private Project getIfOneSelected( Set<Project> setOfProjects ) {
+
+		Project ret = null;
+		
+		if ( setOfProjects != null && setOfProjects.size() == 1 ) { 
+		
+			ret = setOfProjects.iterator().next();
+		}
+		
+		return ret;
+	}
+	
+	
 }

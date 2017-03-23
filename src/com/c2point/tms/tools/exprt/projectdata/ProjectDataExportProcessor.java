@@ -1,8 +1,8 @@
 package com.c2point.tms.tools.exprt.projectdata;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.Date;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -56,6 +56,12 @@ public abstract class ProjectDataExportProcessor {
 
 		this.organisation = organisation;
 		
+		return process( organisation.getProjects().values(), scopeType, format );
+			
+	}
+	public boolean process( Collection<Project> lstPrj, ScopeType scopeType, FormatType format ) {
+		boolean result = false;
+
 		// Where to store 
 		
 		
@@ -65,7 +71,7 @@ public abstract class ProjectDataExportProcessor {
 		
 		counter = new RecordsCounter();
 		
-		for ( Project prj : organisation.getProjects().values()) {
+		for ( Project prj : lstPrj ) {
 			
 			if ( isProjectScopeOk( prj, scopeType )) {
 				for ( ProjectTask pt : prj.getProjectTasksList()) {

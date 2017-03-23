@@ -23,6 +23,7 @@ import com.c2point.tms.entity.TmsUser;
 import com.c2point.tms.entity.access.SecurityContext;
 import com.c2point.tms.entity.access.SupportedFunctionType;
 import com.c2point.tms.tools.exprt.projectdata.ProjectDataExportProcessor;
+import com.c2point.tms.tools.imprt.projectdata.ProjectsDataImportProcessor;
 import com.c2point.tms.util.exception.NotUniqueCode;
 import com.c2point.tms.web.application.TmsApplication;
 import com.c2point.tms.web.ui.AbstractModel;
@@ -705,26 +706,35 @@ public class ProjectsModel extends AbstractModel {
 	private File exportedFile = null;
 	public boolean export() {
 		boolean res = false;
+
+		if ( this.org != null  ) {
+//			logger.debug( "Start Project Data EXPORT: '" + org.getName() + "'" );
+			
+			res = export( org.getProjects().values());
+		}
+		
+		return res;
+		
+	}
+	public boolean export( Collection<Project> prjLst ) {
+		
+		boolean res = false;
 		exportedFile = null;
 		
-		if ( this.org != null ) {
+		if ( prjLst != null && prjLst.size() > 0 ) {
 
 			ProjectDataExportProcessor processor;
 
-			if ( this.org != null ) {
-				logger.debug( "Start data EXPORT for Organisation: '" + org.getName() + "'" );
+			logger.debug( "Start Project Data EXPORT: '" + org.getName() + "'" );
 
-				processor = ProjectDataExportProcessor.getProjectsDataExportProcessor( org, null );
-				if ( processor != null ) {
-					res = processor.process( org, ProjectDataExportProcessor.ScopeType.ALL, ProjectDataExportProcessor.FormatType.CSV );
-					exportedFile = processor.getResultFile();
-				} else {
-//					error( "ERROR: Could not find data processor for export" );
-				}
-				
+			processor = ProjectDataExportProcessor.getProjectsDataExportProcessor( org, null );
+			if ( processor != null ) {
+				res = processor.process( prjLst, ProjectDataExportProcessor.ScopeType.ALL, ProjectDataExportProcessor.FormatType.CSV );
+				exportedFile = processor.getResultFile();
 			} else {
-				logger.error( "Did not find Organisation: '" + org.getName() + "' in DB." );
+//					error( "ERROR: Could not find data processor for export" );
 			}
+			
 			
 		}
 		
@@ -734,4 +744,27 @@ public class ProjectsModel extends AbstractModel {
 	public File getExportFile() {
 		return exportedFile;
 	}
+	
+	public boolean importProjects( File file  ) {
+		boolean bRes = false;
+
+		if ( this.org != null ) {
+
+			ProjectsDataImportProcessor processor = new ProjectsDataImportProcessor( org );
+
+			if ( this.org != null ) {
+				logger.debug( "Start data Import for Organisation: '" + org.getName() + "'" );
+
+				processor.setImportFile( file );
+				bRes = processor.process();
+				
+			} else {
+				logger.error( "Did not find Organisation: '" + org.getName() + "' in DB." );
+			}
+			
+		}
+		
+		return bRes;
+	}
+	
 }

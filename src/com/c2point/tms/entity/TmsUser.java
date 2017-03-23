@@ -548,6 +548,41 @@ public class TmsUser extends SimplePojo {
 		
 		return ( user != null && user.getManager() != null && user.getManager().getId() == this.getId());
 	}
+
+	private int compareNamePart( String namePart1, String namePart2 ) {
+
+		if ( namePart1 == null ) {
+			return 1;
+		}
+		
+		if ( namePart2 == null ) {
+			return -1;
+		}
+		
+		return namePart1.trim().compareToIgnoreCase( namePart2.trim());			
+		
+	}
 	
+	public int compareByName( TmsUser user ) {
+		int res = 1;
+		
+		if ( user != null ) {
+			
+			// Compare last name firstly
+			res = compareNamePart( user.getLastName(), this.getLastName());			
+			if ( res != 0 ) return res;
+				
+			// Compare first name 
+			res = compareNamePart( user.getFirstName(), this.getFirstName());			
+			if ( res != 0 ) return res;
+				
+			// Compare middle name
+			res = compareNamePart( user.getMidName(), this.getMidName());			
+			if ( res != 0 ) return res;
+			
+		}
+		
+		return res;
+	}
 	
 }

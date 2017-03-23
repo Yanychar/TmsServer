@@ -1,12 +1,16 @@
 package com.c2point.tms.tools.exprt.projectdata;
 
 import java.io.File;
+import java.util.Collection;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.Organisation;
+import com.c2point.tms.entity.Project;
 import com.c2point.tms.entity.ProjectTask;
+import com.c2point.tms.tools.exprt.projectdata.ProjectDataExportProcessor.FormatType;
+import com.c2point.tms.tools.exprt.projectdata.ProjectDataExportProcessor.ScopeType;
 
 public class DefaultProjectsExportProcessor extends ProjectDataExportProcessor {
 	@SuppressWarnings("unused")
@@ -16,6 +20,9 @@ public class DefaultProjectsExportProcessor extends ProjectDataExportProcessor {
 
 	public DefaultProjectsExportProcessor() {
 		super();
+
+		writer = new CSV_ProjectFileWriter();
+		writer.open();
 		
 	}
 
@@ -29,6 +36,17 @@ public class DefaultProjectsExportProcessor extends ProjectDataExportProcessor {
 
 		writer.close(); 
 //		writer.delete(); 
+		
+		return res;
+	}
+	
+	public boolean process( Collection<Project> lstPrj, ScopeType scopeType, FormatType format ) {
+		boolean res;
+		
+		
+		res = super.process( lstPrj, scopeType, format );
+
+		writer.close(); 
 		
 		return res;
 	}
