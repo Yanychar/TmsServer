@@ -123,7 +123,7 @@ public class GoogleMapView extends Window implements MapViewIF {
 	    		googleMap.removeMarker( checkInMarker );
 	    	}
 		    
-	    	checkInMarker = new GoogleMapMarker( checkInTooltip, new LatLon( checkIn.getLatitude(), checkIn.getLongitude()), false );
+	    	checkInMarker = new GoogleMapMarker( checkInTooltip, new LatLon( checkIn.getLatitude(), checkIn.getLongitude()), false, "VAADIN/themes/tms/icons/32/login32.png" );
 		    
 		    googleMap.addMarker( checkInMarker );
 	    }
@@ -138,7 +138,7 @@ public class GoogleMapView extends Window implements MapViewIF {
 	    		googleMap.removeMarker( checkOutMarker );
 	    	}
 		    
-	    	checkOutMarker = new GoogleMapMarker( checkOutTooltip, new LatLon( checkOut.getLatitude(), checkOut.getLongitude()), false );
+	    	checkOutMarker = new GoogleMapMarker( checkOutTooltip, new LatLon( checkOut.getLatitude(), checkOut.getLongitude()), false, "VAADIN/themes/tms/icons/32/logout32.png" );
 		    
 		    googleMap.addMarker( checkOutMarker );
 	    }
