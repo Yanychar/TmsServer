@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.CheckInOutRecord;
 import com.c2point.tms.util.DateUtil;
-import com.c2point.tms.web.ui.approveview.model.ApproveModel.ReturnedResult;
 import com.c2point.tms.web.ui.checkinoutview.model.CheckInOutModel;
 import com.c2point.tms.web.ui.geo.MapFactory;
 import com.c2point.tms.web.ui.geo.MapViewIF;
@@ -17,7 +16,6 @@ import com.vaadin.data.Item;
 import com.vaadin.data.Property;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.Window;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
@@ -51,8 +49,8 @@ public class CheckInOutList extends Table implements CheckInOutListChangedListen
 
 		addContainerProperty( "date", Date.class, null );
 		addContainerProperty( "project", String.class, null );
-		addContainerProperty( "checkin", CheckTimeMapComponent.class, null );
-		addContainerProperty( "checkout", CheckTimeMapComponent.class, null );
+		addContainerProperty( "checkin", TimeMapComponent.class, null );
+		addContainerProperty( "checkout", TimeMapComponent.class, null );
 		addContainerProperty( "total", String.class, null );
 		
 		setColumnHeaders( new String []  { 
@@ -101,7 +99,7 @@ public class CheckInOutList extends Table implements CheckInOutListChangedListen
 
 
 	@Override
-	protected String formatPropertyValue( Object rowId, Object colId, Property property )  {
+	protected String formatPropertyValue( Object rowId, Object colId, Property<?> property )  {
 
 		if ( property != null && property.getValue() != null && property.getValue() instanceof Date ) {
 			 return DateUtil.dateToString(( Date )(property.getValue()));
@@ -110,20 +108,21 @@ public class CheckInOutList extends Table implements CheckInOutListChangedListen
 		return super.formatPropertyValue( rowId, colId, property );
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addRecordToView( CheckInOutRecord record ) {
 		final Item item = addItem( record );
-		final CheckTimeMapComponent mapCompIn, mapCompOut;
+		final TimeMapComponent mapCompIn, mapCompOut;
 		
 		item.getItemProperty( "date" ).setValue( 
 				record.getDateCheckedIn());
 		
 		item.getItemProperty( "project" ).setValue( record.getProject().getName());	
 		
-		mapCompIn = new CheckTimeMapComponent( record, CheckTimeMapComponent.ShowType.IN );
-//		mapCompIn.setField( record.getDateCheckedIn(), record.getCheckInGeo());
-//		mapCompIn.setupBasePoint( record.getProject().getGeo());
-		mapCompIn.setupWarningDistance( WARNING_DISTANCE );
-		mapCompIn.addListener( new ClickListener() {
+		TimeMapStub tmStub = new TimeMapStub( record ); 
+		tmStub.setupWarningDistance( WARNING_DISTANCE );
+		
+		mapCompIn = tmStub.getMapComponent( TimeMapStub.ShowType.IN, true );
+		mapCompIn.addClickListener( new ClickListener() {
 			@Override
 			public void buttonClick( ClickEvent event ) {
 				showLocationWindow( mapCompIn.getCheckInOutRecord(), true );
@@ -131,11 +130,8 @@ public class CheckInOutList extends Table implements CheckInOutListChangedListen
 		});		
 		item.getItemProperty( "checkin" ).setValue( mapCompIn ); 
 
-		mapCompOut = new CheckTimeMapComponent( record, CheckTimeMapComponent.ShowType.OUT );
-//		mapCompOut.setField( record.getDateCheckedOut(), record.getCheckOutGeo()); 
-//		mapCompOut.setupBasePoint( record.getProject().getGeo());
-		mapCompOut.setupWarningDistance( WARNING_DISTANCE );
-		mapCompOut.addListener( new ClickListener() {
+		mapCompOut = tmStub.getMapComponent( TimeMapStub.ShowType.OUT, true );
+		mapCompOut.addClickListener( new ClickListener() {
 			@Override
 			public void buttonClick( ClickEvent event ) {
 				showLocationWindow( mapCompOut.getCheckInOutRecord(), false );

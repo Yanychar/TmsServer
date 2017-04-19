@@ -15,7 +15,8 @@ import com.c2point.tms.entity.TravelType;
 import com.c2point.tms.util.DateUtil;
 import com.c2point.tms.web.ui.approveview.model.ApproveModel;
 import com.c2point.tms.web.ui.approveview.model.ProjectHolder;
-import com.c2point.tms.web.ui.checkinoutview.CheckTimeMapComponent;
+import com.c2point.tms.web.ui.checkinoutview.TimeMapComponent;
+import com.c2point.tms.web.ui.checkinoutview.TimeMapStub;
 import com.c2point.tms.web.ui.geo.MapFactory;
 import com.c2point.tms.web.ui.geo.MapViewIF;
 import com.c2point.tms.web.ui.geo.SupportedMapProviderType;
@@ -23,7 +24,6 @@ import com.c2point.tms.web.ui.listeners.ProjectReportChangedListener;
 import com.c2point.tms.web.ui.listeners.ReportChangedListener;
 import com.c2point.tms.web.ui.listeners.ReportItemSelectedListener;
 import com.c2point.tms.web.ui.listeners.ReportsListChangedListener;
-import com.vaadin.server.Sizeable;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Alignment;
@@ -100,7 +100,7 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 		
 		header 			= new Label();
 		header.addStyleName( Runo.LABEL_H2);
-		header.setWidth( Sizeable.SIZE_UNDEFINED, Unit.PIXELS );
+		header.setWidthUndefined();
 
 		projectLabel	= new Label( model.getApp().getResourceStr( "general.edit.project" ) + ": ", ContentMode.HTML );
 		
@@ -143,7 +143,7 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 		
 		checkInOutHeader	= new Label( "", ContentMode.HTML );
 		checkInOutHeader.addStyleName( Runo.LABEL_H2);
-		checkInOutHeader.setWidth( Sizeable.SIZE_UNDEFINED, Unit.PIXELS );
+		checkInOutHeader.setWidthUndefined();
 		
 		separator1 = new Label( "<hr/>", ContentMode.HTML );
 		separator2 = new Label( "<hr/>", ContentMode.HTML );
@@ -356,7 +356,7 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 
 	private void showCheckInData( ApproveModel.CheckInOutResults resultsHolder ) {
 
-		GridLayout grid = new GridLayout( 3, resultsHolder.getRecordCount() + 1 );
+		GridLayout grid = new GridLayout( 4, resultsHolder.getRecordCount() + 1 );
 		grid.setSpacing( true );
 		
 		Label headerLabel1	= new Label( "<b><u>"
@@ -373,13 +373,31 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 		grid.setComponentAlignment( headerLabel1, Alignment.MIDDLE_CENTER );
 		grid.setComponentAlignment( headerLabel2, Alignment.MIDDLE_CENTER );
 		
+		TimeMapStub tmStub; 
 		int i = 1;
 		for ( CheckInOutRecord record : resultsHolder.getRecords()) {
 			
-			grid.addComponent( getCheckInOutComponent( record, CheckTimeMapComponent.ShowType.IN ), 0, i );
-			grid.addComponent( getCheckInOutComponent( record, CheckTimeMapComponent.ShowType.OUT ), 1, i );
+			tmStub = new TimeMapStub( record ); 
+			tmStub.setupWarningDistance( WARNING_DISTANCE );
+			
+			grid.addComponent( tmStub.getTimeComponent( TimeMapStub.ShowType.IN ), 0, i );
+			grid.addComponent( tmStub.getTimeComponent( TimeMapStub.ShowType.OUT ), 1, i );
+			
+			TimeMapComponent tmComp = tmStub.getMapComponent( TimeMapStub.ShowType.OUT, false );
+			grid.addComponent( tmComp, 2, i );
+			tmComp.addClickListener( new ClickListener() {
+
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				public void buttonClick( ClickEvent event ) {
+					showLocationWindow( tmComp.getCheckInOutRecord());
+				}
+			});		
+			
+			
 			if ( resultsHolder.getResult() == ApproveModel.ReturnedResult.ALL_RECORDS ) {
-				grid.addComponent( getProjectNameComponent( record ), 2, i );
+				grid.addComponent( getProjectNameComponent( record ), 3, i );
 			}
 			
 			i++;
@@ -389,42 +407,6 @@ public class DetailedViewComponent extends VerticalLayout implements ReportItemS
 		addComponent( grid );
 		
 	
-	}
-/*
-	private Component getCheckInComponent( CheckInOutRecord record ) {
-		return getCheckInOutComponent( record, true );
-	}
-
-	private Component getCheckOutComponent( CheckInOutRecord record ) {
-		return getCheckInOutComponent( record, false );
-	}
-*/
-	private Component getCheckInOutComponent( CheckInOutRecord record, CheckTimeMapComponent.ShowType showType ) {
-
-		final CheckTimeMapComponent mapComp = new CheckTimeMapComponent( record, showType );
-
-/*		
-		mapComp.setField( isIn ? record.getDateCheckedIn() : record.getDateCheckedOut(),
-						  isIn ? 0 : DateUtil.differenceInDays( record.getDateCheckedIn(), record.getDateCheckedOut()),
-						  isIn ? record.getCheckInGeo()    : record.getCheckOutGeo());
-		
-		mapComp.setupBasePoint( record.getProject().getGeo());
-*/		
-		
-		mapComp.setupWarningDistance( WARNING_DISTANCE );
-	
-		mapComp.addListener( new ClickListener() {
-
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void buttonClick( ClickEvent event ) {
-				showLocationWindow( mapComp.getCheckInOutRecord());
-			}
-		});		
-		
-		
-		return mapComp;
 	}
 
 	private Component getProjectNameComponent( CheckInOutRecord record ) {
