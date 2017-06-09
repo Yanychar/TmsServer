@@ -5,23 +5,22 @@ import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.access.SupportedFunctionType;
 import com.c2point.tms.web.application.TmsApplication;
-import com.c2point.tms.web.reporting.pdf.PdfTemplate;
 import com.c2point.tms.web.reporting.pdf.documents.ApprovalViewPdf;
 import com.c2point.tms.web.ui.AbstractMainView;
 import com.c2point.tms.web.ui.approveview.model.ApproveModel;
 import com.vaadin.server.StreamResource;
 import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.Button;
+import com.vaadin.ui.BrowserFrame;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Component;
-import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.themes.Runo;
+import com.vaadin.ui.Window.CloseEvent;
+import com.vaadin.ui.Window.CloseListener;
 
 public class ApproveView extends AbstractMainView {
 
@@ -90,6 +89,7 @@ public class ApproveView extends AbstractMainView {
 	private Component getOptionPanel() {
 
     	Component comp = new AdditionalOptionsComponent( model, new ClickListener() {
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -153,63 +153,50 @@ public class ApproveView extends AbstractMainView {
 
 			return;
 		}
-
-
-		PdfTemplate pdfDoc = new ApprovalViewPdf( getTmsApplication(), model).create(); //.getTaskReportsList(), model.getStartDate(), model.getEndDate());
-
+		
 		Window subwindow = new Window(
 				model.getApp().getResourceStr( "menu.item.report.time" )
 				+ " & "
 				+ model.getApp().getResourceStr( "menu.item.report.travel" )
 		);
 
-
-
+		
 		subwindow.setModal( true );
-//		subwindow.setSizeFull();
 		subwindow.setWidth( "80%" );
 		subwindow.setHeight( "90%" );
 		subwindow.setResizable( true );
 		subwindow.center();
-
-		Embedded e = new Embedded();
-		e.setType(Embedded.TYPE_BROWSER);
-		// Here we create a new StreamResource which downloads our StreamSource,
-		// which is our pdf.
-		StreamResource resource = new StreamResource( pdfDoc, PdfTemplate.getTmpName());
+		
+		
+		
+		ApprovalViewPdf report = new ApprovalViewPdf( getTmsApplication(), model );
+		report.printReport();
+		
+		StreamResource resource = report.getResource();
+		resource.setCacheTime( 0 );
 		// Set the right mime type
 		resource.setMIMEType("application/pdf");
-		e.setSource(resource);
-		e.setSizeFull();
 
-		subwindow.setContent( e );
+		BrowserFrame browser = new BrowserFrame( "Browser" );
+		browser.setSource( resource );
+		browser.setSizeFull();
+		
+		subwindow.setContent( browser );
+		subwindow.addCloseListener( new CloseListener() {
+			private static final long serialVersionUID = 1L;
 
+			@Override
+			public void windowClose(CloseEvent e) {
+
+				report.deleteReport();
+				
+			}
+			
+		});
+
+		
 		UI.getCurrent().addWindow( subwindow );
-
-/*
-		((VerticalLayout) window.getContent()).setSizeFull();
-		window.setResizable(true);
-		window.setWidth("800");
-		window.setHeight("600");
-		window.center();
-		Embedded e = new Embedded();
-		e.setSizeFull();
-		e.setType(Embedded.TYPE_BROWSER);
-		// Here we create a new StreamResource which downloads our StreamSource,
-		// which is our pdf.
-//		StreamResource resource = new StreamResource(new PdfTemplate(), "test.pdf?" + System.currentTimeMillis(), getTmsApplication());
-//		StreamResource resource = new StreamResource(new PdfTemplate(), "test.pdf", getTmsApplication());
-		StreamResource resource = new StreamResource( pdfDoc, PdfTemplate.getTmpName(), getTmsApplication());
-		// Set the right mime type
-		resource.setMIMEType("application/pdf");
-		e.setSource(resource);
-
-		window.addComponent(e);
-		getTmsApplication().getMainWindow().addWindow(window);
-//		getTmsApplication().getMainWindow().addComponent(e);
- *
- */
-
+		
 	}
 
 }
