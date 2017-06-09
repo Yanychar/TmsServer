@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE ivy-module [
-	<!ENTITY vaadin.version "7.7.7">
+	<!ENTITY vaadin.version "7.7.9">
 ]>
 <ivy-module version="2.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -52,22 +52,17 @@
 		<dependency org="org.glassfish.jersey.containers" name="jersey-container-servlet" rev="2.4"/>
 		<dependency org="org.glassfish.jersey.media" name="jersey-media-json-jackson" rev="2.4"/>
 		
-		<!-- 
-		<dependency org="javax.ws.rs" name="javax.ws.rs-api" rev="2.0"/>
-		-->
-		 
-		
 		<!-- JodaTime -->
 		<dependency org="joda-time" name="joda-time" rev="2.7"/>
 
-		<!-- iText (PDF) -->
+		<!-- iText (PDF)
 		<dependency org="com.itextpdf" name="itextpdf" rev="5.5.10"/>
- 				
-		<!-- iText (PDF) 
+ 		--> 				
+		<!-- iText (PDF) --> 
 		<dependency org="com.itextpdf" name="kernel" rev="7.0.1"/>
 		<dependency org="com.itextpdf" name="io" rev="7.0.1"/>
 		<dependency org="com.itextpdf" name="layout" rev="7.0.1"/>
-		-->
+		
 		
 		<!-- OpenCSV support -->
 		<dependency org="net.sf.opencsv" name="opencsv" rev="2.3"/>
@@ -79,10 +74,6 @@
 
 		<!-- JUnit dependency -->
 		<dependency org="junit" name="junit" rev="4.12" />
-			
-		<!-- 
-		<dependency org="org.vaadin.addon" name="easyuploads" rev="7.4.6" />			
-		-->
 			
 	</dependencies>
 </ivy-module>
