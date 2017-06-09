@@ -405,9 +405,11 @@ public class MainView extends VerticalLayout { //implements Organisation.Propert
 
 			useCheckInOutModule = Boolean.parseBoolean( 
 							org.getProperty( "company.consolidate.reports.checkinout" ));
-					
+// TBD: remove this!!!
+useCheckInOutModule  = true;
+
 			if ( logger.isDebugEnabled()) 
-				logger.debug( "Property 'company.consolidate.reports.checkinout' were red. == "
+				logger.debug( "Property 'company.consolidate.reports.checkinout' was read. == "
 							  + useCheckInOutModule );
 						
 		} catch ( Exception e ) {

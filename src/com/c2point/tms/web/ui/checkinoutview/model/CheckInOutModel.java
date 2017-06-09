@@ -10,7 +10,6 @@ import org.apache.logging.log4j.Logger;
 import com.c2point.tms.datalayer.CheckInOutFacade;
 import com.c2point.tms.datalayer.DataFacade;
 import com.c2point.tms.entity.CheckInOutRecord;
-import com.c2point.tms.entity.GeoCoordinates;
 import com.c2point.tms.entity.Organisation;
 import com.c2point.tms.entity.TmsUser;
 import com.c2point.tms.entity.access.SecurityContext;
@@ -327,8 +326,8 @@ public class CheckInOutModel extends AbstractModel implements PeriodSelectionCom
 	public void selectRecord( CheckInOutRecord record ) {
 
 		if ( record != null ) {
-			this.checkInValidator.validate( record.getProject().getGeo(), record.getCheckInGeo());
-			this.checkOutValidator.validate( record.getProject().getGeo(), record.getCheckOutGeo());
+			this.checkInValidator.validate( record.getCheckInGeo(), record.getProject().getGeo() );
+			this.checkOutValidator.validate( record.getCheckOutGeo(), record.getProject().getGeo());
 		}
 		
 		fireCheckInOutRecordSelected( record );

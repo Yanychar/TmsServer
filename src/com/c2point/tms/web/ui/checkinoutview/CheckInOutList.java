@@ -125,6 +125,7 @@ public class CheckInOutList extends Table implements CheckInOutListChangedListen
 		mapCompIn.addClickListener( new ClickListener() {
 			@Override
 			public void buttonClick( ClickEvent event ) {
+				CheckInOutList.this.setValue( mapCompIn.getCheckInOutRecord());
 				showLocationWindow( mapCompIn.getCheckInOutRecord(), true );
 			}
 		});		
@@ -134,6 +135,7 @@ public class CheckInOutList extends Table implements CheckInOutListChangedListen
 		mapCompOut.addClickListener( new ClickListener() {
 			@Override
 			public void buttonClick( ClickEvent event ) {
+				CheckInOutList.this.setValue( mapCompIn.getCheckInOutRecord());
 				showLocationWindow( mapCompOut.getCheckInOutRecord(), false );
 			}
 		});		

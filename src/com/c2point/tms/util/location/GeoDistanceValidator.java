@@ -101,8 +101,12 @@ public class GeoDistanceValidator {
 		
 		if ( this.lastValidationResult == ValidationResult.OK && warningDistance > 0 ) {
 			
+			double warningDistanceWithAccuracy = 
+					warningDistance 
+				 + ( otherPoint.getAccuracy() + basePoint.getAccuracy()) / 100;
+			
 			// Now we can check distance between
-			if ( calculateDistance( otherPoint, basePoint ) > ( warningDistance + otherPoint.getAccuracy() / 1000 )) {
+			if ( calculateDistance( otherPoint, basePoint ) > warningDistanceWithAccuracy ) {
 
 				this.lastValidationResult = ValidationResult.TOO_FAR;
 			}

@@ -4,12 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.CheckInOutRecord;
-import com.c2point.tms.entity.GeoCoordinates;
 import com.c2point.tms.entity.Project;
 import com.c2point.tms.util.location.GeoDistanceValidator;
 import com.c2point.tms.web.ui.checkinoutview.model.CheckInOutModel;
 import com.c2point.tms.web.ui.listeners.CheckInOutSelectionListener;
-import com.vaadin.server.Sizeable;
 import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Alignment;
@@ -71,7 +69,7 @@ public class DetailedViewComponent extends VerticalLayout implements CheckInOutS
 		
 		projectDataHeader = new Label( model.getApp().getResourceStr( "approve.project.label" ));
 		projectDataHeader.addStyleName( Runo.LABEL_H2);
-		projectDataHeader.setWidth( Sizeable.SIZE_UNDEFINED, Unit.PIXELS );
+		projectDataHeader.setWidthUndefined();
 		
 		projectLabel	= new Label( model.getApp().getResourceStr( "general.edit.project" ) + ": " );
 		projectName  	= new Label( "", ContentMode.HTML );
@@ -88,7 +86,7 @@ public class DetailedViewComponent extends VerticalLayout implements CheckInOutS
 
 		checkInOutHeader	= new Label( model.getApp().getResourceStr( "checkin.hours.header" ), ContentMode.HTML );
 		checkInOutHeader.addStyleName( Runo.LABEL_H2);
-		checkInOutHeader.setWidth( Sizeable.SIZE_UNDEFINED, Unit.PIXELS );
+		checkInOutHeader.setWidthUndefined();
 
 		hoursLabel	= new Label( model.getApp().getResourceStr( "checkin.registered.label" ) + ": " );
 		hoursValue	= new Label( "", ContentMode.HTML );
@@ -131,7 +129,7 @@ public class DetailedViewComponent extends VerticalLayout implements CheckInOutS
 		);
 
 		projectLocationInfo.setValue(
-				project != null && project.getGeo() != null
+				project != null && project.getAddress() != null
 				? "<b>" + project.getAddress() + "</b>"
 				:   "<font color=\"red\">"
 				  + model.getApp().getResourceStr( "project.location.unknown" )

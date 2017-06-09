@@ -124,30 +124,25 @@ public class TimeMapStub {
 
 	private boolean showIcon( ShowType checkInFlag ) {
 
-		GeoCoordinates baseC = record.getProject().getGeo();
+//		GeoCoordinates baseC = record.getProject().getGeo();
 		GeoCoordinates inOutC;
-//		String timeValue;
 
 		boolean bShow = false;
 
-		bShow = ( baseC != null && baseC.isValid());
+//		bShow = ( baseC != null && baseC.isValid());
 
 		if ( checkInFlag == ShowType.IN || checkInFlag == ShowType.ALL ) {
 
-//			timeValue = checkTimeLabel.getValue();
 			inOutC = record.getCheckInGeo();
 
 			bShow =    record.getDateCheckedIn() != null
-//					&& timeValue.length() > 0
 					&& ( bShow || inOutC != null && inOutC.isValid());
 
 		} else if ( checkInFlag == ShowType.OUT || checkInFlag == ShowType.ALL ) {
 
-//			timeValue = checkTimeLabel.getValue();
 			inOutC = record.getCheckOutGeo();
 
 			bShow =    record.getDateCheckedOut() != null
-//					&& timeValue.length() > 0
 					&& ( bShow || inOutC != null && inOutC.isValid());
 
 		}
