@@ -6,7 +6,7 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinServlet;
 
 @WebServlet(value = "/*", asyncSupported = true)
-@VaadinServletConfiguration(productionMode = true, ui = TmsApplication.class, widgetset = "com.c2point.tms.web.application.widgetset.TmsserverWidgetset")
+@VaadinServletConfiguration(productionMode = false, ui = TmsApplication.class, widgetset = "com.c2point.tms.web.application.widgetset.TmsserverWidgetset")
 public class TmsServlet extends VaadinServlet {
 
 

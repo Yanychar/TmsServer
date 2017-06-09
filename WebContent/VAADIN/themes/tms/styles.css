@@ -29,7 +29,7 @@
 	}
 
 .v-vaadin-version:after {
-	content: "7.5.8";
+	content: "7.7.9";
 }
 
 .v-generated-body {
@@ -54,6 +54,23 @@
 
 .FontAwesome {
 	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: inline-block;
+}
+
+@font-face {
+	font-family: ThemeIcons;
+	src: url(../base/fonts/themeicons-webfont.eot);
+	src: url(../base/fonts/themeicons-webfont.eot?#iefix) format("embedded-opentype"), url(../base/fonts/themeicons-webfont.woff) format("woff"), url(../base/fonts/themeicons-webfont.ttf) format("truetype"), url(../base/fonts/themeicons-webfont.svg) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.ThemeIcons {
+	font-family: ThemeIcons;
 	font-style: normal;
 	font-weight: normal;
 	-webkit-font-smoothing: antialiased;
@@ -1101,6 +1118,37 @@ body .tms.v-app .v-app-loading {
 	height: 0;
 }
 
+.tms .v-reconnect-dialog {
+	color: white;
+	top: 12px;
+	right: 12px;
+	max-width: 100%;
+	border-radius: 0;
+	-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+	padding: 10px;
+	background-color: #444;
+	text-align: center;
+}
+
+.tms .v-reconnect-dialog .text {
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.tms .v-reconnect-dialog .spinner {
+	background-image: url(../base/common/img/reconnect-spinner.gif);
+	width: 31px;
+	height: 31px;
+	display: none;
+	vertical-align: middle;
+}
+
+.tms .v-reconnect-dialog.active .spinner {
+	display: inline-block;
+}
+
 .tms .v-vertical.v-margin-top, .tms .v-horizontal.v-margin-top {
 	padding-top: 12px;
 }
@@ -1789,6 +1837,8 @@ body .tms.v-app .v-app-loading {
 }
 
 .tms .v-escalator-body {
+	-ms-touch-action: none;
+	touch-action: none;
 	z-index: 0;
 	top: 0;
 }
@@ -1875,6 +1925,7 @@ body .tms.v-app .v-app-loading {
 
 .tms .v-formlayout-errorcell, .tms .v-formlayout-captioncell {
 	width: 1px;
+	min-width: 1px;
 }
 
 .tms .v-formlayout-captioncell .v-caption {
@@ -1987,6 +2038,8 @@ body .tms.v-app .v-app-loading {
 }
 
 .tms .v-grid-body {
+	-ms-touch-action: none;
+	touch-action: none;
 	z-index: 0;
 	top: 0;
 }
@@ -2109,6 +2162,10 @@ body .tms.v-app .v-app-loading {
 	z-index: 5;
 }
 
+.tms .v-grid-sidebar.v-contextmenu.v-grid-sidebar-popup {
+	right: auto;
+}
+
 .tms .v-grid-sidebar.v-contextmenu .v-grid-sidebar-button {
 	background: transparent;
 	border: none;
@@ -2131,7 +2188,7 @@ body .tms.v-app .v-app-loading {
 .tms .v-grid-sidebar.v-contextmenu .v-grid-sidebar-button:after {
 	content: "\f0c9";
 	display: block;
-	font-family: FontAwesome, sans-serif;
+	font-family: ThemeIcons, sans-serif;
 	font-size: 15px;
 }
 
@@ -2161,6 +2218,8 @@ body .tms.v-app .v-app-loading {
 
 .tms .v-grid-sidebar.v-contextmenu .v-grid-sidebar-content {
 	padding: 4px 0;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .tms .v-grid-sidebar.v-contextmenu .v-grid-sidebar-content .gwt-MenuBar .gwt-MenuItem .column-hiding-toggle {
@@ -2169,7 +2228,7 @@ body .tms.v-app .v-app-loading {
 
 .tms .v-grid-cell {
 	background-color: #fff;
-	padding: 0 5px;
+	padding: 0 10px;
 	line-height: 26px;
 	text-overflow: ellipsis;
 }
@@ -2239,19 +2298,49 @@ body .tms.v-app .v-app-loading {
 }
 
 .tms .v-grid-header .sort-asc, .tms .v-grid-header .sort-desc {
-	padding-right: 23px;
+	padding-right: 28px;
 }
 
 .tms .v-grid-header .sort-asc:after, .tms .v-grid-header .sort-desc:after {
-	font-family: FontAwesome, sans-serif;
+	font-family: ThemeIcons, sans-serif;
 	content: "\f0de" " " attr(sort-order);
 	position: absolute;
-	right: 5px;
+	right: 10px;
 	font-size: 13px;
 }
 
 .tms .v-grid-header .sort-desc:after {
 	content: "\f0dd" " " attr(sort-order);
+}
+
+.tms .v-grid-column-resize-handle {
+	position: absolute;
+	width: 20px;
+	right: -10px;
+	top: 0px;
+	bottom: 0px;
+	cursor: col-resize;
+	z-index: 10;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.tms .v-grid-column-resize-simple-indicator {
+	position: absolute;
+	width: 3px;
+	top: 0px;
+	left: 10px;
+	z-index: 9001;
+	background: #fff;
+	box-shadow: 0px 0px 5px #000;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .tms .v-grid-footer td {
@@ -2266,6 +2355,18 @@ body .tms.v-app .v-app-loading {
 
 .tms .v-grid-footer td:first-child {
 	border-left: none;
+}
+
+.tms .v-grid-header .v-grid-cell, .tms .v-grid-footer .v-grid-cell {
+	overflow: visible;
+}
+
+.tms .v-grid-column-header-content, .tms .v-grid-column-footer-content {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 26px;
+	vertical-align: baseline;
 }
 
 .tms .v-grid-header-deco {
@@ -2329,6 +2430,10 @@ body .tms.v-app .v-app-loading {
 	box-shadow: 0 0 9px rgba(0, 0, 0, 0.2);
 }
 
+.tms .v-grid-editor.unbuffered .v-grid-editor-footer {
+	width: 100%;
+}
+
 .tms .v-grid-editor-cells {
 	position: relative;
 	white-space: nowrap;
@@ -2356,6 +2461,22 @@ body .tms.v-app .v-app-loading {
 	display: inline-block;
 }
 
+.tms .v-grid-editor-cells  > div .v-filterselect {
+	padding-left: 0;
+}
+
+.tms .v-grid-editor-cells  > div input[type="text"], .tms .v-grid-editor-cells  > div input[type="text"].v-filterselect-input, .tms .v-grid-editor-cells  > div input[type="password"] {
+	padding-left: 10px;
+}
+
+.tms .v-grid-editor-cells  > div input[type="text"]:not(.v-filterselect-input), .tms .v-grid-editor-cells  > div input[type="password"] {
+	padding-right: 5px;
+}
+
+.tms .v-grid-editor-cells  > div input[type="checkbox"] {
+	margin-left: 10px;
+}
+
 .tms .v-grid-editor-cells  > div .v-textfield, .tms .v-grid-editor-cells  > div .v-datefield, .tms .v-grid-editor-cells  > div .v-filterselect {
 	min-width: 100%;
 	max-width: 100%;
@@ -2364,16 +2485,20 @@ body .tms.v-app .v-app-loading {
 }
 
 .v-ie8 .tms .v-grid-editor-cells  > div .v-datefield-button {
-	margin-left: -30px;
+	margin-left: -37px;
 }
 
 .v-ie8 .tms .v-grid-editor-cells  > div .v-filterselect-button {
-	margin-left: -27px;
+	margin-left: -25px;
 }
 
 .tms .v-grid-editor-cells  > div .v-select, .tms .v-grid-editor-cells  > div .v-select-select {
 	min-width: 100%;
 	max-width: 100%;
+}
+
+.tms .v-grid-editor-cells  > div.not-editable.v-grid-cell {
+	float: none;
 }
 
 .tms .v-grid-editor-cells .error::before {
@@ -3011,10 +3136,29 @@ body .tms.v-app .v-app-loading {
 	border-collapse: collapse;
 	border: none;
 	vertical-align: top;
+	display: block;
+	width: 100%;
+	float: left;
+	clear: both;
+}
+
+.tms .v-filterselect-suggestmenu table > tbody, .tms .v-filterselect-suggestmenu table > tbody > tr, .tms .v-filterselect-suggestmenu table > tbody > tr > td {
+	display: block;
+	width: 100%;
+	float: left;
+	clear: both;
+	overflow-y: hidden;
 }
 
 .tms .v-filterselect-suggestmenu .gwt-MenuItem {
 	white-space: nowrap;
+	padding-left: 1px;
+	padding-right: 0;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 }
 
 .tms .v-filterselect-suggestmenu .gwt-MenuItem .v-icon {
@@ -4539,7 +4683,7 @@ body .tms.v-app .v-app-loading {
 }
 
 .tms .v-contextmenu {
-	background: #e9eced url(../runo/tabsheet/img/tab-bg.png);
+	background: #e9eced url(../runo/tabsheet/img/tab-bg.png) content-box;
 	font-family: "Trebuchet MS", geneva, helvetica, arial, tahoma, verdana, sans-serif;
 	background-color: #f6f7f7;
 	color: #464f52;
@@ -5015,7 +5159,7 @@ body .tms.v-app .v-app-loading {
 }
 
 .tms .v-grid th.sort-asc, .tms .v-grid th.sort-desc {
-	padding-right: 35px;
+	padding-right: 40px;
 }
 
 .tms .v-grid th.sort-asc:after, .tms .v-grid th.sort-desc:after {
@@ -5036,6 +5180,10 @@ body .tms.v-app .v-app-loading {
 
 .tms .v-grid-editor-footer {
 	background: #e7e9ea;
+}
+
+.tms .v-grid-column-header-content, .tms .v-grid-column-footer-content {
+	line-height: 36px;
 }
 
 .tms .v-gridlayout-margin-top {
@@ -5570,7 +5718,7 @@ body .tms.v-app .v-app-loading {
 .tms .v-filterselect-suggestmenu .gwt-MenuItem {
 	padding: 1px 6px;
 	cursor: pointer;
-	height: 18px;
+	min-height: 21px;
 }
 
 .tms .v-filterselect-suggestmenu .gwt-MenuItem .v-icon {

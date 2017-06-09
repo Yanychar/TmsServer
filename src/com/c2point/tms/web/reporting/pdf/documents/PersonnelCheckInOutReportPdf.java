@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import com.c2point.tms.util.DateUtil;
 import com.c2point.tms.util.StringUtils;
 import com.c2point.tms.web.application.TmsApplication;
+import com.c2point.tms.web.reporting.pdf.PdfDocTemplate;
 import com.c2point.tms.web.reporting.pdf.PdfTemplate;
 import com.c2point.tms.web.reporting.checkinout.AggregateItem;
 import com.c2point.tms.web.reporting.checkinout.DateItem;
@@ -13,6 +14,7 @@ import com.c2point.tms.web.reporting.checkinout.PersonItem2;
 import com.c2point.tms.web.reporting.checkinout.ProjectItem2;
 import com.c2point.tms.web.reporting.checkinout.UsersReport;
 import com.c2point.tms.web.ui.reportview.checkinout.ReportCheckInOutModel;
+import com.itextpdf.layout.element.Table;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
@@ -20,7 +22,7 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 
-public class PersonnelCheckInOutReportPdf extends AbstractReportPdf {
+public class PersonnelCheckInOutReportPdf extends PdfDocTemplate {
 
 	private static Logger logger = LogManager.getLogger( PersonnelCheckInOutReportPdf.class.getName());
 
@@ -33,6 +35,9 @@ public class PersonnelCheckInOutReportPdf extends AbstractReportPdf {
 		this.pr		= pr;
 		this.model 	= model;
 	}
+	
+	
+	
 	
 	
 	
@@ -127,13 +132,11 @@ public class PersonnelCheckInOutReportPdf extends AbstractReportPdf {
 		return table;
 	}
 
-	private PdfPTable createProjectsTable() throws Exception { 
+	private Table createProjectsTable() throws Exception { 
 		
-		PdfPTable table = new PdfPTable( 5 );
-		
-		table.setTotalWidth( new float[]{ 60, 60, 80, 230, 60 });
-		table.setLockedWidth( true );
-		table.getDefaultCell().setBorder( Rectangle.NO_BORDER );
+		float[] columns = { 60, 60, 80, 230, 60 });
+		Table table = new Table( columns );
+		table.setWidthPercent(100);
 		
 		if ( pr != null ) {
 			PdfPCell cell;
