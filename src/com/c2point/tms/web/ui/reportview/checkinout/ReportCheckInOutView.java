@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 import com.c2point.tms.util.DateUtil;
 import com.c2point.tms.web.reporting.checkinout.ProjectsReport;
 import com.c2point.tms.web.reporting.checkinout.UsersReport;
-import com.c2point.tms.web.reporting.pdf.PdfTemplate;
+import com.c2point.tms.web.reporting.pdf.PdfDocTemplate;
 import com.c2point.tms.web.reporting.pdf.documents.PersonnelCheckInOutReportPdf;
 import com.c2point.tms.web.reporting.pdf.documents.ProjectsCheckInOutReportPdf;
 import com.c2point.tms.web.ui.AbstractMainView;
@@ -32,6 +32,8 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Window.CloseEvent;
+import com.vaadin.ui.Window.CloseListener;
 import com.vaadin.ui.themes.Runo;
 
 @SuppressWarnings("serial")
@@ -304,53 +306,66 @@ public class ReportCheckInOutView extends AbstractMainView {
 		// Prepare Report
 		UsersReport ur = null;
 		ProjectsReport pr = null;
-		PdfTemplate pdfDoc = null;
+		final PdfDocTemplate report;
+		
 		if ( model.getReportType() == ReportCheckInOutModel.ReportType.PERSONNEL_VIEW ) {
 			ur = model.createUsersReport();
-			pdfDoc = new PersonnelCheckInOutReportPdf( getTmsApplication(), ur, model ).create();
+			report = new PersonnelCheckInOutReportPdf( getTmsApplication(), ur, model );
+			report.printReport();
 		} else if ( model.getReportType() == ReportCheckInOutModel.ReportType.PROJECT_VIEW ) {
 			pr = model.createProjectsReport();
-			pdfDoc = new ProjectsCheckInOutReportPdf( getTmsApplication(), pr, model ).create();
+			report = new ProjectsCheckInOutReportPdf( getTmsApplication(), pr, model );
+			report.printReport();
 		} else {
 			return;
 		}
 		
 		// Show PDF
-		Window window = new Window();
+		Window subwindow = new Window();
+		
+		subwindow.setModal( true );
+		subwindow.setWidth( "80%" );
+		subwindow.setHeight( "90%" );
+		subwindow.setResizable( true );
+		subwindow.center();
 		
 		switch ( model.getReportType() ) {
 			case PERSONNEL_VIEW:
-				window.setCaption( model.getApp().getResourceStr( "reporting.report.type.personnel" ));
+				subwindow.setCaption( model.getApp().getResourceStr( "reporting.report.type.personnel" ));
 				break;
 			case PROJECT_VIEW:
-				window.setCaption( model.getApp().getResourceStr( "reporting.report.type.projects" ));
+				subwindow.setCaption( model.getApp().getResourceStr( "reporting.report.type.projects" ));
 				break;
 			default:
-				window.setCaption( "" );
+				subwindow.setCaption( "" );
 				break;
 		}
 
-		window.setResizable(true);
 		
-		if ( logger.isDebugEnabled()) {
-			logger.debug( " getMainWindow().getWidth() = " + UI.getCurrent().getWidth());
-			logger.debug( " getMainWindow().getHeight() = " + UI.getCurrent().getHeight());
-		}
+		StreamResource resource = report.getResource();
+		resource.setCacheTime( 0 );
+		// Set the right mime type
+		resource.setMIMEType("application/pdf");
 
-		window.setWidth( "80%" );
-		window.setHeight( "90%" );
+		BrowserFrame browser = new BrowserFrame( "Browser" );
+		browser.setSource( resource );
+		browser.setSizeFull();
 		
-		window.center();
+		subwindow.setContent( browser );
 		
-		StreamResource resource = new StreamResource( pdfDoc, PdfTemplate.getTmpName());
-		resource.setMIMEType("application/pdf");        
+		subwindow.addCloseListener( new CloseListener() {
+			private static final long serialVersionUID = 1L;
 
-		BrowserFrame browser = new BrowserFrame( "Browser", resource );
-		browser.setSizeFull();        
+			@Override
+			public void windowClose(CloseEvent e) {
+
+				report.deleteReport();
+				
+			}
+			
+		});
+
 		
-		window.setContent( browser );
-		
-		UI.getCurrent().addWindow( window );
-		
+		UI.getCurrent().addWindow( subwindow );
 	}
 }

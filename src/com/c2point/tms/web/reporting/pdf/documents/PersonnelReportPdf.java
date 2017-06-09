@@ -5,9 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.TravelType;
 import com.c2point.tms.util.DateUtil;
-import com.c2point.tms.util.StringUtils;
 import com.c2point.tms.web.application.TmsApplication;
-import com.c2point.tms.web.reporting.pdf.PdfTemplate;
+import com.c2point.tms.web.reporting.pdf.PdfDocTemplate;
 import com.c2point.tms.web.reporting.taskandtravel.DateItem;
 import com.c2point.tms.web.reporting.taskandtravel.PrjItem;
 import com.c2point.tms.web.reporting.taskandtravel.TaskItem;
@@ -15,14 +14,13 @@ import com.c2point.tms.web.reporting.taskandtravel.TravelItem;
 import com.c2point.tms.web.reporting.taskandtravel.UserItem;
 import com.c2point.tms.web.reporting.taskandtravel.UsersReport;
 import com.c2point.tms.web.ui.reportview.tasktravel.ReportTaskTravelModel;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.layout.border.Border;
+import com.itextpdf.layout.border.SolidBorder;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.Property;
 
-public class PersonnelReportPdf extends AbstractReportPdf {
+public class PersonnelReportPdf extends PdfDocTemplate {
 
 	private static Logger logger = LogManager.getLogger( PersonnelReportPdf.class.getName());
 
@@ -36,190 +34,122 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 		this.model 	= model;
 	}
 	
-	
-	
-	public PdfTemplate create() { 
-		
-		PdfTemplate doc = new PdfTemplate();
-		
-		try {
-			
-			Paragraph docHeader = new Paragraph();
-			
-			doc.nextLine( docHeader );
-			addTitle( docHeader, app.getResourceStr( "reporting.item.header.personnel" ) + " " );
-			addTitle( docHeader, model.getOrganisation().getName());
-			doc.nextLine( docHeader );
-			addSubtitle( docHeader, app.getResourceStr( "reporting.item.header.period" ) + " " 
-							+ DateUtil.dateToString( model.getStartDate()) 
-							+ " - " 
-							+ DateUtil.dateToString( model.getEndDate()));
-			
-			doc.nextLine( docHeader );
-	
-			doc.getDocument().add( docHeader );
+	@Override
+	protected void printTitlePage() throws Exception {
 
-			doc.getDocument().add( createConsolidatedPersonTable());
+		nextLine();
+		
+		addTitle( getApp().getResourceStr( "reporting.item.header.personnel" ) + " " );
+		addTitle( model.getOrganisation().getName());
+		nextLine();
 
-			doc.nextLine();
-			
-			doc.getDocument().add( createPersonTablePerDate()); 
+		addSubtitle( getApp().getResourceStr( "reporting.item.header.period" ) + " " 
+						+ DateUtil.dateToString( model.getStartDate()) 
+						+ " - " 
+						+ DateUtil.dateToString( model.getEndDate()));
+		
+		nextLine();
+		
+	}
 
-    	} catch ( Exception e ) {                
-    		logger.error( "Cannot create iText.Document and/or PdfWriter!\n" + e  );
-    	} finally {
-    		if ( doc != null ) {
-    			doc.endDoc();
-    		}            
-    	}
+
+
+	@Override
+	protected void printLastPage() throws Exception {
+		// TODO Auto-generated method stub
 		
+	}
+
+
+
+	@Override
+	protected void printContent() throws Exception {
+
+		addTable( createConsolidatedPersonTable());
+
+		nextLine();
 		
+		addTable( createPersonTablePerDate()); 
 		
-		
-		return doc;
 	}
 	
-	public PdfPTable createConsolidatedPersonTable() throws Exception { 
+	
+	public Table createConsolidatedPersonTable() throws Exception { 
 		
-		PdfPTable table = new PdfPTable( 4 );
+		float[] columns = { 150, 60, 80, 80 };
+		Table table = new Table( columns );
+		table.setWidthPercent(100);
 		
-		table.setTotalWidth( new float[]{ 150, 60, 80, 80 });
-		table.setLockedWidth( true );
-		
-		addHeaderCell( table, app.getResourceStr( "general.table.header.employee" ));
-		addHeaderCell( table, app.getResourceStr( "general.table.header.hours" ));
-		addHeaderCell( table, app.getResourceStr( "reporting.item.tyomatka" ));
-		addHeaderCell( table, app.getResourceStr( "reporting.item.tyoajo" ));
+		addHeaderCell( table, getApp().getResourceStr( "general.table.header.employee" ));
+		addHeaderCell( table, getApp().getResourceStr( "general.table.header.hours" ));
+		addHeaderCell( table, getApp().getResourceStr( "reporting.item.tyomatka" ));
+		addHeaderCell( table, getApp().getResourceStr( "reporting.item.tyoajo" ));
 		
 		if ( ur != null ) {
-			PdfPCell cell;
 			for ( UserItem item : ur.values()) {
-				table.addCell( item.getUser().getLastAndFirstNames());
+				add( table, item.getUser().getLastAndFirstNames());
 				
-				cell = new PdfPCell( new Phrase( String.format( "%.1f", item.getHours())));	// Float.toString( item.getHours())));
-				cell.setPaddingRight( 10 );
-				cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-				table.addCell( cell );
+				add( table,item.getHours());
 
-				cell = new PdfPCell( new Phrase( Integer.toString( item.getMatka())));
-				cell.setPaddingRight( 10 );
-				cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-				table.addCell( cell );
+				add( table,item.getMatka());
 				
-				cell = new PdfPCell( new Phrase( Integer.toString( item.getAjo())));
-				cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-				cell.setPaddingRight( 10 );
-				table.addCell( cell );
+				add( table,item.getAjo());
 				
 			}
 
-			cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.total" ), headerFontBig ));
-			cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-			table.addCell( cell );
-			
-			cell = new PdfPCell( new Phrase( String.format( "%.1f", ur.getHours()), headerFontBig ));
-			cell.setPaddingRight( 10 );
-			cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-			table.addCell( cell );
-
-			cell = new PdfPCell( new Phrase( Integer.toString( ur.getMatka()), headerFontBig ));
-			cell.setPaddingRight( 10 );
-			cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-			table.addCell( cell );
-			
-			cell = new PdfPCell( new Phrase( Integer.toString( ur.getAjo()), headerFontBig ));
-			cell.setPaddingRight( 10 );
-			cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-			table.addCell( cell );
-			
-			
+			addFooterCell( table, getApp().getResourceStr( "reporting.item.total" ));
+			addFooterCell( table, String.format( "%.1f", ur.getHours()));
+			addFooterCell( table, Integer.toString( ur.getMatka()));
+			addFooterCell( table, Integer.toString( ur.getAjo()));
 			
 		}
     
-		table.setHeaderRows( 1 );
-		
 		return table;
 	}
 
-	private PdfPTable createPersonTablePerDate() throws Exception { 
+	private Table createPersonTablePerDate() throws Exception { 
 		
-		PdfPTable table = new PdfPTable( 7 );
-		
-		table.setTotalWidth( new float[]{ 65, 40, 40, 140, 60, 60, 60 });
-		table.setLockedWidth( true );
-		table.getDefaultCell().setBorder( Rectangle.NO_BORDER );
+		float[] columns = { 65, 40, 40, 140, 60, 60, 60 };
+		Table table = new Table( columns );
+		table.setWidthPercent(100);
+		table.setProperty(Property.BORDER, Border.NO_BORDER);
 		
 		if ( ur != null ) {
-			PdfPCell cell;
 			for ( UserItem userItem : ur.values()) {
 				
 				if ( userItem.getHours() != 0 || userItem.getMatka() != 0 || userItem.getAjo() != 0 ) {
 					// new line
 					if ( model.isDateFlag()) {
 							// Write header if necessary
-						cell = new PdfPCell( new Phrase( "" ));
-						cell.setColspan( 7 );
-						cell.setBorder( Rectangle.NO_BORDER );
-						table.addCell( cell );
-
-						cell = new PdfPCell( new Phrase( userItem.getUser().getLastAndFirstNames()));
-						cell.setColspan( 4 );
-						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
-						cell.setBorderWidthTop( 3f );
-//						cell.setBorderWidthBottom( 1f );
-						cell.setUseBorderPadding( true );					
-						table.addCell( cell );
-
-						cell = new PdfPCell( new Phrase( app.getResourceStr( "general.table.header.hours" )));
-						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
-						cell.setBorderWidthTop( 3f );
-//						cell.setBorderWidthBottom( 1f );
-						cell.setUseBorderPadding( true );					
-						table.addCell( cell );
-
-						cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.tyomatka" )));
-						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
-						cell.setBorderWidthTop( 3f );
-//						cell.setBorderWidthBottom( 1f );
-						cell.setUseBorderPadding( true );					
-						table.addCell( cell );
+						addEmptyCells( table, 7 ).setBorder( Border.NO_BORDER );
 						
-						cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.tyoajo" )));
-						cell.setBorder( Rectangle.TOP + Rectangle.BOTTOM );
-						cell.setBorderWidthTop( 3f );
-//						cell.setBorderWidthBottom( 1f );
-						cell.setUseBorderPadding( true );					
-						table.addCell( cell );
+						add( table, userItem.getUser().getLastAndFirstNames(), 4 )
+							.setBorder( Border.NO_BORDER )
+							.setBorderTop( new SolidBorder( 3 ))
+							.setBorderBottom( new SolidBorder( 1 ));
+							
+						add( table, getApp().getResourceStr( "general.table.header.hours" ))
+							.setBorder( Border.NO_BORDER )
+							.setBorderTop( new SolidBorder( 3 ))
+							.setBorderBottom( new SolidBorder( 1 ));
+						
+						add( table, getApp().getResourceStr( "reporting.item.tyomatka" ))
+							.setBorder( Border.NO_BORDER )
+							.setBorderTop( new SolidBorder( 3 ))
+							.setBorderBottom( new SolidBorder( 1 ));
+
+						add( table, getApp().getResourceStr( "reporting.item.tyoajo" ))
+							.setBorder( Border.NO_BORDER )
+							.setBorderTop( new SolidBorder( 3 ))
+							.setBorderBottom( new SolidBorder( 1 ));
 						
 						for ( DateItem dateItem : userItem.values()) {
 		
-							cell = new PdfPCell( new Phrase( DateUtil.dateToString( dateItem.getDate())));
-							cell.setHorizontalAlignment( Element.ALIGN_CENTER );
-							cell.setBorder( Rectangle.NO_BORDER );
-							table.addCell( cell );
-		
-							cell = new PdfPCell();
-							cell.setColspan( 3 );
-							cell.setBorder( Rectangle.NO_BORDER );
-							table.addCell( cell );
-							
-							cell = new PdfPCell( new Phrase( String.format( "%.1f", dateItem.getHours())));
-							cell.setPaddingRight( 10 );
-							cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-							cell.setBorder( Rectangle.NO_BORDER );
-							table.addCell( cell );
-		
-							cell = new PdfPCell( new Phrase( Integer.toString( dateItem.getMatka())));
-							cell.setPaddingRight( 10 );
-							cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-							cell.setBorder( Rectangle.NO_BORDER );
-							table.addCell( cell );
-							
-							cell = new PdfPCell( new Phrase( Integer.toString( dateItem.getAjo())));
-							cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-							cell.setPaddingRight( 10 );
-							cell.setBorder( Rectangle.NO_BORDER );
-							table.addCell( cell );
+							add( table, dateItem.getDate()).setBorder( Border.NO_BORDER );
+							addEmptyCells( table, 3 ).setBorder( Border.NO_BORDER );
+							add( table, dateItem.getHours()).setBorder( Border.NO_BORDER );
+							add( table, dateItem.getMatka()).setBorder( Border.NO_BORDER );
+							add( table, dateItem.getAjo()).setBorder( Border.NO_BORDER );
 							
 							if ( model.isProjectsFlag() || model.isTasksFlag_1() || model.isTravelFlag_1()) {
 								// Write header if necessary
@@ -230,35 +160,13 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 										
 										logger.debug( "PrjItem: " + prjItem );
 										
-										table.addCell( "" );
-									
-										cell = new PdfPCell( new Phrase( StringUtils.padRightSpaces( prjItem.getProject().getCode(), 8 ))); 
-										cell.setBorder( cell.getBorder() - Rectangle.RIGHT );
-										cell.setBorder( Rectangle.NO_BORDER );
-										table.addCell( cell );
-										cell = new PdfPCell( new Phrase( prjItem.getProject().getName())); 
-										cell.setColspan( 2 );
-										cell.setBorder( cell.getBorder() - Rectangle.LEFT );
-										cell.setBorder( Rectangle.NO_BORDER );
-										table.addCell( cell );
-									
-										cell = new PdfPCell( new Phrase( String.format( "%.1f", prjItem.getHours())));
-										cell.setPaddingRight( 10 );
-										cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-										cell.setBorder( Rectangle.NO_BORDER );
-										table.addCell( cell );
-				
-										cell = new PdfPCell( new Phrase( Integer.toString( prjItem.getMatka())));
-										cell.setPaddingRight( 10 );
-										cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-										cell.setBorder( Rectangle.NO_BORDER );
-										table.addCell( cell );
+										add( table,  "" ).setBorder( Border.NO_BORDER );
+										add( table, prjItem.getProject().getCode()).setBorder( Border.NO_BORDER );
+										add( table, prjItem.getProject().getName(), 2 ).setBorder( Border.NO_BORDER );
+										add( table, prjItem.getHours()).setBorder( Border.NO_BORDER );
+										add( table, prjItem.getMatka()).setBorder( Border.NO_BORDER );
+										add( table, prjItem.getAjo()).setBorder( Border.NO_BORDER );
 										
-										cell = new PdfPCell( new Phrase( Integer.toString( prjItem.getAjo())));
-										cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-										cell.setPaddingRight( 10 );
-										cell.setBorder( Rectangle.NO_BORDER );
-										table.addCell( cell );
 									}
 									if ( prjItem.getTaskItems().size() > 0 && model.isTasksFlag_1()) {
 										// Write header if necessary
@@ -266,75 +174,38 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 										// List all Time Task reports
 										for ( TaskItem taskItem : prjItem.getTaskItems()) {
 											
-											cell = new PdfPCell();
-											cell.setColspan( 2 );
-											cell.setBorder( Rectangle.NO_BORDER );
-											table.addCell( cell );
-										
-											cell = new PdfPCell( new Phrase( StringUtils.padRightSpaces( taskItem.getTask().getCode(), 8 ))); 
-											cell.setBorder( cell.getBorder() - Rectangle.RIGHT );
-											cell.setBorder( Rectangle.NO_BORDER );
-											table.addCell( cell );
-											cell = new PdfPCell( new Phrase( taskItem.getTask().getName())); 
-											cell.setBorder( cell.getBorder() - Rectangle.LEFT );
-											cell.setBorder( Rectangle.NO_BORDER );
-											table.addCell( cell );
-										
-											cell = new PdfPCell( new Phrase( String.format( "%.1f", taskItem.getHours())));
-											cell.setPaddingRight( 10 );
-											cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-											cell.setBorder( Rectangle.NO_BORDER );
-											table.addCell( cell );
-				
-											cell = new PdfPCell();
-											cell.setColspan( 2 );
-											cell.setBorder( Rectangle.NO_BORDER );
-											table.addCell( cell );
+											addEmptyCells( table, 2 ).setBorder( Border.NO_BORDER );
+											add( table, taskItem.getTask().getCode()).setBorder( Border.NO_BORDER );
+											add( table, taskItem.getTask().getName()).setBorder( Border.NO_BORDER );
+											add( table, taskItem.getHours()).setBorder( Border.NO_BORDER );
+											addEmptyCells( table, 2 ).setBorder( Border.NO_BORDER );
 										}
 									}
 									// List all traveling
 									if ( prjItem.getTravelItems().size() > 0 && model.isTravelFlag_1()) {
 										// Write header if necessary
-										cell = new PdfPCell();
-										cell.setBorder( Rectangle.NO_BORDER );
-										table.addCell( cell );
+										add( table,  "" ).setBorder( Border.NO_BORDER );
 					
-										cell = new PdfPCell( new Phrase( app.getResourceStr( "reporting.item.travel" ), subheaderFontBig ));
-										cell.setColspan( 2 );
-										cell.setBorder( Rectangle.NO_BORDER );
-										table.addCell( cell );
+										add( table, getApp().getResourceStr( "reporting.item.travel" ), HorizontalAlignment.CENTER, subheaderFontBig, 12 )
+											.setBorder( Border.NO_BORDER );
 										
-										cell = new PdfPCell();
-										cell.setColspan( 4 );
-										cell.setBorder( Rectangle.NO_BORDER );
-										table.addCell( cell );
+										addEmptyCells( table, 5 ).setBorder( Border.NO_BORDER );
 
 										// List all Travels
 										for ( TravelItem travelItem : prjItem.getTravelItems()) {
 											
-											cell = new PdfPCell();
-											cell.setColspan( 2 );
-											cell.setBorder( Rectangle.NO_BORDER );
-											table.addCell( cell );
+											addEmptyCells( table, 2 ).setBorder( Border.NO_BORDER );
 										
-											cell = new PdfPCell( new Phrase( travelItem.getReport().getRoute())); 
-											cell.setBorder( cell.getBorder() - Rectangle.RIGHT );
-											cell.setColspan( 2 );
-											cell.setBorder( Rectangle.NO_BORDER );
-											table.addCell( cell );
+											add( table,  travelItem.getReport().getRoute(), 2 ).setBorder( Border.NO_BORDER );
 										
-											table.addCell( "" );
+											add( table,  "" ).setBorder( Border.NO_BORDER );
 			
-											cell = new PdfPCell( new Phrase( Integer.toString( travelItem.getDistance())));
-											cell.setPaddingRight( 10 );
-											cell.setHorizontalAlignment( Element.ALIGN_RIGHT );
-											cell.setBorder( Rectangle.NO_BORDER );
 											if ( travelItem.getTravelType() == TravelType.HOME ) {
-												table.addCell( cell );
-												table.addCell( "" );
+												add( table,  travelItem.getDistance()).setBorder( Border.NO_BORDER );
+												add( table,  "" ).setBorder( Border.NO_BORDER );
 											} else {
-												table.addCell( "" );
-												table.addCell( cell );
+												add( table,  "" ).setBorder( Border.NO_BORDER );
+												add( table,  travelItem.getDistance()).setBorder( Border.NO_BORDER );
 											}
 											
 										}
@@ -342,17 +213,18 @@ public class PersonnelReportPdf extends AbstractReportPdf {
 								
 								}
 							}
-						}
 						
+						}
 					}
 				}
 				
 			}
 		}
 	    
-//		table.setHeaderRows( 1 );
-		
 		return table;
 	}
+
+
+
 
 }

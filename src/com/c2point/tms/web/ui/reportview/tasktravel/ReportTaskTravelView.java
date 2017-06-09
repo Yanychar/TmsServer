@@ -2,14 +2,12 @@ package com.c2point.tms.web.ui.reportview.tasktravel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.c2point.tms.entity.Project;
 import com.c2point.tms.util.DateUtil;
-import com.c2point.tms.web.reporting.pdf.PdfTemplate;
+import com.c2point.tms.web.reporting.pdf.PdfDocTemplate;
 import com.c2point.tms.web.reporting.pdf.documents.PersonnelReportPdf;
 import com.c2point.tms.web.reporting.pdf.documents.ProjectsReportPdf;
 import com.c2point.tms.web.reporting.taskandtravel.ProjectsReport;
@@ -20,13 +18,13 @@ import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.server.StreamResource;
 import com.vaadin.shared.ui.datefield.Resolution;
 import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
+import com.vaadin.ui.BrowserFrame;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.DateField;
-import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
@@ -34,6 +32,8 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Window.CloseEvent;
+import com.vaadin.ui.Window.CloseListener;
 import com.vaadin.ui.themes.Runo;
 
 @SuppressWarnings("serial")
@@ -384,59 +384,65 @@ public class ReportTaskTravelView extends AbstractMainView {
 		// Prepare Report
 		UsersReport ur = null;
 		ProjectsReport pr = null;
-		PdfTemplate pdfDoc = null;
+		final PdfDocTemplate report;
 		if ( model.getReportType() == ReportTaskTravelModel.ReportType.PERSONNEL_VIEW ) {
 			ur = model.createUsersReport();
-			pdfDoc = new PersonnelReportPdf( getTmsApplication(), ur, model ).create();
+			report = new PersonnelReportPdf( getTmsApplication(), ur, model );
+			report.printReport(); 
 		} else if ( model.getReportType() == ReportTaskTravelModel.ReportType.PROJECT_VIEW ) {
 			pr = model.createProjectsReport();
-			pdfDoc = new ProjectsReportPdf( getTmsApplication(), pr, model ).create();
+			report = new ProjectsReportPdf( getTmsApplication(), pr, model );
+			report.printReport(); 
 		} else {
+			report = null;
 			return;
 		}
 		
 		// Show PDF
-		Window window = new Window();
+		Window subwindow = new Window();
 		
 		switch ( model.getReportType() ) {
 			case PERSONNEL_VIEW:
-				window.setCaption( model.getApp().getResourceStr( "reporting.report.type.personnel" ));
+				subwindow.setCaption( model.getApp().getResourceStr( "reporting.report.type.personnel" ));
 				break;
 			case PROJECT_VIEW:
-				window.setCaption( model.getApp().getResourceStr( "reporting.report.type.projects" ));
+				subwindow.setCaption( model.getApp().getResourceStr( "reporting.report.type.projects" ));
 				break;
 			default:
-				window.setCaption( "" );
+				subwindow.setCaption( "" );
 				break;
 		}
 
-//		((VerticalLayout) window.getContent()).setSizeFull();        
-		window.setResizable(true);
+		subwindow.setModal( true );
+		subwindow.setWidth( "80%" );
+		subwindow.setHeight( "90%" );
+		subwindow.setResizable( true );
+		subwindow.center();
 		
-		if ( logger.isDebugEnabled()) {
-			logger.debug( " getMainWindow().getWidth() = " + UI.getCurrent().getWidth());
-			logger.debug( " getMainWindow().getHeight() = " + UI.getCurrent().getHeight());
-		}
-//		window.setWidth( mainWindow.getWidth() - 50, mainWindow.getWidthUnits()); //.setWidth("800");        
-//		window.setHeight( mainWindow.getHeight() - 50, mainWindow.getHeightUnits()); //.setHeight("600");
+		StreamResource resource = report.getResource();
+		resource.setCacheTime( 0 );
+		// Set the right mime type
+		resource.setMIMEType("application/pdf");
 
-		window.setWidth( "80%" );
-		window.setHeight( "90%" );
+		BrowserFrame browser = new BrowserFrame( "Browser" );
+		browser.setSource( resource );
+		browser.setSizeFull();
 		
-		window.center();        
-		Embedded e = new Embedded();        
-		e.setSizeFull();        
-		e.setType(Embedded.TYPE_BROWSER);        
-		// Here we create a new StreamResource which downloads our StreamSource,        
-		// which is our pdf.        
-		StreamResource resource = new StreamResource( pdfDoc, PdfTemplate.getTmpName());
-		// Set the right mime type        
-		resource.setMIMEType("application/pdf");        
-		e.setSource(resource);        
+		subwindow.setContent( browser );
+		subwindow.addCloseListener( new CloseListener() {
+			private static final long serialVersionUID = 1L;
 
-		window.setContent( e );
+			@Override
+			public void windowClose(CloseEvent e) {
+
+				report.deleteReport();
+				
+			}
+			
+		});
+
 		
-		UI.getCurrent().addWindow( window );		
+		UI.getCurrent().addWindow( subwindow );
 
 		
 		
