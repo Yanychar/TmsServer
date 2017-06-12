@@ -12,9 +12,12 @@ import com.c2point.tms.web.reporting.checkinout.ProjectItem;
 import com.c2point.tms.web.reporting.checkinout.ProjectsReport;
 import com.c2point.tms.web.reporting.pdf.PdfDocTemplate;
 import com.c2point.tms.web.ui.reportview.checkinout.ReportCheckInOutModel;
+import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.layout.border.Border;
 import com.itextpdf.layout.border.SolidBorder;
+import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.HorizontalAlignment;
 
 public class ProjectsCheckInOutReportPdf extends PdfDocTemplate {
 
@@ -103,7 +106,7 @@ public class ProjectsCheckInOutReportPdf extends PdfDocTemplate {
 
 	private Table createPersonnelTable() throws Exception { 
 		
-		float[] columns = { 60, 60, 80, 230, 60 };
+		float[] columns = { 60, 60, 80, 200, 90 };
 		Table table = new Table( columns );
 		table.setWidthPercent(100);
 		
@@ -139,15 +142,19 @@ public class ProjectsCheckInOutReportPdf extends PdfDocTemplate {
 						.setBorderTop( new SolidBorder( 3 ))
 						.setBorderBottom( new SolidBorder( 1 ));
 */
-					add( table, "AAA" )
+					add( table, prjItem.getProject().getCode(), HorizontalAlignment.CENTER, headerFontBig, 14 )
 						.setBorder( Border.NO_BORDER )
 						.setBorderTop( new SolidBorder( 3 ))
 						.setBorderBottom( new SolidBorder( 1 ));
-					add( table, "BBB", 3 )
+					addCell( table, prjItem.getProject().getName(), 3, headerFontBig, 14, false )
 						.setBorder( Border.NO_BORDER )
 						.setBorderTop( new SolidBorder( 3 ))
 						.setBorderBottom( new SolidBorder( 1 ));
-					add( table, "FFF" )
+					add( table, getApp().getResourceStr( "general.table.header.hours" ) 
+							+ " ( "
+							+ String.format( "%.1f", prjItem.getHours())
+							+ " )"
+							, HorizontalAlignment.CENTER, headerFontBig, 14 )
 						.setBorder( Border.NO_BORDER )
 						.setBorderTop( new SolidBorder( 3 ))
 						.setBorderBottom( new SolidBorder( 1 ));

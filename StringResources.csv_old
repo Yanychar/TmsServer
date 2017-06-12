@@ -1,0 +1,437 @@
+## Key ValueSum;## en_FI;## fi_FI;## et_FI;## ru_FI
+##;## English;## Finnish;## Estonian;## Russian
+;;;;
+mainWindow.title;Uisko TMS;Uisko TMS;Uisko TMS;Uisko TMS
+mainWindow.label;Time Management Service;Ajanhallintapalvelu;Tööaja planeerimine;Управление Рабочим Временем
+;;;;
+## Languages;;;;
+language.en;English;English;English;English
+language.fi;Suomi;Suomi;Suomi;Suomi
+language.sv;Swedish;Swedish;Swedish;Swedish
+language.es;Eesti;Eesti;Eesti;Eesti
+language.ru;Русский;Русский;Русский;Русский
+;;;;
+## Buttons;;;;
+general.button.ok;OK;OK;OK;OK
+general.button.cancel;Cancel;Peruuta;Katkesta;Отмена
+general.button.apply;Apply;Ota käyttöön;Kasuta;Применить
+general.button.restore;Restore;Palauta;Taasta;Восстановить
+general.button.edit;Edit;Muokkaa;Paranda;Исправить
+general.button.approve;Approve;Hyväksy;Kinnita;Утвердить
+general.button.reject;Reject;Hylkää;Keelata;Отказать
+general.button.search;SEARCH!;ETSI!;OTSI!;НАЙТИ!
+general.button.select;Select;Valitse;Vali;Выбрать
+general.button.selectall;Select All;Valitse Kaikki;Vali Kõik;Выбрать Всё
+general.button.clearall;Clear All;Tyhjennä Kaikki;Kustuta kõik;Очистить
+general.button.assign;Assign;Anna Tehtäväksi;Määrata;Назначить
+general.button.import;Import;Tuo;Import;Импорт
+general.button.export;Export;Vie;Eksport;Экспорт
+general.button.get;Get;Hae;Kätte saama;Получить
+general.button.preview;Preview;Näytä;Vaata;Показать
+general.button.today;Today;Tänään;Täna;Сегодня
+general.button.create;Create;Luo;Loo;Создать
+general.button.print;Print;Tulosta;Prindi;Печать
+general.button.close;Close;Sulkea;Sulgema;Закрыть
+;;;;
+# Table headers;;;;
+general.table.header.code;Code;Koodi;Kood;Код
+general.table.header.employee;Employee;Työntekijä;Töötaja;Работник
+general.table.header.fio;Name;Nimi;Nimi;ФИО
+general.table.header.name;Name;Nimi;Nimetus;Название
+general.table.header.date;Date;Pvm;Kuupäev;Число
+general.table.header.project;Project;Projekti;Projekt;Проект
+general.table.header.projectname;Project Name;Projektin Nimi;Projekti pealkiri;Название проекта
+general.table.header.task;Task;Tehtävä;Ülesanne;Задача
+general.table.header.taskname;Task Name;Tehtävän Nimi;Nimetus;Название
+general.table.header.hours;Hours;Tunnit;Tunnid;Часы
+general.table.header.status;Status;Tila;Staatus;Статус
+general.table.header.type;Type;Tyyppi;Tüüp;Тип
+general.table.header.distance;Distance;Matka/km;Vahemaa;Расстояние
+general.table.header.route;Route;Reitti;Marsruut;Маршрут
+general.table.header.checkin;Check-In;Aloitusaika;Saabus;Пришёл
+general.table.header.checkout;Check-Out;Lopetusaika;Lahkus;Ушёл
+general.table.header.project.task;Project & Task;Projekti & Tehtävä;Projektid & Ülesanded;Проекты & Задачи
+;;;;
+# General field names, tooltips and validators;;;;
+;;;;
+general.edit.code;Code;Koodi;Kood;Код
+general.edit.name;Name;Nimi;Nimi;Название
+general.edit.fname;First Name:;Etunimi:;Eesnimi:;Имя:
+general.edit.mname;Middle Name:;Toinen nimi: ;Isanimi:;Отчество:
+general.edit.lname;Last Name:;Sukunimi:;Perekonnanimi:;Фамилия:
+general.edit.mngr;Managed by;Työnjohtaja;Оtsene juht;Непосредственный начальник
+general.edit.linemgmt;Line Management;Työpäällikkö;Projekti tegevjuht;Управление Персоналом
+general.edit.owner;Project Owner;Projektin johtaja;Projekti juht;Руководитель Проекта
+general.edit.group;Security Group;Käyttäjäryhmä;Turvarühm;Группа Доступа
+general.edit.company;Company;Yritys;Ettevõte;Компания
+general.edit.project;Project;Projekti;Projekt;Проект
+general.edit.task;Task;Tehtävä;Ülesanne;Задача
+;;;;
+;;;;
+general.edit.fname.tooltip;Enter First Name;Syötä etunimesi;Sisesta eesnimi;Введите имя
+general.edit.mname.tooltip;Enter Middle Name;Syötä toinen nimesi;Anna teine nimi;Введите отчество
+general.edit.lname.tooltip;Enter Last Name;Syötä sukunimesi;Sisesta perekonnanimi;Введите фамилию
+;;;;
+general.approve.tooltip;Press to approve the Report;Paina hyväksyäksesi raportin;Vajuta aruande aktsepteerimiseks;Нажмите для утверждения отчета
+general.reject.tooltip;Press to reject the Report;Paina hylätäksesi raportin;Vajuta reporti tagasi lükkamiseks;Нажмите для отклонения отчета
+;;;;
+;;;;
+# Menu Items;;;;
+menu.item.own;My Reports;Omat raportit;Minu Aruanded;Мои Отчеты
+menu.item.team;My Team;Oma tiimi;Oma Meeskond;Моя Команда
+menu.item.company;My Company;Oma yritys;Oma Ettevõte;Моя Организация
+menu.item.admin;Administration;Hallinto;Administreerimine;Администрирование
+;;;;
+menu.item.approval;Approval;Hyväksyminen;Kinnitamine;Утверждение
+menu.item.presence;Presence;Läsnäolo;Kohalolek;Присутствие
+menu.item.projects;Projects;Projektit;Projektid;Проекты
+menu.item.people;People;Henkilöt;Inimesed;Персонал
+menu.item.tools;Tools;Työkalut;Töövahendid;Инструменты
+menu.item.settings;Settings;Asetukset;Paigaldused;Настройки
+menu.item.companies;Companies;Yritykset ;Ettevõted;Компании
+menu.item.reports;Reports;Raportit;Aruanded;Отчеты
+menu.item.report.time;Time Reports;Aikaraportit;Aja aruandlus;Рабочие отчеты
+menu.item.report.travel;Travel Reports;Matkaraportit;Reisi aruanded;Отчеты за километраж
+;;;;
+# Confirmation dialogs;;;;
+confirm.general.header;Confirm;Vahvista;Kinnita;Подтвердить
+confirm.access.savechanges;You will loose any changes. Do you want to save changed Access Rights?;Tehdyt muutokset menetetään. Haluatko tallentaa muutetut käyttöoikeudet?;Teie parandused võivad kaduda.Soovite säilitada?;Ваши изменения могут пропасть. Хотите их сохранить?
+confirm.company.delete;Do you want to delete Company "{0}"?;Haluatko poistaa yrityksen  "{0}"? ;Kas soovid kustutada ettevõte "{0}"?;Удалить Компанию "{0}"?
+confirm.personnel.delete;Do you want to delete Employee "{0}" from the Company?;Haluatko poistaa työntekijän "{0}" yrityksestä?;Kas soovid kustutada töötaja "{0}" ettevõttest?;Удалить "{0}" из списка работников Компании?
+confirm.project.delete;Do you want to delete Project "{0}"?;Haluatko poistaa projektin "{0}"?;Kas kustutan projekti "{0}"?;Удалить Проект "{0}"?
+confirm.project.task.delete;Do you want to remove Task "{0}" from the current Project?;Haluatko poistaa tehtävän "{0}" nykyisestä projektista?;Kas soovid kustutada ülesanne "{0}" käesolevast projektist?;Удалить Задачу "{0}" из текущего Проекта?
+confirm.task.delete;Do you want to delete Task "{0}"?;Haluatko poistaa tehtävän "{0}"?;Kas soovid ülesande kustutada "{0}"?;Удалить Задачу "{0}"?
+;;;;
+# Notification;;;;
+notify.company.delete;Company "{0}" has been deleted!;Yritys "{0}" on poistettu!;Ettevõte "{0}" on kustutatud!;Компания "{0}" удалена!
+notify.personnel.delete;Employee "{0}" has been deleted!;Työntekijä "{0}" on poistettu!;Töötaja "{0}" on nimekirjast kustutatud!;Работник "{0}" удален из списка!
+notify.project.delete;Project "{0}" has been deleted!;Projekti "{0}" on poistettu!;Projekt "{0}" on kustutatud!;Проект "{0}" удален!
+notify.project.task.delete;Task "{0}" has been removed from the Project!;Tehtävä "{0}" on poistettu projektista!; Ülesanne "{0}" on projektist kustutatud;Задача "{0}" удалена из Проекта!
+notify.task.delete;Task "{0}" has been deleted!;Tehtävä "{0}" on poistettu!;Ülesanne "{0}" on kustutatud;Задача "{0}" удалена!
+notify.personnel.newpwd;<br/>Write down the password. It will not be shown again.;<br/>Kirjoita salasana muistiin. Sitä ei näytetä enää.;<br/>Jätke parool meelde.See ei tule enam nähtavale;<br/>Запомните пароль. Он больше никогда не будет показан
+notify.personnel.username.exist;Username "{0}" already exists. Choose another username.;Käyttäjätunnus "{0}" on jo olemassa. Valitse toinen käyttäjätunnus;Nimi on juba hõivatud. Valige uus nimi.;Имя "{0}" уже занято. Выберите другое имя
+;;;;
+## Login View;;;;
+login.caption;Login;Sisäänkirjautuminen;Sisse logimine;Регистрация
+login.username;Username:;Käyttäjätunnus:;Kasutajanimi:;Рег. Имя:
+login.password;Password:;Salasana:;Salasõna:;Пароль:
+login.language;Language:;Kieli:;Keel:;Язык:
+login.rememberme;Remember me;Muista minut ;Jäta mind meelde;Запомнить меня
+login.login;Login;Kirjaudu;Logi sisse;Войти
+;;;;
+;;;;
+# InProgres View;;;;
+inprogress.title;<br><br><br><br><h1>This page is under construction...</h1><h2>The launch of this service shall be announced</h2>;<br><br><br><br><h1>Tämä sivu on rakenteilla...</h1><h2>Palvelun käynnistämisestä ilmoitetaan</h2> ;<br><br><br><br><h1>See lehekülg ei ole praegu kättesaadav...</h1><h2>Lehekülg on käivitamisel</h2>;<br><br><br><br><h1>Эта страница пока недоступна...</h1><h2>О времени запуска будет объявлено позже</h2>
+;;;;
+# Time selection;;;;
+time.panel.caption;Time Period;Aikaväli;Ajavahemik;Временной интервал
+time.panel.from;From:;Alkaa:;Alates:;От:
+time.panel.to;To:;Päättyy:;Kuni:;До:
+;;;;
+time.error.invalidinput;Invalid date entered;Syötetty päivämäärä on virheellinen;Sisestatud vigane kuupäev;Введено неправильное число
+;;;;
+# Access Management;;;;
+access.panel.caption;Access Rights;Käyttöoikeudet;Kasutajaõigused;Права Доступа
+;;;;
+access.type.no;No access;Ei käyttöoikeutta;Ei ole kättesaadav;Нет доступа
+access.type.r;Read Only;Vain lukuoikeus;Lugemisõigus;Только Чтение
+access.type.rw;Read & Write;Lue & kirjoita;Loe & kirjuta;Чтение & Запись
+;;;;
+access.scope.own;Own;Oma ;Isiklikud;Свои
+access.scope.team;Team;Tiimi;Meeskond;Команда
+access.scope.company;Company;Yritys;Ettevõte;Компания
+access.scope.tms;TMS;TMS;TMS;TMS
+;;;;
+access.function.presence;Presence;Läsnäolo;Kohalolek;Присутствие
+access.function.reports;Hours & Kilometers;Tunnit & Kilometrit;Tunnid ja kilomeetrid;Часы & Километры 
+access.function.projects;Projects;Projektit;Projektid;Проекты
+access.function.personnel;Employees;Työntekijät;Töötajad;Работники
+access.function.consolidates;Consolidates;Yhdistä;Aruanded;Отчеты
+access.function.rights;Access Rights;Käyttöoikeudet;Kasutajaõigused;Права Доступа
+access.function.settings;Settings;Asetukset;Seaded;Настройки
+access.function.impexp;Import & Export;Tuo & Vie;Import & Export;Импорт & Экспорт
+access.function.tms;TMS Management;TMS Hallinta;TMS Juhtimine;Управление TMS
+;;;;
+# Approve Reports;;;;
+approve.options.tocheck;Must Be Checked;Tarkistettava;Tuleb kontrollida;Подлежащие проверке
+approve.options.rejected;Rejected;Hylätty;Tagasi lükatud;Неутвержденные
+approve.options.approved;Approved;Hyväksytty;Kinnitatud;Утверждённые
+approve.options.processed;Processed;Käsitelty;Ümbertöödeldud;Обработанные
+;;;;
+approve.filter.groups.name;Show Reports:;Näytä raportit:;Näita aruandeid:;Показать отчеты:
+approve.filter.own;Your Own;Omat;Isiklikud;Собственные
+approve.filter.team;Your Team;Oma tiimisi;Meeskonnad;Команды
+approve.filter.company;Your Company;Oma yrityksesi;Kompaniid;Компании
+;;;;
+approve.edit.task.caption;Time Report;Työaikaraportti;Tööaja aruanne;Отчет за часы
+approve.edit.travel.caption;Travel Report;Työmatkaraportti;Kilometraaži aruanne;Отчет за километраж
+;;;;
+approve.edit.name.tooltip;Creator of this Report;Luoja;Aruande koostaja;Работник, создавший этот отчет
+approve.edit.date.tooltip;Date of work reported in this Report;Luontipäivä;Aruande kuupäev;Число, когда Задача была сделана
+approve.edit.project.tooltip;The Project reported;Raportoitu projekti;Antud projekti ülesanne;Какому Проекту принадлежит эта Задача
+approve.edit.task.tooltip;The Task performed by employee and reported in this Report;Tässä raportoitava työntekijän suorittama tehtävä;Täidetud Ülesande nimetus;Название выполненой Задачи
+approve.edit.hours.tooltip;Reported hours spent on the specified Task;Määriteltyyn tehtävään käytetyt tunnit;Kulutatud tunnid ülesande täitmseks;Часы, потраченные на эту Задачу
+approve.edit.comment.tooltip;Comment to the Report;Lisää kommentti raporttiin;Aruande kommentaar;Комментарий к Отчету в свободной форме
+approve.edit.start.tooltip;Starting time of the Travel;Matkan alkamisaika;Reisi alguse aeg;Время начала пути
+approve.edit.end.tooltip;Ending time of the Travel;Matkan päättymisaika;Reisi lõppemise aeg;Время окончания пути
+approve.edit.length.tooltip;Length of the trip;Matkan pituus;Reisi pikkus;Расстояние
+approve.edit.route.tooltip;Travel Route and possible comments (optional);Matkareitti ja mahdolliset kommentit (valinnainen);Reisi marsruut ja võimalikud kommentaarid (vabas vormis);Маршрут и дополнительные комментарии в свободной форме
+;;;;
+approve.edit.status;Report Status:;Raportin tila:;Aruande staatus:;Статус Отчета:
+approve.edit.comment;Comment:;Kommentti:;Kommentaar:;Комментарий:
+approve.edit.hours;hours;tunnit;tunnid;часов
+approve.edit.traveltype;Traveling Type:;Matkan tyyppi:;Reisi tüüp:;Тип:
+approve.edit.start;Start:;Aloitus:;Algus:;Начало:
+approve.edit.end;End:;Lopetus:;Lõpp:;Окончание:
+approve.edit.length;Distance:;Matka:;Vahemaa:;Расстояние:
+approve.edit.route;Route and Comment:;Reitti ja kommentti:;Marsruut ja kommentaarid:;Маршрут и комментарий:
+approve.edit.traveltype.home;To/from home;Työmatka;Tööle minek;Из дома
+approve.edit.traveltype.work;At work;Työajo;Tööreis;По работе
+approve.edit.traveltype.unknown;Unknown;Tuntematon;Tundmatu;Неизвестно
+approve.edit.length.km;km;km;km;км
+approve.edit.checkinout.text.checkin;Check-In;Aloitusaika;Saabus;Пришёл
+approve.edit.checkinout.text.checkout;Check-Out;Lopetusaika;Lahkus;Ушёл
+approve.edit.checkinout.text.project;Project;Projekti;Projekt;Проект
+approve.edit.checkinout.text.notfound;<b>No Check-In/-Out information found!</b>;<b> Tietoa sisään-/uloskirjautumisesta ei löydetty! </ b>;<b>Puudub informatsioon sisse/väljälogimise kohta</b>;<b>Нет информации</b>
+approve.list.status.tocheck.tooltip;Report must be checked, approved or rejected;Raportti on tarkistettava, hyväksyttävä tai hylättävä;Aruanne peab olema kontrollitud, kinnitatud või tagasi lükatud;Отчет должен быть проверен, утверждён или отклонён!
+approve.list.status.rejected.tooltip;Report has been rejected by Manager;Työnjohtaja on hylännyt raportin;Aruanne on  juhataja poolt tagasi lükatud;Отчет был отклонен Руководителем Проекта
+approve.list.status.approved.tooltip;Report has been approved;Raportti on hyväksytty;Aruanne on kinnitatud;Отчет утвержден
+approve.list.status.processed.tooltip;The report has been processed. The information can no longer be changed.;Raportti on jo käsitelty. Tietoja ei voi enää muuttaa.;Aruanne on valmis. Parandada ei ole vöimalik.;Отчет уже обработан. Невозможно теперь его изменить
+;;;;
+# Check-In/-Out Reports;;;;
+presence.map.window.header;Location;Sijainti;Asukoht;Местоположение
+;;;;
+# Tools;;;;
+tools.sidebar.item.access;Access Rights;Käyttöoikeudet;Kasutaja õigused;Права Доступа
+tools.sidebar.item.settings;Settings;Asetukset;Paigaldused;Настройки
+;;;;
+# Companies mgmt;;;;
+company.list.edit.tooltip;Edit Company information;Muokkaa yrityksen tietoja;Redigeeri ettevõtte andmed;Редактировать данные о Компании
+company.list.delete.tooltip;Delete Company;Poista yritys;Kustuta ettevõte;Удалить Компанию
+company.list.add.tooltip;Add new Company;Lisää uusi yritys;Lisa uus firma;Добавить новую Компанию
+;;;;
+company.add.caption;New;Uusi;Uus;Добавить
+company.edit.caption;Edit;Muokkaa;Redigeeri;Редактировать
+;;;;
+company.edit.code.tooltip;Enter Unique Company Code;Anna yrityksen yksilöity koodi;Sisesta Unikaalne Ettevõtte Kood;Введите Уникальный Код Компании
+company.edit.code.validator;Unique Company Code must be 4 or more digits;Yksilöidyssä yrityksen koodissa on oltava vähintään 4 numeroa;Unikaalse Ettevõtte Koodis peab olema vähemalt 4 sümbolit;Уникальный Код Компании должен состоять из 4х или более цифр
+;;;;
+company.edit.name.tooltip;Enter Company name;Anna yrityksen nimi;Sisesta ettevõtte nimi;Введите название компании
+;;;;
+company.edit.owner;Service Owner;Palveluvastaava;Teeninduse Omanik;Ответственный за Сервис
+company.edit.owner.tooltip;Select the person responsible for the service within company;Valitse palvelusta yrityksessä vastaava henkilö;Valige vastutav teenindaja;Выберите ответственного за сервис
+company.edit.properties;Other Properties:;Muut ominaisuudet:;Muud omadused:;Свойства:
+company.edit.properties.tooltip;Properties related to this Company (optional);Yrityksen ominaisuudet (valinnainen);Ettevõtte omadused (mttekohustuslik);Свойства, относящиеся к Компании (необязательные)
+company.edit.phone;Phone;Puhelin;Telefon;Телефон
+company.edit.phone.tooltip;Enter phone number;Syötä puhelinnumero;Sisesta telefoni number;Введите номер телефона
+company.edit.tunnus;Business ID;Y-tunnus;Registrikood;Рег. Номер
+company.edit.tunnus.tooltip;Enter the business ID of the Company;Syötä yritystunnus (Y-tunnus);Sisesta registrikood;Введите регистрационный номер компании
+company.edit.address;Address;Osoite;Aadress;Адрес
+company.edit.address.tooltip;Enter company postal address;Syötä yrityksen postiosoite;Sisesta Ettevõtte postiaadress;Введите почтовый адрес компании
+company.edit.email;Email address;Sähköpostiosoite;E-mail;Емайл
+company.edit.email.tooltip;Enter company email address;Syötä yrityksen sähköpostiosoite;Sisesta Ettevõtte  e-mail;Введите адрес электронной почты компании
+company.edit.info;Additional Information;Lisätiedot;Lisainfo;Дополнительная Информация
+company.edit.info.tooltip;Enter any additional information here;Tähän voit syöttää lisätietoja;Sisesta lisateavet siit;Введите любую дополнительную информацию о компании
+;;;;
+;;;;
+;;;;
+;;;;
+# Projects mgmt;;;;
+projects.list.edit.tooltip;Edit Project information;Muokkaa projektin tietoja;Muutma projekti andmed;Редактировать данные Проекта
+projects.list.delete.tooltip;Delete existing Project;Poista olemassa oleva projekti ;Kustuta projekt;Удалить Проект
+projects.list.add.tooltip;Add new Project;Lisää uusi projekti;Lisa uus Projekt;Добавить новый Проект
+;;;;
+projects.add.caption;New;Uusi;Uus;Добавить
+projects.edit.caption;Edit;Muokkaa;Redigeeri;Редактировать
+;;;;
+projects.edit.code.tooltip;Unique Project Code;Yksilöity projektikoodi;Unikaalne projekti kood;Уникальный Код Проекта
+projects.edit.code.validator;Unique Project Code must have 4 or more digits;Yksilöidyssä projektikoodissa on oltava vähintään 4 numeroa;Unikaalse projekti koodis peab olema vähemalt 4 numbrit;Уникальный Код Проекта должен состоять из 4х или более цифр
+;;;;
+projects.edit.name.tooltip;Name of the Project;Projektin nimi;Projekti nimi;Название Проекта
+projects.edit.name.validator;Project Name must have 4 or more characters;Projektin nimessä on oltava vähintään 4 merkkiä;Projekti nimes peab olema vähemalt 4 sümbolit;Название Проекта должно состоять из 4х или более символов
+;;;;
+projects.edit.owner.tooltip;The Foreman, Project Manager or other Employee who is responsible for the Project;Työnjohtaja, projektipäällikkö tai projektin muu vastuuhenkilö;Projektijuht;Менеджер Проекта, Прораб или другой Работник, кто отвечает за проект
+;;;;
+projects.edit.start;Start:;Aloitus: ;Algus:;Начало:
+projects.edit.start.tooltip;The starting date of the Project;Projektin aloituspäivämäärä;Projekti alguse kuupäev;Дата начала Проекта
+;;;;
+projects.edit.end.plan;Planned End:;Suunniteltu päättyminen:;Planeeritud lõpetamise tähtaeg:;Планируемое окончание:
+projects.edit.end.plan.tooltip;The planned finishing date of the Project;Projektin arvioitu valmistumispäivä;Projekti lõpetamise tähtaeg;Планируемая дата окончания Проекта
+;;;;
+projects.edit.end.real;Real End:;Todellinen päättyminen:;Tegelik lõpetamise tähtaeg:;Окончание:
+projects.edit.end.real.tooltip;The actual finishing date of the Project;Projektin toteutunut valmistumispäivä;Projekti lõpetamise tähtaeg;Реальная дата окончания Проекта
+projects.edit.address;Address:;Osoite:;Aadress:;Адрес:
+projects.edit.loc.lt;Latitude:;Leveysaste: ;Laiuskraad;Широта:
+projects.edit.loc.lt.validator;Latitude must be a decimal number between -90.0 and 90.0;Leveysasteen on oltava desimaaliluku -90 ja 90 välillä;Laiuskraad peab olema detsimaalnumber -90 ja 90 vahel;Широта должна быть указана как десятичное число со значением между -90.0 и 90.0
+projects.edit.loc.lg;Longitude:;Pituusaste:;Pikkuskraad:;Долгота:
+projects.edit.loc.lg.validator;Longitude must be a decimal number between -180.0 and 180.0;Pituusasteen on oltava desimaaliluku  -180 ja 180 välillä;Pikkuskraad peab olema detsimaalnumber -180 ja 180 vahel;Долгота должна быть указана как десятичное число со значением между -180.0 и 180.0
+projects.edit.calculate.tooltip;Calculate location from the given address;Laske sijainti annetusta osoitteesta;Leia koordinaate aadressi järgi;Вычислить координаты по адресу
+projects.edit.preview.tooltip;Preview calculated location on the map;Näytä laskettu sijainti kartalta;Veendu koordinaatide õigsuses kaardi abi;Посмотреть на карте правильность определения координат
+;;;;
+projects.tasks.add.caption;New;Uusi;Uus;Добавить
+projects.tasks.edit.caption;Edit;Muokkaa;Redigeeri ;Редактировать
+projects.tasks.assign.caption;Available Tasks;Saatavilla olevat tehtävät;Võimalikud ülesanded;Возможные Задачи
+projects.tasks.assign.tooltip;Assign Tasks to the Project;Määritä tehtävät projektille;Vali selle projekti jaoks ülesanne;Выбрать Задачу для этого Проекта
+projects.tasks.edit.tooltip;Edit the Unique Code of a Task within the Project;Muokkaa projektiin kuuluvan tehtävän yksilöityä koodia;Redigeeri projekti kuuluva ülesande unikaalne kood;Редактировать Код Задачи внутри этого Проекта
+projects.tasks.delete.tooltip;Remove the Task from this Project;Poista tehtävä tästä projektista;Kustuta ülesanne projektist;Удалить Задачу из этого Проекта
+projects.tasks.edit.name.tooltip;Name of the Task;Tehtävän nimi;Ülesande nimi;Название Задачи
+projects.tasks.edit.code.tooltip;Unique Code of the Task ;Tehtävän yksilöity koodi;Unikaalse Ülesande Kood;Уникальный Код Задачи
+projects.tasks.edit.code.validator;The Unique Code of the Task within the Project must have 3 or more digits;Projektin yksilöidyssä tehtäväkoodissa on oltava vähintään 3 numeroa;Projekti Unikaalse Ülesande Koodis peab olema vähemalt 3 sümbolit;Уникальный Код Задачи должен состоять из 3х или более цифр
+projects.select.caption;Select Project;Valitse projekti;Valige Projekt;Выберите Проект
+projects.tasks.select.caption;Select Task;Valitse tehtävä ;Valige Ülesanne;Выберите Задачу
+;;;;
+# Stuff Management;;;;
+personnel.add.caption;New;Uusi;Uus;Добавить
+personnel.edit.caption;Edit;Muokkaa;Redigeeri;Редактировать
+;;;;
+personnel.list.add.tooltip;Add new Employee to the Company;Lisää yritykseen uusi työntekijä;Lisa uus ettevõtte töötaja ;Добавить нового Работника
+;;;;
+personnel.edit.code.tooltip;Unique Personnel Code;Yksilöity henkilöstökoodi;Unikaalne Personali Kood;Уникальный Код Персонала
+personnel.edit.code.validator;Unique Personnel Code must have 4 or more digits;Yksilöidyssä henkilöstökoodissa on oltava vähintään 4 numeroa;Unikaalne töötaja kood peab olema vähemalt 4 sümbolit;Уникальный Код Персонала должен состоять из 4х или более цифр
+;;;;
+personnel.edit.manager;Managed by;Työnjohtaja;Оtsene juht;Непосредственный начальник
+personnel.edit.linemanager;Line Management;Työpäällikkö;Projekti tegevjuht;Управление Персоналом
+personnel.edit.projectmanager;Project Ownership;Projektin johtaja;Projekti juht;Управление Проектами
+;;;;
+personnel.edit.manager.tooltip;Select Line Manager of the Employee;Valitse työntekijälle työpäällikkö;Vali otsene juht;Выберите непосредственного начальника
+personnel.edit.linemanager.tooltip;Select if this Employee shall manage other personnel;Valitse, mikäli tämä työntekijä johtaa muuta henkilöstöä; Juhul, kui töötaja on suuteline  juhtima teisi töötajaid, märkige see üles;Отметьте, если Работник может управлять другим персоналом
+personnel.edit.projectmanager.tooltip;Select if this Employee is Project Owner/Foreman;Valitse, mikäli tämä työntekijä on projektin johtaja/työnjohtaja;Märkige üles, kui töötaja võiks olla projekti korraldaja;Отметьте, если Работник может быть Менеджером Проектов / Прорабом
+personnel.edit.secgroup.tooltip;Select Security Group this Employee belongs to;Valitse käyttäjäryhmä, johon työntekijä kuuluu;Vali turvarühm, kuhu see isik kuulub;Выберите Группу Доступа, к которой относится этот Работник
+;;;;
+personnel.edit.tooltip;Edit existing Personal Information;Muokkaa henkilötietoja;Redigeeri töötaja andmed;Редактирование данных о Работнике
+personnel.delete.tooltip;Delete existing Employee;Poista nykyinen työntekijä;Kustuta olemasolev töötaja;Удалить запись о Работнике
+;;;;
+personnel.newpwd.button;New Password;Uusi Salasana;uus salasõna;Новый Пароль
+personnel.newpwd.button.tooltip;Press the button to create new password;Paina luodaksesi uuden salasanan;Vajuta nuppu uue salasõna loomiseks;Нажмите для создания нового Пароля
+;;;;
+personnel.kelacode;Social\nSecurity code:;SOTU:;Identifitseerimise Number;Идентификационный Номер:
+personnel.kelacode.tooltip;Social Security code of this person;Henkilön SOTU;sotsiaalkindlustuslepingu personaalne kood;Персональный Идентификационный Код социального страхования
+personnel.taxnumber;Tax Number:;Veronumero:;Tulumaksu kood;Налоговый Код:
+personnel.taxnumber.tooltip;Tax Number of this person;Henkilön veronumero;üksikisiku tuludeklaratsiooni kood;Персональный Налоговый Код, присваиваемый ведомством по налогам
+personnel.address;Address:;Osoite:;Aadress:;Адрес:
+personnel.address.tooltip;Postal address of this person;Henkilön kotiosoite;Töötaja postiaadress;Почтовый адрес Работника
+personnel.email;Email address:;Sähköpostiosoite:;E-mail:;Емайл:
+personnel.email.tooltip;Work or personal email address;Sähköpostiosoite (työ tai henkilökohtainen);Töö-või isiklik e-mail;Домашний и/или рабочий адрес электронной почты
+personnel.mobile;Mobile:;Matkapuhelin:;Mobiiltelefon:;Моб.:
+personnel.mobile.tooltip;Mobile phone number;Matkapuhelinnumero;Mobiiltelefoni number;Номер мобильного телефона
+;;;;
+;;;;
+;;;;
+# Tools;;;;
+tools.panel.export.caption;Export Data;Vie tiedot;Ekspordi andmed;Экспорт Данных
+tools.panel.import.caption;Import Data;Tuo tiedot;Impordi andmed;Импорт Данных
+tools.export.date.separator;till;asti;kuni;до
+tools.export.output;Logging:;Kirjautuminen:;Logimine:;Лог:
+tools.export.start.button;Export;Vie;Ekspordi;Экспорт
+tools.import.output;Logging:;Kirjautuminen;Logimine;Лог:
+tools.import.personnel.button;Import Personnel;Tuo henkilöstö;Töötajate importimine;Импорт Персонала
+tools.import.projects.button;Import Projects;Tuo projektit ;projektide iport;Импорт Проектов
+;;;;
+tools.sidebar.item.import;Import;Tuo;Import;Импорт
+tools.sidebar.item.export;Export;Vie;Eksport;Экспорт
+tools.sidebar.item.access;Access Rights;Käyttöoikeudet;Kasutajaõigused;Права Доступа
+tools.sidebar.item.settings;Settings;Asetukset;Seaded;Настройки
+;;;;
+;;;;
+;;;;
+tools.export.date.error;Invalid date entered;Syötetty päivämäärä on virheellinen;kuupäev valesti sisestatud;Число введено неправильно!
+;;;;
+# Reporting view;;;;
+reporting.tool.header;Reporting Tool;Raportointityökalu;Aruannete juhtimine;Управление Отчетами
+reporting.report.type;Report Type:;Raporttityyppi:;Aruande tüüp:;Тип Отчета:
+reporting.report.type.personnel;Personnel Report;Henkilöstöraportti;Töötajate aruanne;Отчет по Работникам
+reporting.report.type.projects;Project Report;Projektiraportti;Projektide aruanne;Отчет по Проектам
+reporting.checkbox.daily;Show daily figures;Näytä päivän luvut;Detailselt päeviti;Детально по дням
+reporting.checkbox.allprojects;Show data per Project;Näytä projektien tiedot;Detailselt Projektide kohta;Детально по Проектам
+reporting.checkbox.alltasks;Show data per Task;Näytä tehtävien tiedot;Detailselt Ülesanded kohta;Детально по Задачам
+reporting.checkbox.travels;Show Travel data;Näytä matkatiedot;Näita reisi aruandeid;Показать Отчеты о поездках
+reporting.projects.and.tasks.caption;Projects & Tasks;Projektit & Tehtävät;Projektid & Ülesanded;Проекты & Задачи
+reporting.projects.caption;Projects;Projektit;Projektid;Проекты
+reporting.item.tyomatka;Trip to/from home (km);Työmatka (km);Tööle sõit (km);Из дома/домой
+reporting.item.tyoajo;Trip at work (km);Työajo (km);Tööreis (km);По работе
+reporting.item.total;Total:;Yhteensä:;Kokku;Всего:
+reporting.item.travel;Travels;Matkat;Reisid;Поездки
+reporting.item.header.personnel;Consolidated Personnel Report:;Yhdistetty henkilöstöraportti:;Konsolideeritud aruanne personali kohta;Консолидированный Отчет по Персоналу:
+reporting.item.header.projects;Consolidated Projects Report:;Yhdistetty projektiraportti:;Konsolideeritud aruanne projektide kohta;Консолидированный Отчет по Проектам:
+reporting.item.header.period;Period:;Aikaväli:;Periood:;За период:
+;;;;
+# Search items;;;;
+search.panel.caption;Search options;Hakuvaihtoehdot;Otsingu valikud;Критерии поиска
+;;;;
+;;;;
+;;;;
+;;;;
+# Error notifications;;;;
+;;;;
+general.fatalError.header;Unexpected error occured;Tapahtui odottamaton virhe;Ootamatu viga;Произошла неизвестная ошибка
+general.fatalError.body;The TMS administrators have automatically been notified of the error. We apologize for any inconvenience.;Virheestä on automaattisesti ilmoitettu TMS:n ylläpitäjille. Pahoittelemme virhettä.;TMS administraator on automaatselt informeeritud sellest veast. Vabandame ebamugavuste pärast.;Сообщение об ошибке послано TMS администраторам автоматически. Извините за неудобства
+;;;;
+general.error.validation.msg;<b style="color:red">NOTE!</b> Field <b>"{0}"</b> has wrong value!;<b style="color:red">HUOM!</b> Kentässä <b>"{0}"</b> väärä arvo!;<b style="color:red">NOTE!</b> Väli <b>"{0}"</b> on vigane!;<b style="color:red">Внимание!</b> Поле <b>"{0}"</b> имеет неправильное значение!
+;;;;
+general.errors.add.header;Addition failed;Lisäys epäonnistui;Lisamine ebaõnnestus;Ошибка добавления
+general.errors.update.header;Update failed;Päivitys epäonnistui;Uuendus ebaõnnestus;Ошибка изменения
+general.errors.import.header;Data Import failed;Tietojen tuonti epäonnistui;Andmete importimine ebaõnnestus;Ошибка Импорта Данных 
+general.errors.export.header;Data Export failed;Tietojen vienti epäonnistui;Andmete eksportimine ebaõnnestus;Ошибка Экспорта Данных 
+general.errors.validation.header;Validation failed;Vahvistus epäonnistui;Valideerimine ebaõnnestus;Ошибка при проверке данных
+;;;;
+login.errors.credentials.header;Wrong name and/or password;Väärä nimi ja/tai salasana;Vale nimi ja/või salasõna;Неправильное имя и/или пароль
+login.errors.credentials.body;Check user name and password and try again!;Tarkista käyttäjätunnus ja salasana ja yritä uudelleen!;Kontrolli kasutajatunnust või salasõna ja ürita uuesti!;Проверьте имя пользователя, его пароль и повторите попытку!
+;;;;
+approve.errors.update.body;Report cannot be updated!;Raporttia ei voida päivittää!;Ei saa muuta aruannet!;Отчет не может быть исправлен!
+approve.errors.approve.body;Report cannot be approved!;Raporttia ei voida hyväksyä!;Ei saa kinnitada aruannet!;Невозможно утвердить Отчет!
+approve.errors.reject.body;Report cannot be rejected!;Raporttia ei voida hylätä!;Aruannet ei ole võimalik tagasi lükata!;Невозможно отклонить Отчет!
+;;;;
+company.errors.add.body;Company cannot be added. Make sure that the Company Code is unique!;Yritystä ei voida lisätä. Tarkista yrityksen yksilöity koodi!;Ettevõtet ei saa lisada. Kontrolli, kas ettevõtte kood on unikaalne!;Невозможно добавить Компанию. Проверьте, чтобы Код Компании был уникален!
+company.errors.update.body;Company information cannot be updated. It may have been changed by another user!;Yrityksen tietoja ei voida päivittää. Toinen käyttäjä on voinut muuttaa tietoja!;Ettevõtet ei saa uuendada. Võib-olla on andmed  muudetud teise kasutaja poolt!;Невозможно отредактировать данные о Компании. Возможно они были изменены другим пользователем!
+company.errors.import.body;Could not import Personnel and/or Projects data!;Henkilöstö- ja/tai projektitietoja ei voitu tuoda!;Ei saa importida töötajate ja/või projekti andmed!;Невозможно импортировать персональные данные или данные по проектам!
+company.errors.export.body;Could not export Time And Travel Reports!;Aika- ja matkaraporttia ei voitu viedä!;Aja- ja reisiaruanded ei saa eksportida!;Не может экспортировать Отчеты о сделанной работе и/или отчеты по километражу!
+;;;;
+projects.errors.add.body;Project cannot be added. Make sure that the Project Code is unique.;Projektia ei voida lisätä. Tarkista projektin yksilöity koodi.;Projekti ei saa lisada. Kotrolli, kas kood on unikaalne.;Невозможно добавить Проект. Проверьте, чтобы Код Проекта был уникален
+projects.errors.update.body;Project cannot be updated. It may have been changed by another user.;Projektia ei voida päivittää. Toinen käyttäjä on voinut muokata sitä.;Projekti ei saa muuta. Projekt on arvatavasti muudetud teise kasutaja poolt.;Невозможно отредактировать данные о Проекте. Возможно они были изменены другим пользователем
+projects.errors.validation.body;One of the fields is not valid! Check all fields!;Yksi kentistä ei kelpaa! Tarkista kaikki kentät!;Üks väli on vigane! Kontrolli kõik väljad!;Одно из полей содержит неправильные данные. Проверьте все поля!
+projects.tasks.errors.update.body;The Task with such code already exists in the Project! Choose another code.;Projektissa on jo olemassa tehtävä tällä koodilla. Valitse toinen koodi.;Projektis on juba olemas ülesanne selle koodiga. Vali teine kood.;Задача с таким Кодом уже существует в этом Проекте. Задайте другой код
+projects.tasks.errors.update.body_2;The Task with such code already exists! Choose another code.;Tällä koodilla on jo olemassa tehtävä. Valitse toinen koodi.;sellise koodiga ülesanne on juba olemas.Sisesta  uus kood;Задача с таким Кодом уже существует. Задайте другой код
+;;;;
+personnel.errors.add.body;Employee cannot be added. Make sure that Personnel Code is unique.;Työntekijää ei voida lisätä. Tarkista yksilöity koodi;Töötajat ei saa lisada. Kontrolli, kas töötaja kood on unikaalne.;Невозможно добавить Работника. Проверьте, чтобы Код Работника был уникален
+personnel.errors.update.body;Personal Information cannot be updated. It may have been changed by another user;Henkilötietoja ei voida päivittää. Toinen käyttäjä on voinut muokata tietoja.;Töötaja andmeid ei ole võimalik redigeerida.Võib-olla on andmed  muudetud teise kasutaja poolt. ;Невозможно отредактировать данные о Работнике. Возможно они были изменены другим пользователем
+personnel.errors.email.validation;Email address is incorrect. Enter valid email address.;Sähköpostiosoite on virheellinen. Syötä voimassa oleva sähköpostiosoite.;On sisestatud vale e-posti aadress.Sisesta õige e-posti aadress.;Неправильно задан адрес электронной почты. Введите правильный адрес
+personnel.errors.usrname.validation;Username must be at least 6 but less than 14 alphanumeric characters.;Käyttäjätunnuksen pituus 6-14 aakkosnumeeristä merkkiä;kasutaja nimi peab koosnema nii tähtedest kui ka numbritest ja pikkusega 6-14 sümbolit;Имя пользователя должно состоять из буквенноцифровых символов и быть длинной от 6 до 14 символов
+;;;;
+# NEW;;;;
+serviceowner.panel.caption;Service Owner;Palveluvastaava;Teeninduse omanik;Ответственный за Сервис
+approve.project.label;Project Data;Projektien tiedot;Projektide kohta;Данные по Проекту
+checkin.hours.header;Project Presence;Läsnäolo työpaikalla;Töökoha olemasolu;На объекте
+checkin.registered.label;Registered in system;Rekisteröity järjestelmään;Arvel süsteem;Зарегистрировано в системе
+checkin.registered.no.msg;No presence in this Project;Ei läsnäoloa Proektilla;Ei juuresolekul proekti;Нет данных о присутствии на Объекте
+approve.edit.hours.short;h;t;t;ч
+approve.edit.minutes.short;m;m;m;м
+approve.userlist.status.tocheck.tooltip;records to check;tarkistettava;tuleb kontrollida;необходимо проверить
+approve.userlist.status.approved.tooltip;records approved;hyväksytty;tagasi lükatud;неутверждено
+approve.userlist.status.rejected.tooltip;records rejected;hylätty;kinnitatud;утверждёно
+approve.userlist.status.processed.tooltip;records processed;käsitelty;ümbertöödeldud;обработано
+approve.home.trip.report.tooltip;This is Home Trip Report;Tämä on Työmatkaraportti;See on kilometraaži aruanne;Это отчет о поездке из дома на рабочее место
+approve.work.trip.report.tooltip;This is Work Trip Report;Tämä on Työajoraportti;See on tööreis aruanne;Это отчет о рабочей поездке
+approve.task.report.tooltip;This is Hours Report;Tämä on Työaikaraportti;See on tööaja aruanne;Это отчет о проделанной работе
+period.selection.today;Today;Tänään;Täna;Сегодня
+period.selection.2todays;Last 2 days;2 päivää;2 päivää;Последние 2 дня
+period.selection.week;This Week;Tämä viikko;Tämä viikko;Эта неделя
+;;;;
+unknown.value;Unknown;Tuntematon;Tundmatu;Неизвестно
+project.location.unknown;Project location was not specified;Project location was not specified;Project location was not specified;Местонахождение проекта не введено
+checkinout.location.unavailable;Location unavailable;Location unavailable;Unavailable;Неизвестно место регистрации
+checkinout.location.missing;OK but not enough data to validate;OK but not enough data to validate;OK but not enough data to validate;ОК, но не достаточно данных для проверки
+reporting.checkbox.allpersonnel;Show data per Employee;Näytä työntekijän tiedot;Detailselt töötaja kohta;Детально по Работникам
+;;;;
+# Measurement units;;;;
+measure.meter;m;m;m;м
+measure.2meter;m2;m2;m2;м2
+measure.3meter;m3;m3;m3;м3
+measure.kg;kg;kg;kg;кг
+measure.tn;tn;tn;tn;тн
+measure.pcs;pcs;kpl;tk;шт
+measure.notused;--;--;--;-- 
+;;;;
+general.label.measure;Unit;Мittayksikkö;Мõõtühik;Измерять в
+general.label.measure.tooltip;Select мeasurable unit;Мittayksikkö;Мõõtühik;Выбери единицу измерения
+approve.edit.numvalue.tooltip;Reported measured value;Reported measured value;Reported measured value;Сделанная работа в заданных единицах
+reporting.item.measure;Amount;Amount;Amount;Объём
