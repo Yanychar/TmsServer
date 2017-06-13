@@ -12,10 +12,8 @@ import com.c2point.tms.web.reporting.checkinout.ProjectItem;
 import com.c2point.tms.web.reporting.checkinout.ProjectsReport;
 import com.c2point.tms.web.reporting.pdf.PdfDocTemplate;
 import com.c2point.tms.web.ui.reportview.checkinout.ReportCheckInOutModel;
-import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.layout.border.Border;
 import com.itextpdf.layout.border.SolidBorder;
-import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.HorizontalAlignment;
 
@@ -123,25 +121,7 @@ public class ProjectsCheckInOutReportPdf extends PdfDocTemplate {
 				prjItem = ( ProjectItem )item;
 				
 				if ( prjItem.getHours() > 0 ) {
-/*
-					addHeaderCell( table, prjItem.getProject().getCode())
-						.setBorder( Border.NO_BORDER )
-						.setBorderTop( new SolidBorder( 3 ))
-						.setBorderBottom( new SolidBorder( 1 ));
 
-					addHeaderCell( table, prjItem.getProject().getName()
-							+ " ( "
-							+ String.format( "%.1f", prjItem.getHours())
-							+ " " + getApp().getResourceStr( "general.table.header.hours" ) + " )", 3 )
-						.setBorder( Border.NO_BORDER )
-						.setBorderTop( new SolidBorder( 3 ))
-						.setBorderBottom( new SolidBorder( 1 ));
-					
-					addHeaderCell( table, getApp().getResourceStr( "general.table.header.hours" ))
-						.setBorder( Border.NO_BORDER )
-						.setBorderTop( new SolidBorder( 3 ))
-						.setBorderBottom( new SolidBorder( 1 ));
-*/
 					add( table, prjItem.getProject().getCode(), HorizontalAlignment.CENTER, headerFontBig, 14 )
 						.setBorder( Border.NO_BORDER )
 						.setBorderTop( new SolidBorder( 3 ))
@@ -171,7 +151,6 @@ public class ProjectsCheckInOutReportPdf extends PdfDocTemplate {
 							personItem = ( PersonItem )item2;
 							
 							if ( personItem.getHours() > 0 ) {
-
 
 								add( table, " " )
 									.setBorder( Border.NO_BORDER );
