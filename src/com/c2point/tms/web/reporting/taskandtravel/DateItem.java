@@ -24,13 +24,13 @@ public class DateItem extends AggregateItem {
 	
 	private Date 	date;
 	
-	private Map<String, PrjItem> prjMap;
+	private Map<Long, PrjItem> prjMap;
 	
 	public DateItem( UserItem ui, Date date ) {
 		super ( ui );
 		this.date = date;
 
-		prjMap = new HashMap<String, PrjItem>( 5, 0.75f );
+		prjMap = new HashMap<Long, PrjItem>( 5, 0.75f );
 	}
 
 	public Date getDate() { return date; }
@@ -58,10 +58,11 @@ public class DateItem extends AggregateItem {
 		if ( project == null ) {
 			project = new Project( "???", "*** ??? ***" );
 			project.setOrganisation( report.getUser().getOrganisation());
+			logger.error( "Report does not refer to Project: " + report );
 		}
 		// Find out existing aggregate record for user
 		
-		PrjItem pi = prjMap.get( project.getCode());
+		PrjItem pi = prjMap.get( project.getId());
 		
 		// If record not found -> create one
 		if ( pi == null ) {
@@ -69,7 +70,7 @@ public class DateItem extends AggregateItem {
 			// Create record
 			pi = new PrjItem( this, project );
 			// Add it to the map of users
-			prjMap.put( project.getCode(), pi ); 
+			prjMap.put( project.getId(), pi ); 
 			logger.debug( "Report project record was created: " + pi);
 		} else {
 			logger.debug( "Report project record was found: " + pi);
@@ -120,7 +121,7 @@ public class DateItem extends AggregateItem {
 			
 			if ( compareField == 0 ) {
 				try {
-					String str = arg1.getProject().getOrganisation().getProperties().getProperty( "company.projects.order.name" );
+					String str = arg1.getProject().getOrganisation().getProperties().getProperty( "company.projects.order.name", "2" );
 					compareField = Integer.parseInt( str );
 				} catch ( Exception e ) {
 					logger.error( "'company.projects.order.name' property was not found or wrong for : '" + arg1.getProject().getOrganisation().getName() + "'" );

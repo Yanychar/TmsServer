@@ -389,11 +389,6 @@ public class MainView extends VerticalLayout { //implements Organisation.Propert
 
 	private static boolean REPORT_CHECKINOUT_DEFAILT_VALUE = false;
 	
-	
-
-//  	private AbstractMainView teamTab = null; 
-// 	private AbstractMainView companyTab = null; 
-
 	private AbstractMainView getConsolidatedReportsView( SupportedFunctionType type ) {
 
 		// Read what method to use for Consolidated Reporting

@@ -99,7 +99,7 @@ public class PrjItem extends AggregateItem {
 			
 			if ( compareField == 0 ) {
 				try {
-					String str = arg1.getTask().getOrganisation().getProperties().getProperty( "company.tasks.order.name" );
+					String str = arg1.getTask().getOrganisation().getProperties().getProperty( "company.tasks.order.name", "2" );
 					compareField = Integer.parseInt( str );
 				} catch ( Exception e ) {
 					logger.error( "'company.tasks.order.name' property was not found or wrong for : '" + arg1.getTask().getOrganisation().getName() + "'" );

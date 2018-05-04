@@ -30,7 +30,6 @@ public class UserListComponent extends ListWithSearchComponent implements UserLi
 
 	private ApproveModel model;
 	
-//	private ComboBox 	userGroupSelector;
 	private Table		usersTable;
 	
 	public UserListComponent( ApproveModel model ) {
@@ -61,6 +60,8 @@ public class UserListComponent extends ListWithSearchComponent implements UserLi
 		usersTable = new Table();
 //		usersTable.setHeight( "100%" );
 //		usersTable.setWidth( "100%" );
+
+		setContainerForSearch( usersTable );
 		
 		// Configure table
 		usersTable.setSelectable( true );
@@ -166,6 +167,7 @@ public class UserListComponent extends ListWithSearchComponent implements UserLi
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	private void addItem( TmsUserHolder usrHolder ) {
 		
 		Item item = usersTable.addItem( usrHolder );
@@ -178,16 +180,12 @@ public class UserListComponent extends ListWithSearchComponent implements UserLi
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void updateItem( Item item, TmsUserHolder usrHolder ) {
 		
 		item.getItemProperty( "code" ).setValue( usrHolder.getTmsUser().getCode());
 		item.getItemProperty( "fio" ).setValue( usrHolder.getTmsUser().getLastAndFirstNames());
-/*
-		item.getItemProperty( "checked" ).setValue( getStatusIcon( ApprovalFlagType.TO_CHECK, usrHolder.getNoValidated()));
-		item.getItemProperty( "approved" ).setValue( getStatusIcon( ApprovalFlagType.APPROVED, usrHolder.getApproved()));
-		item.getItemProperty( "rejected" ).setValue( getStatusIcon( ApprovalFlagType.REJECTED, usrHolder.getRejected()));
-		item.getItemProperty( "processed" ).setValue( getStatusIcon( ApprovalFlagType.PROCESSED, usrHolder.getProcessed()));
-*/
+
 		(( StatusPresenterComponent )item.getItemProperty( "status" ).getValue()).updateStatus();
 		
 		
